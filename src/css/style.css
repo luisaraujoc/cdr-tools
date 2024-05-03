@@ -1,0 +1,11 @@
+.pergunta, .pessoaExame {
+    margin: 3% 20%;
+}
+
+.hide{
+    display: none;
+}
+
+.form-control {
+    border-color: #3a3a3a;
+}
