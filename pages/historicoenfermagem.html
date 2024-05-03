@@ -141,18 +141,18 @@
                         <span>4. Está de Jejum?</span>
                         <div class="form-check">
                             <input type="radio" name="quest4"
-                                value="sim" class="form-check-input">
+                                value="sim" class="form-check-input" id="q4true">
                             <label for="quest4">Sim</label>
                         </div>
                         <div class="form-check">
                             <input type="radio" name="quest4" value="nao"
-                                class="form-check-input">
+                                class="form-check-input" id="q4false">
                             <label for="quest4">Não</label>
                         </div>
                         <div class="hide condictanswer quest4">
                             <label for="answerCondict">Desde às:</label>
                             <input type="time" name="answerCondict"
-                                id="answerCondict" class="form-control">
+                                id="answerCondict" class="form-control" >
                         </div>
                     </div>
                     <div class="pergunta form-group">
@@ -173,15 +173,15 @@
                             <div class="answersExames row">
                                 <div class="col">
                                     <input type="text" name="nameExames[]"
-                                        class="form-control">
+                                        class="form-control q5exame">
                                 </div>
                                 <div class="col">
                                     <input type="number" name="valueExames[]"
-                                        class="form-control">
+                                        class="form-control q5valor">
                                 </div>
                                 <div class="col">
                                     <input type="date" name="dateExames[]"
-                                        class="form-control">
+                                        class="form-control q5data">
                                 </div>
                             </div>
                         </div>
@@ -198,11 +198,11 @@
                         <label for="quest6" class="condict" id="condict">Trouxe
                             para verificação?</label>
                         <p>
-                            <input type="radio" name="quest6" id="answer"
-                                value="sim" class="form-check-input"> Sim
+                            <input type="radio" name="quest6" id="answer q6true"
+                                value="sim" class="form-check-input" > Sim
                         </p>
                         <p>
-                            <input type="radio" name="quest6" id="answer"
+                            <input type="radio" name="quest6" id="answer q6false"
                                 value="nao" class="form-check-input"> Não
                         </p>
                         <div class="hide condictanswer VerifyAnswer">
@@ -216,7 +216,7 @@
                         <label for="quest7">7. Será realizado algum tipo de
                             anestesia?</label>
                         <div class="form-check">
-                            <input type="radio" name="quest7" id="anestAnswer"
+                            <input type="radio" name="quest7" id="anestAnswer q7true"
                                 class="form-check-input" value="sim"> Sim
                         </div>
                         <div class="form-check">
@@ -493,7 +493,7 @@
                 <div
                     class="form-group d-flex justify-content-center mx-auto my-2">
                     <button type="button"
-                        class="btn btn-lg btn-primary m-2">Salvar</button>
+                        class="btn btn-lg btn-primary m-2" id="btn-salvar">Salvar</button>
                     <button type="button"
                         class="btn btn-lg btn-dark m-2">Visualizar</button>
                 </div>

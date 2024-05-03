@@ -18,9 +18,20 @@ const htmlToprint = () => {
     let especialidade = document.getElementById("especialidade");
     let q1 = document.getElementById("q1");
     let q2 = document.getElementById("quest");
-    let q2QntTempo = getElementById("quanto-tempo");
+    let q2QntTempo = document.getElementById("quanto-tempo");
+    let q3 = document.getElementById("quest3")
+    let q4true = document.getElementById("q4true")    
+    let q4false = document.getElementById("q4false")
+    let q4Desde = document.getElementById("answerCondict")
+    let q5Exame = document.querySelectorAll(".q5exame")
+    let q5Valor = document.querySelectorAll(".q5valor")
+    let q5data = document.querySelectorAll(".q5data")
+    let q6true = document.getElementById("q6true")
+    let q6false = document.getElementById("q6false")
+    let q6Quais = document.getElementById("condictVerifyAnswer")
 
-    content = `<!DOCTYPE html>
+
+    let content = `<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
