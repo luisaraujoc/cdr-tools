@@ -97,25 +97,24 @@
                             class="form-control">
                     </div>
                 </div>
-                <div
-                    class="form-field mx-auto d-flex flex-row col-7 justify-content-between medicoEspecialidade">
+                <div class="form-field mx-auto d-flex flex-row col-7 justify-content-between medicoEspecialidade">
                     <div class="form-group w-50 p-2">
-                        <label for="medicoSolicitante">Médico
-                            Solicitante:</label>
-                        <input type="text" name="medicoSolicitante"
-                            id="medicoSolicitante" class="form-control">
+                        <label for="medicoSolicitante">Médico Solicitante:</label>
+                        <select name="medicoSolicitante" id="medicoSolicitante" class="form-select">
+                            <option>Selecione o médico...</option>
+                            
+                        </select>
                     </div>
                     <div class="form-group w-50 p-2">
                         <label for="crm">CRM:</label>
-                        <input type="text" name="crm" id="crm"
-                            class="form-control">
+                        <input type="text" name="crm" id="crm" class="form-control" readonly>
                     </div>
                     <div class="form-group w-50 p-2">
                         <label for="especialidade">Especialidade:</label>
-                        <input type="text" name="especialidade"
-                            id="especialidade" class="form-control">
+                        <input type="text" name="especialidade" id="especialidade" class="form-control" readonly>
                     </div>
                 </div>
+                
                 <hr>
                 <div class="form-field perguntas">
                     <div class="pergunta form-group">
@@ -494,16 +493,16 @@
 
                 <div
                     class="form-group d-flex justify-content-center mx-auto my-2">
-                    <button type="button"
+                    <button type="submit"
                         class="btn btn-lg btn-primary m-2">Salvar</button>
-                    <button type="button"
+                    <button type="submit"
                         class="btn btn-lg btn-dark m-2">Visualizar</button>
                 </div>
             </form>
         </div>
 
         <script src="../src/js/script.js"></script>
-        <script src="../src/js/exportJSON.js"></script>
+        <script src="../src/js/medicoSolicitante.js"></script>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

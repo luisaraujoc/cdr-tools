@@ -1,0 +1,17 @@
+[
+    {
+        "nome": "Dr. João",
+        "crm": "123456",
+        "especialidade": "Clínico Geral"
+    },
+    {
+        "nome": "Dra. Maria",
+        "crm": "789012",
+        "especialidade": "Dermatologista"
+    },
+    {
+        "nome": "Dr. José",
+        "crm": "345678",
+        "especialidade": "Cardiologista"
+    }
+]

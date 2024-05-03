@@ -97,6 +97,20 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Enfermidades
+document.addEventListener("DOMContentLoaded", function () {
+  var outrosCheckbox = document.getElementById("outros");
+  var outrasEnfermidadesDiv = document.querySelector(".enfermidades");
+
+  outrosCheckbox.addEventListener("change", function () {
+      if (outrosCheckbox.checked) {
+          outrasEnfermidadesDiv.classList.remove("hide");
+      } else {
+          outrasEnfermidadesDiv.classList.add("hide");
+      }
+  });
+});
+
 // add exame
 document.getElementById("addExame").addEventListener("click", function () {
   var examesContainer = document.getElementById("examesContainer");
