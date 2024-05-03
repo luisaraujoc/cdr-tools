@@ -51,8 +51,7 @@
                                     class="form-control">
                             </div>
                         </div>
-                        <div
-                            class="procedimentoData d-flex justify-content-between col-12">
+                        <div class="procedimentoData d-flex justify-content-between col-12">
                             <div class="col-6">
                                 <label for="procedimento">Procedimento:</label>
                                 <input type="text" name="procedimento"
@@ -121,7 +120,7 @@
                     <div class="pergunta form-group">
                         <label for="quest" class="textPergunta">1. Qual o motivo
                             da solicitação do exame: </label>
-                        <input type="text" name="quest" class="form-control">
+                        <input type="text" name="quest" class="form-control" id="q1">
                     </div>
                     <div class="pergunta form-group d-flex flex-column">
                         <label for="quest2">2. Qual a principal queixa?</label>
@@ -130,7 +129,7 @@
                         <label for="quantTempo" class="textPergunta">Há quanto
                             tempo: </label>
                         <input type="text" name="quantTempo"
-                            class="form-control">
+                            class="form-control" id="quanto-tempo">
                     </div>
                     <div class="pergunta form-group">
                         <label for="quest3">3. Quais medicamentos de uso
@@ -495,7 +494,7 @@
                 <div
                     class="form-group d-flex justify-content-center mx-auto my-2">
                     <button type="button"
-                        class="btn btn-lg btn-primary m-2">Salvar</button>
+                        class="btn btn-lg btn-primary m-2" id="btn-salvar">Salvar</button>
                     <button type="button"
                         class="btn btn-lg btn-dark m-2">Visualizar</button>
                 </div>
@@ -503,7 +502,9 @@
         </div>
 
         <script src="../src/js/script.js"></script>
-        <script src="../src/js/exportJSON.js"></script>
+        <script src="../src/js/exportJSON.js"></script>        
+        <script src="../src/js/contentHtml.js"></script>        
+        <script src="../src/js/geradorPdf.js"></script>
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
