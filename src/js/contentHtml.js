@@ -18,7 +18,7 @@ const htmlToprint = () => {
     let especialidade = document.getElementById("especialidade");
     let q1 = document.getElementById("q1");
     let q2 = document.getElementById("quest");
-    let q2QntTempo = getElementById("quanto-tempo");
+    let q2QntTempo = document.getElementById("quanto-tempo");
 
     content = `<!DOCTYPE html>
 <html lang="pt-br">
