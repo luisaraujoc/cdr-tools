@@ -82,11 +82,49 @@ radioButtonsq10.forEach(radioButton => {
     });
 });
 
-
-
-
-
-
+const radioButtonsq11 = document.querySelectorAll('.d-inp');
+let hipertensao = false;
+let cardiopatias = false;
+let diabetes = false;
+let insurenal = false;
+let anemiaFalci = false;
+let mieloma = false;
+let asma = false;
+let rinite = false;
+let outros = false;
+radioButtonsq11.forEach(radioButton => {
+    radioButton.addEventListener('change', () => {
+        switch (radioButton.name) {
+            case 'hipertensao':
+                hipertensao = hipertensao ? false : true;
+                break;
+            case 'cardiopatias':    
+                cardiopatias = cardiopatias ? false : true;
+                break;
+            case 'diabetes':
+                diabetes = diabetes ? false : true;
+                break;
+            case 'insurenal':
+                insurenal = insurenal ? false : true;
+                break;
+            case 'anemiaFalci':
+                anemiaFalci = anemiaFalci ? false : true;
+                break;
+            case 'mieloma':
+                mieloma = mieloma ? false : true;
+                break;
+            case 'asma':
+                asma = asma ? false : true;
+                break;
+            case 'rinite':
+                rinite = rinite ? false : true;
+                break;
+            case 'outros': 
+                outros = outros ? false : true;
+                break;
+        }
+    });
+});
 
 const htmlToprint = () => {
 
@@ -110,13 +148,13 @@ const htmlToprint = () => {
         let ret = '';
         for(let i = 0; i < exame.length; i++){             
             ret += `<tr><th>${exame[i].value}</th><th>${valor[i].value}</th><th>${converterData(data[i].value)}</th></tr>`
-            
         }
-
         return ret;    
     }
 
+    const isSelected = op => op ? 'x' : ' '; 
 
+    
     let nomePaciente = document.getElementById("nomeCompleto");
     let dataNascimento = document.getElementById("dataNascimento");
     let idadePaciente = document.getElementById("idadeVal");
@@ -153,6 +191,7 @@ const htmlToprint = () => {
     let q9Qual = document.getElementById("quest91")
     let q10 = q10selected
     let q10Tempo = document.getElementById("quest101")
+    let q11Quais = document.getElementById("outrasEnfermidades")
 
     // variaveis que levarão texto para o html
     let textq4 = simNaoStr(q4);
@@ -161,14 +200,26 @@ const htmlToprint = () => {
     let textq8 = simNaoStr(q8);    
     let textq9 = simNaoStr(q9);
     let textq10 = simNaoStr(q10);
+    let textq11Hipertensao = isSelected(hipertensao); 
+    let textq11Cardiopatias = isSelected(cardiopatias);
+    let textq11Diabetes = isSelected(diabetes);
+    let textq11Insurenal = isSelected(insurenal);
+    let textq11AnemiaFalci = isSelected(anemiaFalci);
+    let textq11Mieloma = isSelected(mieloma);
+    let textq11Asma = isSelected(asma);
+    let textq11Rinite = isSelected(rinite);
+    let textq11Outros = isSelected(outros);
     let q4script = pergScritStr(q4, "q4");
     let q6script = pergScritStr(q6, "q6");
     let q7script = pergScritStr(q7, "q7");
     let q8script = pergScritStr(q8, "q8");    
     let q9script = pergScritStr(q9, "q9");   
     let q10script = pergScritStr(q10, "q10");
+    let q11script = pergScritStr(outros, "q11")
     let q7Choose = q7C ? "Local" : "Geral";
     let rowTable = funcRowTable(q5Exame, q5Valor, q5data);
+
+    
 
     let content = `<!DOCTYPE html>
 <html lang="pt-br">
@@ -533,47 +584,55 @@ const htmlToprint = () => {
         </div>
         <div class="q11 question">
             <span class="q">11. É portador de alguma enfermidade conhecida?</span>
+          
             <div class="box-q11">
                 <div>
-                    <span id="hipertensao">( )</span>
+                    <span id="hipertensao">(${textq11Hipertensao})</span>
                     <span>Hipertensão</span>
                 </div>
 
                 <div>
-                    <span id="cardiopatias">( )</span>
+                    <span id="cardiopatias">(${textq11Cardiopatias})</span>
                     <span>Cardiopatias</span>
                 </div>
 
                 <div>
-                    <span id="insuficienciaRenal">( )</span>
+                    <span id="diabetes">(${textq11Diabetes})</span>
+                    <span>Diabetes</span>
+                </div>
+
+                <div>
+                    <span id="insuficienciaRenal">(${textq11Insurenal})</span>
                     <span>Insuficiencia Renal</span>
                 </div>
 
                 <div>
-                    <span id="anemiaFalciforme">( )</span>
+                    <span id="anemiaFalciforme">(${textq11AnemiaFalci})</span>
                     <span>Anemia Falciforme</span>
                 </div>
 
                 <div>
-                    <span id="mieloMultiplo">( )</span>
+                    <span id="mieloMultiplo">(${textq11Mieloma})</span>
                     <span>Mielo Mútiplo</span>
                 </div>
 
                 <div>
-                    <span id="asma">( )</span>
+                    <span id="asma">(${textq11Asma})</span>
                     <span>Asma</span>
                 </div>
 
                 <div>
-                    <span id="rinite">( )</span>
+                    <span id="rinite">(${textq11Rinite})</span>
                     <span>Rinite</span>
                 </div>
 
                 <div>
-                    <span id="outros">( )</span>
+                    <span id="outros">(${textq11Outros})</span>
                     <span>Outros:</span>
                 </div>
             </div>
+           
+            
         </div>
 
         <div class="q12 question">
@@ -701,6 +760,14 @@ const htmlToprint = () => {
 
         if(q10){
             document.querySelector(".q10").innerHTML += '<div class="inf-q"><span><strong>Qual: </strong></span><span id="ans-inf">${q10Tempo.value}</span></div>'
+        }
+
+        ${q11script}
+
+        document.querySelector(".q11").innerHTML +=  "<div class='inf-q' style='margin-top: 5px;'><span style='font-weight: bold;'>Quais:</span> <span id='ans-inf' style='word-wrap: reak-word; overflow: hidden; text-overflow: ellipsis; max-width: 1200px;'>ASDASDASDASDSAD</span></div>"
+        
+        if(q11){
+            
         }
     
     </script>
