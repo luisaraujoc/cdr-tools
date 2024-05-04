@@ -361,7 +361,7 @@ const htmlToprint = () => {
                 <div class="left-info">
                     <div class="birthDay">
                         <span>Data de Nascimento:</span>
-                        <span id="birthDayAns">${dataNascimento.value}</span>                     
+                        <span id="birthDayAns">${converterData(dataNascimento.value)}</span>                     
                     </div>
     
                     <div class="weight">
@@ -376,7 +376,7 @@ const htmlToprint = () => {
     
                     <div class="date">
                         <span>Data:</span>
-                        <span id="dateAns">${dataExame.value}</span>
+                        <span id="dateAns">${converterData(dataExame.value)}</span>
                     </div>
                 </div>
     
@@ -465,7 +465,7 @@ const htmlToprint = () => {
 
         <div class="q2 question">
             <span class="q" style="width: 210px;">2. Qual a principal queixa?</span>
-            <span id="an2" style="width: calc(100% - 220px);">${q2.value}r</span>
+            <span id="an2" style="width: calc(100% - 220px);">${q2.value}</span>
         </div>
 
         <div class="q2#" >
