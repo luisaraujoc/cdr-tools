@@ -258,8 +258,7 @@
                         </div>
                     </div>
                     <div class="pergunta form-group">
-                        <span>9. Já realizou alguma cirurgia na área de
-                            estudo?</span>
+                        <span>9. Já realizou alguma outra cirurgia?</span>
                         <div class="form-check">
                             <input type="radio" name="quest9"
                                 id="outraCirurgiaAnswer q9true"
@@ -448,7 +447,45 @@
                             </div>
                         </div>
                     </div>
-                    <div class="pergunta form-group"></div>
+                    <div class="pergunta form-group">
+                        <span>16. Já realizou algum tipo de exame com uso de contraste iodado (TC, Cateterismo Cardíaco ou Urografia Excretora)?</span>
+                        <div class="form-check">
+                            <input type="radio" name="quest16" id="quest16" class="form-check-input" value="sim">
+                            <label for="quest16">Sim</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="quest16" id="quest16" class="form-check-input" value="nao">
+                            <label for="quest16">Não</label>
+                        </div>
+                        <div class="hide contra">
+                            <span>Aconteceu alguma intercorrência?</span>
+                            <div class="form-check">
+                                <input type="radio"
+                                    name="intercorrenciaCondict"
+                                    id="intercorrenciaCondict"
+                                    class="form-check-input"
+                                    value="sim">
+                                <label
+                                    for="intercorrenciaCondict">Sim</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio"
+                                    name="intercorrenciaCondict"
+                                    id="intercorrenciaCondict"
+                                    class="form-check-input"
+                                    value="nao">
+                                <label
+                                    for="intercorrenciaCondict">Não</label>
+                            </div>
+                            <div class="hide intercorrenciaText">
+                                <span>Qual?</span>
+                                <input type="text" name="intercorrenciaText"
+                                    id="intercorrenciaText"
+                                    class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    
                     <!--  -->
                     <div class="pergunta separador">
                         <hr>
@@ -499,6 +536,24 @@
                 </div>
             </form>
         </div>
+
+        <!-- Pop-up Bootstrap -->
+        <!-- <div id="popupSave" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h4 class="modal-title">Salvo com Sucesso</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                O PDF foi salvo com sucesso em C:\Temp\
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+            </div>
+        </div> -->
 
         <script src="../src/js/script.js"></script>
         <script src="../src/js/medicoSolicitante.js"></script>        

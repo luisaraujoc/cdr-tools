@@ -1,0 +1,42 @@
+.border-color {
+    border-color: #FBBC4F;
+}
+
+.navbar {
+    z-index: 2;
+}
+
+.logo .logo-img {
+    width: 200px;
+}
+
+.settings-icon .bi-gear {
+    width: 24px;
+}
+
+/* Container */
+
+.body-content {
+    display: flex;
+    align-items: center;
+    margin-top: 0 auto;
+    /* height:  */
+}
+
+.listaDeMedicos, .formularios {
+    background-color: #FBBC4F;
+    width: 300px;
+    height: 300px;
+    margin-top: 10%;
+    transition: 200ms;
+    color: #fff;
+}
+
+.listaDeMedicos:hover, .formularios:hover{
+    background-color: #e69915;
+    color: #ffe7be;
+}
+
+.icon .bi {
+    width: 100px;
+}

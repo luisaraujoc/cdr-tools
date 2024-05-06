@@ -90,11 +90,36 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Intercorrência
-  document.querySelectorAll('[name="intercorrenciaCondict"]').forEach(function (radio) {
+  document
+    .querySelectorAll('[name="intercorrenciaCondict"]')
+    .forEach(function (radio) {
+      radio.addEventListener("click", function () {
+        toggleDivVisibility(
+          "intercorrenciaCondict",
+          "sim",
+          "intercorrenciaText"
+        );
+      });
+    });
+
+  // Exames com contraste
+  document.querySelectorAll('[name="quest16"]').forEach(function (radio) {
     radio.addEventListener("click", function () {
-      toggleDivVisibility("intercorrenciaCondict", "sim", "intercorrenciaText");
+      toggleDivVisibility("quest16", "sim", "contra");
     });
   });
+
+  document
+    .querySelectorAll('[name="intercorrenciaCondict"]')
+    .forEach(function (radio) {
+      radio.addEventListener("click", function () {
+        toggleDivVisibility(
+          "intercorrenciaCondict",
+          "sim",
+          "intercorrenciaText"
+        );
+      });
+    });
 });
 
 // Enfermidades
@@ -103,11 +128,11 @@ document.addEventListener("DOMContentLoaded", function () {
   var outrasEnfermidadesDiv = document.querySelector(".enfermidades");
 
   outrosCheckbox.addEventListener("change", function () {
-      if (outrosCheckbox.checked) {
-          outrasEnfermidadesDiv.classList.remove("hide");
-      } else {
-          outrasEnfermidadesDiv.classList.add("hide");
-      }
+    if (outrosCheckbox.checked) {
+      outrasEnfermidadesDiv.classList.remove("hide");
+    } else {
+      outrasEnfermidadesDiv.classList.add("hide");
+    }
   });
 });
 
@@ -117,31 +142,34 @@ document.getElementById("addExame").addEventListener("click", function () {
   var clonedExame = examesContainer.firstElementChild.cloneNode(true);
 
   // Limpar os campos clonados
-  clonedExame.querySelectorAll('input[type="text"]').forEach(function(input) {
-    input.value = '';
+  clonedExame.querySelectorAll('input[type="text"]').forEach(function (input) {
+    input.value = "";
   });
-  clonedExame.querySelectorAll('input[type="number"]').forEach(function(input) {
-    input.value = '';
-  });
-  clonedExame.querySelectorAll('input[type="date"]').forEach(function(input) {
-    input.value = '';
+  clonedExame
+    .querySelectorAll('input[type="number"]')
+    .forEach(function (input) {
+      input.value = "";
+    });
+  clonedExame.querySelectorAll('input[type="date"]').forEach(function (input) {
+    input.value = "";
   });
 
   examesContainer.appendChild(clonedExame);
 });
 
-
 // calc idade
-document.getElementById('dataNascimento').addEventListener('change', function() {
-  calcularIdade(this.value);
-});
+document
+  .getElementById("dataNascimento")
+  .addEventListener("change", function () {
+    calcularIdade(this.value);
+  });
 
 function calcularIdade(dataNascimento) {
   var dataNasc = new Date(dataNascimento);
   var dataAtual = new Date();
-  
+
   var diff = Math.abs(dataAtual.getTime() - dataNasc.getTime());
   var idade = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
-  
-  document.getElementById('idadeVal').value = idade + ' anos';
+
+  document.getElementById("idadeVal").value = idade + " anos";
 }
