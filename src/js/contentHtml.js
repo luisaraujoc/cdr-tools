@@ -82,10 +82,133 @@ radioButtonsq10.forEach(radioButton => {
     });
 });
 
+const radioButtonsq11 = document.querySelectorAll('.d-inp');
+let hipertensao = false;
+let cardiopatias = false;
+let diabetes = false;
+let insurenal = false;
+let anemiaFalci = false;
+let mieloma = false;
+let asma = false;
+let rinite = false;
+let outros = false;
+radioButtonsq11.forEach(radioButton => {
+    radioButton.addEventListener('change', () => {
+        switch (radioButton.name) {
+            case 'hipertensao':
+                hipertensao = hipertensao ? false : true;
+                break;
+            case 'cardiopatias':    
+                cardiopatias = cardiopatias ? false : true;
+                break;
+            case 'diabetes':
+                diabetes = diabetes ? false : true;
+                break;
+            case 'insurenal':
+                insurenal = insurenal ? false : true;
+                break;
+            case 'anemiaFalci':
+                anemiaFalci = anemiaFalci ? false : true;
+                break;
+            case 'mieloma':
+                mieloma = mieloma ? false : true;
+                break;
+            case 'asma':
+                asma = asma ? false : true;
+                break;
+            case 'rinite':
+                rinite = rinite ? false : true;
+                break;
+            case 'outros': 
+                outros = outros ? false : true;
+                break;
+        }
+    });
+});
 
+const radioButtonsq12 = document.querySelectorAll('input[name="quest12"]');
+let q12selected = false;
+radioButtonsq12.forEach(radioButton => {
+    radioButton.addEventListener('change', () => {
+        if (radioButton.value === "sim") {
+            q12selected = true;
+        } else if (radioButton.value === "nao") {
+            q12selected = false;
+        }
+    });
+});
 
+const radioButtonsq13 = document.querySelectorAll('input[name="quest13"]');
+let q13selected = false;
+radioButtonsq13.forEach(radioButton => {
+    radioButton.addEventListener('change', () => {
+        if (radioButton.value === "sim") {
+            q13selected = true;
+        } else if (radioButton.value === "nao") {
+            q13selected = false;
+        }
+    });
+});
 
+const radioButtonsq14 = document.querySelectorAll('input[name="quest14"]');
+let q14selected = false;
+radioButtonsq14.forEach(radioButton => {
+    radioButton.addEventListener('change', () => {
+        if (radioButton.value === "sim") {
+            q14selected = true;
+        } else if (radioButton.value === "nao") {
+            q14selected = false;
+        }
+    });
+});
 
+const radioButtonsq15 = document.querySelectorAll('input[name="quest15"]');
+let q15selected = false;
+radioButtonsq15.forEach(radioButton => {
+    radioButton.addEventListener('change', () => {
+        if (radioButton.value === "sim") {
+            q15selected = true;
+        } else if (radioButton.value === "nao") {
+            q15selected = false;
+        }
+    });
+});
+
+const radioButtonsq15_1 = document.querySelectorAll('input[name="intercorrenciaCondict"]');
+let q15_1selected = false;
+radioButtonsq15_1.forEach(radioButton => {
+    radioButton.addEventListener('change', () => {
+        if (radioButton.value === "sim") {
+            q15_1selected = true;
+        } else if (radioButton.value === "nao") {
+            q15_1selected = false;
+        }
+    });
+});
+
+const radioButtonsq17 = document.querySelectorAll('input[name="gravida"]');
+let q17selected = false;
+radioButtonsq17.forEach(radioButton => {
+    radioButton.addEventListener('change', () => {
+        if (radioButton.value === "sim") {
+            q17selected = true;
+        } else if (radioButton.value === "nao") {
+            q17selected = false;
+        }
+    });
+});
+
+const radioButtonsq18 = document.querySelectorAll('input[name="amamentando"]');
+let q18selected = false;
+radioButtonsq18.forEach(radioButton => {
+    radioButton.addEventListener('change', () => {
+        if (radioButton.value === "sim") {
+            q18selected = true;
+        } else if (radioButton.value === "nao") {
+            q18selected = false;
+        }
+    });
+});
 
 
 const htmlToprint = () => {
@@ -109,14 +232,14 @@ const htmlToprint = () => {
     const funcRowTable = (exame, valor, data) =>{
         let ret = '';
         for(let i = 0; i < exame.length; i++){             
-            ret += `<tr><th>${exame[i].value}</th><th>${valor[i].value}</th><th>${converterData(data[i].value)}</th></tr>`
-            
+            ret += `<tr><td>${exame[i].value}</td><td>${valor[i].value}</td><td>${converterData(data[i].value)}</td></tr>`
         }
-
         return ret;    
     }
 
+    const isSelected = op => op ? 'x' : ' '; 
 
+    
     let nomePaciente = document.getElementById("nomeCompleto");
     let dataNascimento = document.getElementById("dataNascimento");
     let idadePaciente = document.getElementById("idadeVal");
@@ -153,6 +276,17 @@ const htmlToprint = () => {
     let q9Qual = document.getElementById("quest91")
     let q10 = q10selected
     let q10Tempo = document.getElementById("quest101")
+    let q11Quais = document.getElementById("outrasEnfermidades")
+    let q12 = q12selected;
+    let q12Qual = document.getElementById("alergiaAnswer")
+    let q13 = q13selected;
+    let q13Obs = document.getElementById("Observações");
+    let q14 = q14selected;
+    let q15 = q15selected;
+    let q15_1 = q15_1selected;
+    let q15_1Quais = document.getElementById("intercorrenciaText")
+    let q17 = q17selected;
+    let q18 = q18selected;
 
     // variaveis que levarão texto para o html
     let textq4 = simNaoStr(q4);
@@ -161,21 +295,43 @@ const htmlToprint = () => {
     let textq8 = simNaoStr(q8);    
     let textq9 = simNaoStr(q9);
     let textq10 = simNaoStr(q10);
+    let textq12 = simNaoStr(q12);
+    let textq13 = simNaoStr(q13);
+    let textq14 = simNaoStr(q14);
+    let textq15 = simNaoStr(q15);
+    let textq15_1 = simNaoStr(q15_1);
+    let textq17 = simNaoStr(q17);    
+    let textq18 = simNaoStr(q18);
+    let textq11Hipertensao = isSelected(hipertensao); 
+    let textq11Cardiopatias = isSelected(cardiopatias);
+    let textq11Diabetes = isSelected(diabetes);
+    let textq11Insurenal = isSelected(insurenal);
+    let textq11AnemiaFalci = isSelected(anemiaFalci);
+    let textq11Mieloma = isSelected(mieloma);
+    let textq11Asma = isSelected(asma);
+    let textq11Rinite = isSelected(rinite);
+    let textq11Outros = isSelected(outros);
     let q4script = pergScritStr(q4, "q4");
     let q6script = pergScritStr(q6, "q6");
     let q7script = pergScritStr(q7, "q7");
     let q8script = pergScritStr(q8, "q8");    
     let q9script = pergScritStr(q9, "q9");   
     let q10script = pergScritStr(q10, "q10");
+    let q11script = pergScritStr(outros, "q11");
+    let q12script = pergScritStr(q12, "q12");
+    let q13script = pergScritStr(q13, "q13");
+    let q15script = pergScritStr(q15, "q15");    
+    let q15_1script = pergScritStr(q15_1, "q15_1");
     let q7Choose = q7C ? "Local" : "Geral";
     let rowTable = funcRowTable(q5Exame, q5Valor, q5data);
 
+    
     let content = `<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historico Enfermagem</title>
+    <title>Historico Enfermagem ${nomePaciente.value}</title>
     <style>
     *{
         box-sizing: border-box;
@@ -533,88 +689,79 @@ const htmlToprint = () => {
         </div>
         <div class="q11 question">
             <span class="q">11. É portador de alguma enfermidade conhecida?</span>
+          
             <div class="box-q11">
                 <div>
-                    <span id="hipertensao">( )</span>
+                    <span id="hipertensao">(${textq11Hipertensao})</span>
                     <span>Hipertensão</span>
                 </div>
 
                 <div>
-                    <span id="cardiopatias">( )</span>
+                    <span id="cardiopatias">(${textq11Cardiopatias})</span>
                     <span>Cardiopatias</span>
                 </div>
 
                 <div>
-                    <span id="insuficienciaRenal">( )</span>
+                    <span id="diabetes">(${textq11Diabetes})</span>
+                    <span>Diabetes</span>
+                </div>
+
+                <div>
+                    <span id="insuficienciaRenal">(${textq11Insurenal})</span>
                     <span>Insuficiencia Renal</span>
                 </div>
 
                 <div>
-                    <span id="anemiaFalciforme">( )</span>
+                    <span id="anemiaFalciforme">(${textq11AnemiaFalci})</span>
                     <span>Anemia Falciforme</span>
                 </div>
 
                 <div>
-                    <span id="mieloMultiplo">( )</span>
+                    <span id="mieloMultiplo">(${textq11Mieloma})</span>
                     <span>Mielo Mútiplo</span>
                 </div>
 
                 <div>
-                    <span id="asma">( )</span>
+                    <span id="asma">(${textq11Asma})</span>
                     <span>Asma</span>
                 </div>
 
                 <div>
-                    <span id="rinite">( )</span>
+                    <span id="rinite">(${textq11Rinite})</span>
                     <span>Rinite</span>
                 </div>
 
                 <div>
-                    <span id="outros">( )</span>
+                    <span id="outros">(${textq11Outros})</span>
                     <span>Outros:</span>
                 </div>
             </div>
+           
+            
         </div>
 
         <div class="q12 question">
             <span class="q">12. Possui algum tipo de alergia medicamentosa ou alimentar (iodo, camarão, ovo, entre outros)?</span>
-            <span id="q12an">( )Sim (x)Não</span>
-            <div class="inf-q">
-                <span>Qual:</span>
-                <span id="ans-inf"></span>
-            </div>
+            <span id="q12an">${textq12}</span>
+            
         </div>
 
         <div class="q13 question">
             <span class="q">13. Tabagista?</span>
-            <span id="q13an">( )Sim (x)Não</span>
-            <div class="inf-q">
-                <span>Obs:</span>
-                <span id="ans-inf"></span>
-            </div>
+            <span id="q13an">${textq13}</span>
+           
         </div>
 
         <div class="q14 question">
             <span class="q">14. Já fez tratamento para tuberculose?</span>
-            <span id="q14an">( )Sim (x)Não</span>
-            <div class="inf-q">
-                <span>Qual:</span>
-                <span id="ans-inf"></span>
-            </div>
+            <span id="q14an">${textq14}</span>
+            
         </div>
 
         <div class="q15 question">
             <span class="q">15. Já realizou Cineagicoronariografia e/ou Angioplastia Coronária anteriormente?</span>
-            <span id="q14an">( )Sim (x)Não</span>
-            <div class="inf-q">
-                <span>Qual:</span>
-                <span id="ans-inf"></span>
-            </div>
+            <span id="q14an">${textq15}</span>     
 
-            <div class="obsq15">
-                <span class="q">Aconteceu alguma intercorrência?</span>
-                <span id="obsans15">( )Sim (x)Não</span>
-            </div>
         </div>
 
         <div class="q16 question">
@@ -645,20 +792,14 @@ const htmlToprint = () => {
 
         <div class="q17 question">
             <span class="q">17. Existe alguma possibilidade de estar grávida?</span>
-            <span id="q15an">( )Sim (x)Não</span>
-            <div class="inf-q">
-                <span>Qual:</span>
-                <span id="ans-inf"></span>
-            </div>
+            <span id="q15an">${textq17}</span>
+            
         </div>
 
         <div class="q18 question">
             <span class="q">18. Está Amamentando? </span>
-            <span id="q14an">( )Sim (x)Não</span>
-            <div class="inf-q">
-                <span>Qual:</span>
-                <span id="ans-inf"></span>
-            </div>
+            <span id="q14an">${textq18}</span>
+            
         </div>
     </div>
 
@@ -701,6 +842,39 @@ const htmlToprint = () => {
 
         if(q10){
             document.querySelector(".q10").innerHTML += '<div class="inf-q"><span><strong>Qual: </strong></span><span id="ans-inf">${q10Tempo.value}</span></div>'
+        }
+
+        ${q11script}
+
+        
+        if(q11){
+            document.querySelector(".q11").innerHTML +=  "<div class='inf-q' style='margin-top: 5px;'><span style='font-weight: bold;'><strong>Quais:</strong></span> <span id='ans-inf' style='word-wrap: reak-word; overflow: hidden; text-overflow: ellipsis; max-width: 1200px;'>${q11Quais.value}</span></div>"        
+        }
+
+        ${q12script}
+
+        if(q12){
+            
+            document.querySelector(".q12").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong></span><span id="ans-inf">${q12Qual.value}</span></div>'
+        }
+
+        ${q13script}
+
+        if(q13){
+            document.querySelector(".q13").innerHTML += '<div class="inf-q"><span><strong>Obs:</strong></span><span id="ans-inf">${q13Obs.value}</span></div>'
+        }
+
+        ${q15script}
+        
+       
+        if(q15){
+            document.querySelector(".q15").innerHTML += '<div class="obsq15"><span class="q">Aconteceu alguma intercorrência?</span><span id="obsans15">${textq15_1}</span></div>'
+        }
+
+        ${q15_1script}
+
+        if(q15_1){
+            document.querySelector(".q15").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong></span><span id="ans-inf">${q15_1Quais.value}</span></div>'
         }
     
     </script>
