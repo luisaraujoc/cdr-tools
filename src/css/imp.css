@@ -1,161 +1,202 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-body{
+body {
     padding: 20px;
 }
-.head{
-    display: flex;
-    align-items: stretch;
-    
+
+.head {
     height: 110px;
+    overflow: hidden;
 }
-.logo{
-    flex: 1.5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px black solid;
-}
-.logo img{
-    height: 100px;
-}
-.text-head{    
+
+.logo {
+    float: left;
+    width: calc(50% - 10px);
     border: 1px black solid;
     height: 100%;
-    flex: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
 }
 
-.first-box{
-    display: flex;
+.logo img {
+    height: 100px;
+    position: absolute;
+    top: 5%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+}
+
+.text-head {
+    float: right;
+    width: calc(50% - 10px);
+    height: 100%;
+    border: 1px black solid;
+    position: relative;
+}
+.text-head h4{
+    position: absolute;
+      top: 40%;
+      left: 18%;
+      transform: translate(-50%, -50%);
+}
+
+.first-box {
     margin-top: 15px;
     border: solid 1px black;
-    
     padding: 10px;
+    overflow: hidden;
 }
 
-.cabecalho{
-    flex: 2.5;
+.cabecalho {
+    width: calc(80% - 10px);
+    float: left;
+    overflow: hidden;
 }
 
-.infos-box{
-    display: flex;
-    gap: 100px;
+.infos-box {
+    overflow: hidden;
 }
 
-.left-info div{
+.left-info,
+.right-info {
+    float: left;
+    width: 50%;
+}
+
+.left-info div,
+.right-info div {
     margin-top: 20px;
 }
 
-.right-info div{
-    margin-top: 20px;
-}
-
-.aside-box{
-    flex: .5;    
+.aside-box {
+    width: calc(20% - 10px);
+    float: right;
     border-left: solid 1px black;
     padding: 0 10px;
+    overflow: hidden;
 }
 
-.aside-box ul{
+.aside-box ul {
     text-decoration: none;
     list-style: none;
 }
-ul li{
-        margin-bottom: 5px;
-        margin-top: 5px;
+
+ul li {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    overflow: hidden;
 }
 
-.doctor-info{
-    display: flex;
-    flex-wrap: wrap;
+.doctor-info {
+    overflow: hidden;
     width: 800px;
-    
-    margin: 10px 0;
+    margin: 15px 0;
 }
 
-.box-docName{
-    width: 80%;
+.box-docName {
+    width: 70%;
+    float: left;
 }
 
-.box-crm{    
-    width: 20%;
+.box-crm,
+.box-spec {
+    width: 30%;
+    float: left;
 }
 
 .box-spec{
     margin-top: 10px;
 }
 
-.question{
-    display: flex;
-    gap: 15px;
+.question {
     margin: 20px 0;
-    align-items: center;
-    page-break-inside: avoid;
+    overflow: hidden;
 }
 
-.q{
+.q {
     font-weight: bold;
-    width: 400px;
-    background-color: aqua;
+    width: auto;
+    float: left;
+    margin-right: 10px;
+}
+.text-med{    
+    clear: left;
 }
 
-.text-med p{
+.text-med p {
     text-decoration: underline;
     text-underline-offset: 6px;
     display: inline-block;
     line-height: 25px;
 }
 
-#table-q5{
+#table-q5 {
     border-collapse: collapse;
-    width: 800px;
+    width: 100%;
 }
-#table-q5 th, #table-q5 td{
+
+#table-q5 th,
+#table-q5 td {
     border: #000 1px solid;
     text-align: center;
     padding: 6px;
 }
 
 th:nth-child(1),
-        td:nth-child(1) {
-            width: 350px;
-        }
-
-        th:nth-child(2),
-        td:nth-child(2) {
-            width: 350px;
-        }
-
-        th:nth-child(3),
-        td:nth-child(3) {
-            width: 100px;
-        }
-
-.q7, .q8, .q9, .q10, .q11, .q12, .q13, .q14, .q15, .q16, .q17, .q18{
-    flex-direction: column;
-    align-items: start;
-    gap: 5px;
+td:nth-child(1) {
+    width: 33%;
 }
 
-.box-q11{
-    display: flex;
-    flex-wrap: wrap;
-    width: 650px;
-    gap: 8px;
+th:nth-child(2),
+td:nth-child(2) {
+    width: 33%;
 }
 
-.q12, .q15, .q16{
-    width: 800px;
+th:nth-child(3),
+td:nth-child(3) {
+    width: 33%;
 }
 
-.q12 .q, .q15 .q, .q16 .q{
+.q7,
+.q8,
+.q9,
+.q10,
+.q11,
+.q12,
+.q13,
+.q14,
+.q15,
+.q16,
+.q17,
+.q18 {
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.box-q11 {
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.q12,
+.q15,
+.q16 {
     width: 100%;
+    float: left;
+    margin-top: 10px;
+}
+
+.q12 .q,
+.q15 .q,
+.q16 .q {
+    width: 100%;
+    float: left;
+}
+
+#qan, .qan{
+    clear: left;
 }

@@ -110,11 +110,11 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   document
-    .querySelectorAll('[name="intercorrenciaCondict"]')
+    .querySelectorAll('[name="intercorrenciaCondict16"]')
     .forEach(function (radio) {
       radio.addEventListener("click", function () {
         toggleDivVisibility(
-          "intercorrenciaCondict",
+          "intercorrenciaCondict16",
           "sim",
           "intercorrenciaText"
         );

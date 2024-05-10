@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download PDF</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.2.7/purify.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <h1>Download PDF</h1>
+  <div id="content">
+    <p>This is the content that will be included in the PDF.</p>
+    <ul>
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+  </div>
+  <button id="downloadPdf">Download PDF</button>
+
+  <script>
+    document.getElementById('downloadPdf').addEventListener('click', () => {
+        const { jsPDF } = window.jspdf;
+        var doc = new jsPDF('l', 'mm', [1200, 1210]);
+
+        var pdfjs = document.querySelector('#temp-target');
+
+        // Convert HTML to PDF in JavaScript
+        doc.html("<h1>TESTE</h1>", {
+            callback: function(doc) {
+                doc.save("output.pdf");
+            },
+            x: 10,
+            y: 10
+        });
+    });
+  </script>
+</body>
+</html>

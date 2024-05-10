@@ -174,6 +174,8 @@ radioButtonsq15.forEach(radioButton => {
     });
 });
 
+
+
 const radioButtonsq15_1 = document.querySelectorAll('input[name="intercorrenciaCondict"]');
 let q15_1selected = false;
 radioButtonsq15_1.forEach(radioButton => {
@@ -182,6 +184,30 @@ radioButtonsq15_1.forEach(radioButton => {
             q15_1selected = true;
         } else if (radioButton.value === "nao") {
             q15_1selected = false;
+        }
+    });
+});
+
+const radioButtonsq16 = document.querySelectorAll('input[name="quest16"]');
+let q16selected = false;
+radioButtonsq16_1.forEach(radioButton => {
+    radioButton.addEventListener('change', () => {
+        if (radioButton.value === "sim") {
+            q16selected = true;
+        } else if (radioButton.value === "nao") {
+            q16selected = false;
+        }
+    });
+});
+
+const radioButtonsq16_1 = document.querySelectorAll('input[name="intercorrenciaCondict16"]');
+let q16_1selected = false;
+radioButtonsq16_1.forEach(radioButton => {
+    radioButton.addEventListener('change', () => {
+        if (radioButton.value === "sim") {
+            q16_1selected = true;
+        } else if (radioButton.value === "nao") {
+            q16_1selected = false;
         }
     });
 });
@@ -285,6 +311,9 @@ const htmlToprint = () => {
     let q15 = q15selected;
     let q15_1 = q15_1selected;
     let q15_1Quais = document.getElementById("intercorrenciaText")
+    let q16 = q16selected;    
+    let q16_1 = q15_1selected;
+    let q16_1Quais = document.getElementById("intercorrenciaText16")
     let q17 = q17selected;
     let q18 = q18selected;
 
@@ -300,6 +329,8 @@ const htmlToprint = () => {
     let textq14 = simNaoStr(q14);
     let textq15 = simNaoStr(q15);
     let textq15_1 = simNaoStr(q15_1);
+    let textq16 = simNaoStr(q16);
+    let textq16_1 = simNaoStr(q16_1);
     let textq17 = simNaoStr(q17);    
     let textq18 = simNaoStr(q18);
     let textq11Hipertensao = isSelected(hipertensao); 
@@ -322,6 +353,8 @@ const htmlToprint = () => {
     let q13script = pergScritStr(q13, "q13");
     let q15script = pergScritStr(q15, "q15");    
     let q15_1script = pergScritStr(q15_1, "q15_1");
+    let q16script = pergScritStr(q16, "q16");    
+    let q16_1script = pergScritStr(q16_1, "q16_1");
     let q7Choose = q7C ? "Local" : "Geral";
     let rowTable = funcRowTable(q5Exame, q5Valor, q5data);
 
@@ -333,166 +366,213 @@ const htmlToprint = () => {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Historico Enfermagem ${nomePaciente.value}</title>
     <style>
-    *{
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    
-    body{
-        padding: 20px;
-    }
-    .head{
-        display: flex;
-        align-items: stretch;
-        
-        height: 110px;
-    }
-    .logo{
-        flex: 1.5;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px black solid;
-    }
-    .logo img{
-        height: 100px;
-    }
-    .text-head{    
-        border: 1px black solid;
-        height: 100%;
-        flex: 2;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .first-box{
-        display: flex;
-        margin-top: 15px;
-        border: solid 1px black;
-        
-        padding: 10px;
-    }
-    
-    .cabecalho{
-        flex: 2.5;
-    }
-    
-    .infos-box{
-        display: flex;
-        gap: 100px;
-    }
-    
-    .left-info div{
-        margin-top: 20px;
-    }
-    
-    .right-info div{
-        margin-top: 20px;
-    }
-    
-    .aside-box{
-        flex: .5;    
-        border-left: solid 1px black;
-        padding: 0 10px;
-    }
-    
-    .aside-box ul{
-        text-decoration: none;
-        list-style: none;
-    }
-    ul li{
-            margin-bottom: 5px;
-            margin-top: 5px;
-    }
-    
-    .doctor-info{
-        display: flex;
-        flex-wrap: wrap;
-        width: 800px;
-        
-        margin: 10px 0;
-    }
-    
-    .box-docName{
-        width: 80%;
-    }
-    
-    .box-crm{    
-        width: 20%;
-    }
-    
-    .box-spec{
-        margin-top: 10px;
-    }
-    
-    .question{
-        display: flex;
-        gap: 15px;
-        margin: 20px 0;
-        align-items: center;
-        page-break-inside: avoid;
-    }
-    
-    .q{
-        font-weight: bold;
-        width: 400px;
-    }
-    
-    .text-med p{
-        text-decoration: underline;
-        text-underline-offset: 6px;
-        display: inline-block;
-        line-height: 25px;
-    }
-    
-    #table-q5{
-        border-collapse: collapse;
-        width: 800px;
-    }
-    #table-q5 th, #table-q5 td{
-        border: #000 1px solid;
-        text-align: center;
-        padding: 6px;
-    }
-    
-    th:nth-child(1),
-            td:nth-child(1) {
-                width: 350px;
-            }
-    
-            th:nth-child(2),
-            td:nth-child(2) {
-                width: 350px;
-            }
-    
-            th:nth-child(3),
-            td:nth-child(3) {
-                width: 100px;
-            }
-    
-    .q7, .q8, .q9, .q10, .q11, .q12, .q13, .q14, .q15, .q16, .q17, .q18{
-        flex-direction: column;
-        align-items: start;
-        gap: 5px;
-    }
-    
-    .box-q11{
-        display: flex;
-        flex-wrap: wrap;
-        width: 650px;
-        gap: 8px;
-    }
-    
-    .q12, .q15, .q16{
-        width: 800px;
-    }
-    
-    .q12 .q, .q15 .q, .q16 .q{
-        width: 100%;
-    }
+    * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    padding: 20px;
+}
+
+.head {
+    height: 110px;
+    overflow: hidden;
+}
+
+.logo {
+    float: left;
+    width: calc(50% - 10px);
+    border: 1px black solid;
+    height: 100%;
+    position: relative;
+}
+
+.logo img {
+    height: 100px;
+    position: absolute;
+    top: 5%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+}
+
+.text-head {
+    float: right;
+    width: calc(50% - 10px);
+    height: 100%;
+    border: 1px black solid;
+    position: relative;
+}
+.text-head h4{
+    position: absolute;
+      top: 40%;
+      left: 18%;
+      transform: translate(-50%, -50%);
+}
+
+.first-box {
+    margin-top: 15px;
+    border: solid 1px black;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.cabecalho {
+    width: calc(80% - 10px);
+    float: left;
+    overflow: hidden;
+}
+
+.infos-box {
+    overflow: hidden;
+}
+
+.left-info,
+.right-info {
+    float: left;
+    width: 50%;
+}
+
+.left-info div,
+.right-info div {
+    margin-top: 20px;
+}
+
+.aside-box {
+    width: calc(20% - 10px);
+    float: right;
+    border-left: solid 1px black;
+    padding: 0 10px;
+    overflow: hidden;
+}
+
+.aside-box ul {
+    text-decoration: none;
+    list-style: none;
+}
+
+ul li {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+.doctor-info {
+    overflow: hidden;
+    width: 800px;
+    margin: 15px 0;
+}
+
+.box-docName {
+    width: 70%;
+    float: left;
+}
+
+.box-crm,
+.box-spec {
+    width: 30%;
+    float: left;
+}
+
+.box-spec{
+    margin-top: 10px;
+}
+
+.question {
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.q {
+    font-weight: bold;
+    width: auto;
+    float: left;
+    margin-right: 10px;
+}
+.text-med{    
+    clear: left;
+}
+
+.text-med p {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    display: inline-block;
+    line-height: 25px;
+}
+
+#table-q5 {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#table-q5 th,
+#table-q5 td {
+    border: #000 1px solid;
+    text-align: center;
+    padding: 6px;
+}
+
+th:nth-child(1),
+td:nth-child(1) {
+    width: 33%;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+    width: 33%;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+    width: 33%;
+}
+
+.q7,
+.q8,
+.q9,
+.q10,
+.q11,
+.q12,
+.q13,
+.q14,
+.q15,
+.q16,
+.q17,
+.q18 {
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.box-q11 {
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.q12,
+.q15,
+.q16 {
+    width: 100%;
+    float: left;
+    margin-top: 10px;
+}
+
+.q12 .q,
+.q15 .q,
+.q16 .q {
+    width: 100%;
+    float: left;
+}
+
+#qan, .qan {
+    clear: left;
+}
+
+.rad-choose{
+    margin-right: 25px;
+    margin-bottom: 5px;
+}
     </style>
      
 </head>
@@ -662,143 +742,131 @@ const htmlToprint = () => {
         <div class="q6 question" style="flex-direction: column; align-items: start; gap: 5px;">
             <span class="q">6. Exames prévios da área em estudo:</span>
             <div class="q6Inner">
-                <span style="font-weight: bold;">Trouxe verificação? </span>
+                <span style="font-weight: bold;">Trouxe verificação? </span></br>
                 <span id="q6an">${textq6}</span>
                 
             </div>
         </div>
+
         <div class="question q7">
-            <span class="q">7. Será realizado algum tipo de anestesia?</span>
-            <span id="q7an">${textq7}</span>
+            <div class="q">7. Será realizado algum tipo de anestesia?</div>
+            <div id="qan">${textq7}</div>
             
         </div>
         <div class="q8 question">
-            <span class="q">8. Já realizou alguma cirurgia na área em estudo?</span>
-            <span id="q8an">${textq8}</span>
+            <div class="q">8. Já realizou alguma cirurgia na área em estudo?</div>
+            <div id="qan">${textq8}</div>
             
         </div>
         <div class="q9 question">
-            <span class="q">9. Já realizou alguma outra cirurgia?</span>
-            <span id="q9an">${textq9}</span>
+            <div class="q">9. Já realizou alguma outra cirurgia?</div>
+            <div id="qan">${textq9}</div>
            
         </div>
         <div class="q10 question">
-            <span class="q">10. Já realizou Quimioterapia?</span>
-            <span id="q10an">${textq10}</span>
+            <div class="q">10. Já realizou Quimioterapia?</div>
+            <div id="qan">${textq10}</div>
             
         </div>
         <div class="q11 question">
             <span class="q">11. É portador de alguma enfermidade conhecida?</span>
           
-            <div class="box-q11">
-                <div>
+            <div class="box-q11 qan">
+                <span class="rad-choose">
                     <span id="hipertensao">(${textq11Hipertensao})</span>
                     <span>Hipertensão</span>
-                </div>
+                </span>
 
-                <div>
+                <span class="rad-choose">
                     <span id="cardiopatias">(${textq11Cardiopatias})</span>
                     <span>Cardiopatias</span>
-                </div>
+                </span>
 
-                <div>
+                <span class="rad-choose">
                     <span id="diabetes">(${textq11Diabetes})</span>
                     <span>Diabetes</span>
-                </div>
+                </span>
 
-                <div>
+                <span class="rad-choose">
                     <span id="insuficienciaRenal">(${textq11Insurenal})</span>
                     <span>Insuficiencia Renal</span>
-                </div>
+                </span>
 
-                <div>
+                <span class="rad-choose">
                     <span id="anemiaFalciforme">(${textq11AnemiaFalci})</span>
                     <span>Anemia Falciforme</span>
-                </div>
+                </span>
 
-                <div>
+                <span class="rad-choose">
                     <span id="mieloMultiplo">(${textq11Mieloma})</span>
                     <span>Mielo Mútiplo</span>
-                </div>
+                </span>
 
-                <div>
+                <span class="rad-choose">
                     <span id="asma">(${textq11Asma})</span>
                     <span>Asma</span>
-                </div>
+                </span>
 
-                <div>
+                <span class="rad-choose">
                     <span id="rinite">(${textq11Rinite})</span>
                     <span>Rinite</span>
-                </div>
+                </span>
 
-                <div>
+                <span class="rad-choose">
                     <span id="outros">(${textq11Outros})</span>
                     <span>Outros:</span>
-                </div>
+                </span>
             </div>
            
             
         </div>
 
         <div class="q12 question">
-            <span class="q">12. Possui algum tipo de alergia medicamentosa ou alimentar (iodo, camarão, ovo, entre outros)?</span>
-            <span id="q12an">${textq12}</span>
+            <div class="q">12. Possui algum tipo de alergia medicamentosa ou alimentar (iodo, camarão, ovo, entre outros)?</div>
+            <div id="qan">${textq12}</div>
             
         </div>
 
-        <div class="q13 question">
-            <span class="q">13. Tabagista?</span>
-            <span id="q13an">${textq13}</span>
+        <div>
+            <div class="q">13. Tabagista?</div>
+            <div id="qan">${textq13}</div>
            
         </div>
 
         <div class="q14 question">
-            <span class="q">14. Já fez tratamento para tuberculose?</span>
-            <span id="q14an">${textq14}</span>
+            <div class="q">14. Já fez tratamento para tuberculose?</div>
+            <div id="qan">${textq14}</div>
             
         </div>
 
         <div class="q15 question">
-            <span class="q">15. Já realizou Cineagicoronariografia e/ou Angioplastia Coronária anteriormente?</span>
-            <span id="q14an">${textq15}</span>     
+            <div class="q">15. Já realizou Cineagicoronariografia e/ou Angioplastia Coronária anteriormente?</div>
+            <div id="qan">${textq15}</div>     
 
         </div>
 
         <div class="q16 question">
-            <span class="q">16. Já realizou algum tipo de exame com uso de contrastante iodado (TC, Cateterismo Cardiado ou Urografia Excretora)?</span>
-            <span id="q14an">( )Sim (x)Não</span>
-            <div class="inf-q">
-                <span>Qual:</span>
-                <span id="ans-inf"></span>
-            </div>
+            <div class="q">16. Já realizou algum tipo de exame com uso de contrastante iodado (TC, Cateterismo Cardiado ou Urografia Excretora)?</div>
+            <div id="qan">${textq16}</div>
+            
 
-            <div class="obsq16">
-                <span class="q">Aconteceu alguma intercorrência?</span>
-                <span id="obsans15">( )Sim (x)Não</span>
-
-                <div class="inf-obs">
-                    <span>Qual:</span>
-                    <span id="ans-inf-obs"></span>
-                </div>
-            </div>
+            
         </div>
 
-        <div style="height: 0.5px; width: 100vw; background-color: rgb(255, 255, 255); margin-bottom: 20px; border: solid black 1px;">
-
-        </div>
+        
         <div class="q" style="font-size: 20px;">
             Exclusivo para o sexo feminino
         </div>
 
         <div class="q17 question">
-            <span class="q">17. Existe alguma possibilidade de estar grávida?</span>
-            <span id="q15an">${textq17}</span>
+            <div class="q">17. Existe alguma possibilidade de estar grávida?</div>
+            <div id="qan">${textq17}</div>
             
         </div>
 
         <div class="q18 question">
-            <span class="q">18. Está Amamentando? </span>
-            <span id="q14an">${textq18}</span>
+            <div class="q">18. Está Amamentando? </div>
+            <div id="qan">${textq18}</div>
             
         </div>
     </div>
@@ -868,7 +936,7 @@ const htmlToprint = () => {
         
        
         if(q15){
-            document.querySelector(".q15").innerHTML += '<div class="obsq15"><span class="q">Aconteceu alguma intercorrência?</span><span id="obsans15">${textq15_1}</span></div>'
+            document.querySelector(".q15").innerHTML += '<div class="obsq15" style="margin-top: 5px;"><span class="q">Aconteceu alguma intercorrência?</span><span id="obsans15">${textq15_1}</span></div>'
         }
 
         ${q15_1script}
@@ -876,6 +944,19 @@ const htmlToprint = () => {
         if(q15_1){
             document.querySelector(".q15").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong></span><span id="ans-inf">${q15_1Quais.value}</span></div>'
         }
+
+        ${q16script}
+
+        if(q15){
+            document.querySelector(".q16").innerHTML += '<div class="obsq16" style="margin-top: 5px;"><div class="q">Aconteceu alguma intercorrência?</div><div id="qan">${textq16_1}</div></div>'
+        }
+
+        ${q16_1script}
+
+        if(q16_1){
+            document.querySelector(".q16").innerHTML += '<div class="inf-obs"><span>Qual:</span><span id="ans-inf-obs">${q16_1Quais}</span></div>' 
+        }
+        
     
     </script>
 </body>
