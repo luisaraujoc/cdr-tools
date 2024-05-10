@@ -707,7 +707,7 @@ td:nth-child(3) {
 
         <div class="q2#" >
             <span class="q">Há quanto tempo: </span>
-            <span id="an2#">${q2QntTempo.value} anos</span>
+            <span id="an2#">${q2QntTempo.value}</span>
         </div>
 
         <div class="q3 question" style="flex-direction: column; align-items: start;">
