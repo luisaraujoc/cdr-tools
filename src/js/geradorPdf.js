@@ -11,7 +11,7 @@ btn.addEventListener("click", (e) =>{
     const timer = setTimeout(() => {
         var html = win.document.documentElement.outerHTML;
         
-        fetch('http://localhost:3000/api/enviar', {
+        fetch('https://1436-2804-d47-5c7a-1400-8060-9046-d9fe-5892.ngrok-free.app/api/enviar', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
