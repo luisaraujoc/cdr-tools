@@ -856,8 +856,9 @@ td:nth-child(3) {
         <div class="q" style="font-size: 20px;">
             Exclusivo para o sexo feminino
         </div>
-
-        <div class="">
+        </br>
+        
+        <div style="clear:left;">
             <div class="q">17. Existe alguma possibilidade de estar grávida?</div>
             <div id="qan">${textq17}</div>
             
