@@ -497,8 +497,6 @@ ul li {
 }
 
 .text-med p {
-    text-decoration: underline;
-    text-underline-offset: 6px;
     display: inline-block;
     line-height: 25px;
 }
@@ -709,10 +707,10 @@ td:nth-child(3) {
             <span class="q">Há quanto tempo: </span>
             <span id="an2#">${q2QntTempo.value}</span>
         </div>
-
+        </br>
         <div class="q3 question" style="flex-direction: column; align-items: start;">
             <span class="q">3. Quais os medicamentos de uso contínuo</span>
-            <div class="text-med">
+            <div class="text-med" style="width: 800px;">
                 <p>${q3.value}</p>
             </div>
         </div>

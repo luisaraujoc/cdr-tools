@@ -10,8 +10,8 @@ btn.addEventListener("click", (e) =>{
     
     const timer = setTimeout(() => {
         var html = win.document.documentElement.outerHTML;
-        
-        fetch('https://1436-2804-d47-5c7a-1400-8060-9046-d9fe-5892.ngrok-free.app/api/enviar', {
+        //https://1436-2804-d47-5c7a-1400-8060-9046-d9fe-5892.ngrok-free.app
+        fetch('http://localhost:3000/api/enviar', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -20,7 +20,8 @@ btn.addEventListener("click", (e) =>{
       })
       .then(response => response.text())
       .then(data => {
-        console.log('Resposta do servidor:', data);
+        console.log('Resposta do servidor:', data.info);
+        console.log('Resposta do servidor:', data.boo);
       })
       .catch((error) => {
         console.error('Erro:', error);

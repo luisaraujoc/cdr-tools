@@ -26,7 +26,7 @@ app.post('/api/enviar', (req, res) => {
         }
     })
   
-  res.send('Informação recebida com sucesso!');
+  res.send([{info: 'Informação recebida com sucesso!', boo: true}]);
 });
 
 app.listen(port, () => {
