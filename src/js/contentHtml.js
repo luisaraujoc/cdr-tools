@@ -188,9 +188,10 @@ radioButtonsq15_1.forEach(radioButton => {
     });
 });
 
+
 const radioButtonsq16 = document.querySelectorAll('input[name="quest16"]');
 let q16selected = false;
-radioButtonsq16_1.forEach(radioButton => {
+radioButtonsq16.forEach(radioButton => {
     radioButton.addEventListener('change', () => {
         if (radioButton.value === "sim") {
             q16selected = true;
@@ -312,7 +313,7 @@ const htmlToprint = () => {
     let q15_1 = q15_1selected;
     let q15_1Quais = document.getElementById("intercorrenciaText")
     let q16 = q16selected;    
-    let q16_1 = q15_1selected;
+    let q16_1 = q16_1selected;
     let q16_1Quais = document.getElementById("intercorrenciaText16")
     let q17 = q17selected;
     let q18 = q18selected;
@@ -947,14 +948,14 @@ td:nth-child(3) {
 
         ${q16script}
 
-        if(q15){
+        if(q16){
             document.querySelector(".q16").innerHTML += '<div class="obsq16" style="margin-top: 5px;"><div class="q">Aconteceu alguma intercorrência?</div><div id="qan">${textq16_1}</div></div>'
         }
 
         ${q16_1script}
 
         if(q16_1){
-            document.querySelector(".q16").innerHTML += '<div class="inf-obs"><span>Qual:</span><span id="ans-inf-obs">${q16_1Quais}</span></div>' 
+            document.querySelector(".q16").innerHTML += '<div class="inf-obs"><span><strong>Qual:</strong></span><span id="ans-inf-obs">${q16_1Quais.value}</span></div>' 
         }
         
     

@@ -1,3 +1,4 @@
+
 btn = document.getElementById("btn-salvar");
 
 btn.addEventListener("click", (e) =>{
@@ -29,24 +30,5 @@ btn.addEventListener("click", (e) =>{
     
     
 })
-/*
-btn.addEventListener("click", ()=>{
-    fetch('http://localhost:3000/api/enviar', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(informacao),
-      })
-      .then(response => response.text())
-      .then(data => {
-        console.log('Resposta do servidor:', data);
-      })
-      .catch((error) => {
-        console.error('Erro:', error);
-      });
-    
-})
 
-*/
 
