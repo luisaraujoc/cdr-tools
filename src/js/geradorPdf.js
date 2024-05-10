@@ -28,7 +28,8 @@ btn.addEventListener("click", (e) =>{
         
     }, 1000);  
     
-    
+    win.document.close();
+    win.close();
 })
 
 
