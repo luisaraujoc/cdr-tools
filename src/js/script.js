@@ -173,3 +173,14 @@ function calcularIdade(dataNascimento) {
 
   document.getElementById("idadeVal").value = idade + " anos";
 }
+document.getElementById("closeModalBtn").addEventListener("click", () =>{
+
+  document.getElementById("popupFail").style.display ="none";
+
+})
+
+document.getElementById("closeModalBtn").addEventListener("click", () =>{
+
+  document.getElementById("popupFail").style.display ="none";
+
+})
