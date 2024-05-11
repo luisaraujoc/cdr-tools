@@ -1,15 +1,102 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Download PDF</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.2.7/purify.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-</head>
-<body>
-<a href="pages/historicoenfermagem.html">go to page</a>
-</body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Home - CDR Tools</title>
+        <link rel="stylesheet"
+            href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <link rel="stylesheet"
+            href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./src/css/index.css">
+    </head>
+    <body>
+        <!-- Nav -->
+        <div
+            class="navbar bg-body-tertiary border-bottom border- border-warning rounded-bottom d-flex justify-content-evenly">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand">
+                    <img src="./src/img/logo.png" alt="logo" class="logo">
+                </a>
+                <div class="navbar-brand">
+                    <h5>Tela inicial</h5>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="nav-link" id="configIcon">
+                        <i class="bi bi-gear-fill"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="container-fluid body-content d-flex justify-content-evenly align-items-center py-5 my-8">
+            <div
+                class="listaDeMedicos d-flex flex-column justify-content-center align-items-center rounded">
+                <div class="icon d-flex justify-content-center">
+                    <i class="bi bi-person-fill"></i>
+                </div>
+                <h3>Lista de médicos</h3>
+            </div>
+            <a href="./public/pages/historicoenfermagem.html"
+                class="formularios d-flex flex-column justify-content-center align-items-center rounded">
+                <div class="icon d-flex justify-content-center">
+                    <i class="bi bi-card-text"></i>
+                </div>
+                <h3>Formulários</h3>
+            </a>
+        </div>
+
+        <!-- Modal de Configuração -->
+        <div class="modal fade" id="configModal" tabindex="-1"
+            aria-labelledby="configModalLabel" aria-hidden="true">
+            <div
+                class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"
+                            id="configModalLabel">Configurações</h5>
+                        <button type="button" class="btn-close"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div
+                        class="modal-body d-flex justify-content-center flex-column">
+                        <h1>Definir Padrão de Nome de Arquivo</h1>
+                        <div class="row">
+                            <div class="col">
+                                <h5>Opções Disponíveis</h5>
+                                <ul id="availableOptions" class="list-group p-4">
+                                    <li class="list-group-item"
+                                        data-value="NomeDoMedico">NomeDoMedico</li>
+                                    <li class="list-group-item"
+                                        data-value="NumExame">NumExame</li>
+                                    <li class="list-group-item"
+                                        data-value="NomePaciente">NomePaciente</li>
+                                    <li class="list-group-item"
+                                        data-value="NomeFormulario">NomeFormulario</li>
+                                </ul>
+                            </div>
+                            <div class="col">
+                                <h5>Opções Selecionadas</h5>
+                                <ul id="selectedOptions" class="list-group p-4">
+                                    <!-- Opções selecionadas serão adicionadas aqui -->
+                                </ul>
+                            </div>
+                        </div>
+                        <p id="filenamePattern"></p>
+                        <div class="col">
+                            <button class="btn btn-outline-primary" id="saveButton">Salvar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="./src/js/settings.js"></script>
+        <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="./node_modules/@popperjs/core/dist/cjs/popper.js"></script>
+        <script
+            src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    </body>
 </html>
