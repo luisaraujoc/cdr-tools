@@ -178,3 +178,9 @@ document.getElementById("closeModalBtn").addEventListener("click", () =>{
   document.getElementById("popupFail").style.display ="none";
 
 })
+
+document.getElementById("closeModalBtn").addEventListener("click", () =>{
+
+  document.getElementById("popupFail").style.display ="none";
+
+})

@@ -17,7 +17,7 @@ app.post('/api/enviar', (req, res) => {
     const minutos = dataAtual.getMinutes();
     const segundos = dataAtual.getSeconds();
 
-    pdf.create(informacaoRecebida, {}).toFile(`pdf/historico_enfermagem_${hora}-${minutos}-${segundos}.pdf`,(err, res)=>{
+    pdf.create(informacaoRecebida, {}).toFile(`C:/temp/historico_enfermagem_${hora}-${minutos}-${segundos}.pdf`,(err, res)=>{
         if(err){
             console.log(`Deu erro ${err}`)
         }else{
