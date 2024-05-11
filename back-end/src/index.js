@@ -12,7 +12,6 @@ app.use(bodyParser.json());
 
 app.post('/api/enviar', (req, res) => {
   const informacaoRecebida = req.body.html;
-    console.log(`recebido: ${informacaoRecebida}`)
     let dataAtual = new Date();
     const hora = dataAtual.getHours();
     const minutos = dataAtual.getMinutes();
@@ -22,11 +21,11 @@ app.post('/api/enviar', (req, res) => {
         if(err){
             console.log(`Deu erro ${err}`)
         }else{
-            console.log(res)
+          console.log(res)
         }
     })
   
-  res.send([{info: 'Informação recebida com sucesso!', boo: true}]);
+  res.send({boo: true});
 });
 
 app.listen(port, () => {

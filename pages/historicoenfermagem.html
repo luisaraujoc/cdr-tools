@@ -13,6 +13,30 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.2.7/purify.min.js"></script>
     </head>
     <body>
+        
+        <!-- MODAL CADASTRO BEM SUCEDIDO -->
+            <div id="popupSuc" class="modal">
+                <div class="modal-content">
+                    <div class="mensagem">
+                        <img alt="Cadastro realizado!" src="../src/img/gif.gif" class="checkGif" />
+                        
+                        <p>Formulario enviado com sucesso!</p>
+                        <a href="./historicoenfermagem.html" id="closeModalBtn">Fechar  </a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="popupFail" class="modal">
+                <div class="modal-content">
+                    <div class="mensagem">
+                        <img alt="Cadastro realizado!" src="../src/img/cancelar.png" class="checkGif" />
+                        
+                        <p>Falha ao enviar formulario!</p>
+                        <a href="" id="closeModalBtn">Fechar</a>
+                    </div>
+                </div>
+            </div>
+
         <div>
             <form action method="post">
                 <div class="pessoaExame d-flex justify-content-evenly">
