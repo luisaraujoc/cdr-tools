@@ -1,5 +1,6 @@
 public/pages/pagImp.html
 indexaa.html
-back-end/node_modules
+private/node_modules
 node_modules/
-private/pdf
+private/src/pdf/
+private/temp/
