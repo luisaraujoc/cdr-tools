@@ -1,12 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
     var medicoSelect = document.getElementById("medicoSolicitante");
     var crmInput = document.getElementById("crm");
-    var especialidadeInput = document.getElementById("especialidade");
-    let medicoSolicitante = "../../src/json/medicoSolicitante.json";
+    var especialidadeInput = document.getElementById("especialidade"); 
     let data; // Definindo data fora do escopo do fetch
+    
+    
 
     // Carregar os dados do JSON
-    fetch(medicoSolicitante)
+    fetch(`http://localhost:3000/api/listMedicos`)
         .then((response) => response.json())
         .then((jsonData) => {
             data = jsonData; // Atribui os dados do JSON à variável global data
