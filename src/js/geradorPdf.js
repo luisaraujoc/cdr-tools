@@ -11,8 +11,7 @@ btn.addEventListener("click", (e) => {
 
   const timer = setTimeout(() => {
     var html = win.document.documentElement.outerHTML;
-    //https://1436-2804-d47-5c7a-1400-8060-9046-d9fe-5892.ngrok-free.app
-    fetch('https://d51e-45-165-236-142.ngrok-free.app/api/enviar', {
+    fetch('http://localhost:3000/hitoricoEnfermagem/enviar', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

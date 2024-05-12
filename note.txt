@@ -1,0 +1,6 @@
+Arquivos que utilizam URL da API
+
+src/js/adicionarmerdico.js
+src/js/geradorPdf.js
+src/js/medicoSolicitante.js
+
