@@ -3,4 +3,5 @@ indexaa.html
 private/node_modules
 node_modules/
 private/src/pdf/
+private/src/json/
 private/temp/
