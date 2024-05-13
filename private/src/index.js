@@ -9,6 +9,28 @@ let pdf = require("html-pdf");
 const app = express();
 const port = 3000;
 
+// Função para ler o último ID usado
+function readLastUsedId(filePath, callback) {
+  fs.readFile(filePath, 'utf8', (err, dataJson) => {
+    if (err && err.code === 'ENOENT') {
+      // Se o arquivo não existe, significa que nenhum médico foi adicionado ainda
+      callback(0); // Retorna ID 0
+    } else if (err) {
+      console.error('Erro ao ler o arquivo:', err);
+      callback(null);
+    } else {
+      let jsonData = JSON.parse(dataJson);
+      if (!Array.isArray(jsonData) || jsonData.length === 0) {
+        callback(0); // Se o arquivo estiver vazio ou não contiver um array válido, retorna ID 0
+      } else {
+        // Encontra o maior ID existente
+        const lastUsedId = jsonData.reduce((maxId, item) => Math.max(maxId, item.id), 0);
+        callback(lastUsedId);
+      }
+    }
+  });
+}
+
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -28,6 +50,7 @@ app.post('/api/hitoricoEnfermagem/enviar', (req, res) => {
   })
   res.send({ boo: true });
 });
+
 
 app.post('/api/addMedico/enviar', (req, res) => {
   const data = req.body;
@@ -77,9 +100,7 @@ app.post('/api/addMedico/enviar', (req, res) => {
 });
 
 
-
-app.get('/api/listMedicos', (req, res) => {
-
+app.get('/api/listMedicos', (req, res) => { // Alterado o nome do parâmetro para req
   const directory = path.join(__dirname, 'json');
 
   if (!fs.existsSync(directory)) {
@@ -88,34 +109,23 @@ app.get('/api/listMedicos', (req, res) => {
 
   const filePath = path.join(directory, 'medicos.json');
 
-
   fs.readFile(filePath, 'utf8', (err, dataJson) => {
     if (err && err.code !== 'ENOENT') {
       console.error('Erro ao ler o arquivo:', err);
-      res.send({ boo: false });
+      res.status(500).send({ boo: false }); // Alterada a resposta para lidar com erro
       return;
     }
 
-  
     let jsonData = {};
     if (dataJson) {
       jsonData = JSON.parse(dataJson);
     }
 
     res.send(jsonData);
-    
   });
 })
-
-
-
-
-
 
 
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
 });
-
-
-
