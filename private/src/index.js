@@ -40,9 +40,9 @@ app.post('/api/hitoricoEnfermagem/enviar', (req, res) => {
   const hora = dataAtual.getHours();
   const minutos = dataAtual.getMinutes();
   const segundos = dataAtual.getSeconds();
-  const path = ("C:\\Temp\\PDF\\")
+  const path = (`C:`,`Temp`, `PDF`, `historico_enfermagem_${hora}-${minutos}-${segundos}.pdf`)
 
-  pdf.create(informacaoRecebida, {}).toFile(path, `historico_enfermagem_${hora}-${minutos}-${segundos}.pdf`, (err, res) => {
+  pdf.create(informacaoRecebida, {}).toFile(path, (err, res) => {
     if (err) {
       console.log(`Deu erro ${err}`)
     } else {

@@ -15,25 +15,30 @@
 
 @media only screen and (max-width: 600px) {
     .my-8 {
-        margin-top: calc(1rem * 4);
+        margin-top: calc(1rem * 3);
     }
 }
 
 @media only screen and (min-width: 601px) and (max-width: 1024px) {
     .my-8 {
-        margin-top: calc(1rem * 6);
+        margin-top: calc(1rem * 4);
     }
 }
 
 @media only screen and (min-width: 1025px) and (max-width: 1440px) {
     .my-8 {
-        margin-top: calc(1rem * 8);
+        margin-top: calc(1rem * 5);
     }
 }
 
-@media only screen and (min-width: 1441px) {
+@media only screen and (min-width: 1441px) and (max-width: 1720px) {
     .my-8 {
-        margin-top: calc(1rem * 10);
+        margin-top: calc(1rem * 6);
+    }
+}
+@media only screen and (min-width: 1721px){
+    .my-8 {
+        margin-top: calc(1rem * 9);
     }
 }
 
@@ -111,7 +116,7 @@
 }
 
 .navbar .nav-item .nav-link .bi {
-    font-size: 1.5em;
+    font-size: 1em;
 }
 
 .fade {
