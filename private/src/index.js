@@ -40,8 +40,9 @@ app.post('/api/hitoricoEnfermagem/enviar', (req, res) => {
   const hora = dataAtual.getHours();
   const minutos = dataAtual.getMinutes();
   const segundos = dataAtual.getSeconds();
+  const path = ("C:\\Temp\\PDF\\")
 
-  pdf.create(informacaoRecebida, {}).toFile(`temp/historico_enfermagem_${hora}-${minutos}-${segundos}.pdf`, (err, res) => {
+  pdf.create(informacaoRecebida, {}).toFile(path, `historico_enfermagem_${hora}-${minutos}-${segundos}.pdf`, (err, res) => {
     if (err) {
       console.log(`Deu erro ${err}`)
     } else {
@@ -124,6 +125,89 @@ app.get('/api/listMedicos', (req, res) => { // Alterado o nome do parâmetro par
     res.send(jsonData);
   });
 })
+
+app.put('/api/editarMedico/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const data = req.body;
+  const directory = path.join(__dirname, 'json');
+  const filePath = path.join(directory, 'medicos.json');
+
+  fs.readFile(filePath, 'utf8', (err, dataJson) => {
+    if (err) {
+      console.error('Erro ao ler o arquivo:', err);
+      res.status(500).send({ boo: false, mes: "Erro ao ler arquivo JSON" });
+      return;
+    }
+
+    let jsonData = [];
+    if (dataJson) {
+      jsonData = JSON.parse(dataJson);
+      if (!Array.isArray(jsonData)) {
+        jsonData = [];
+      }
+    }
+
+    const index = jsonData.findIndex(medico => medico.id === id);
+    if (index === -1) {
+      res.status(404).send({ boo: false, mes: "Médico não encontrado" });
+      return;
+    }
+
+    // Atualiza os dados do médico
+    jsonData[index] = { ...jsonData[index], ...data };
+
+    fs.writeFile(filePath, JSON.stringify(jsonData), 'utf8', (err) => {
+      if (err) {
+        console.error('Erro ao escrever no arquivo:', err);
+        res.status(500).send({ boo: false, mes: "Erro ao escrever no arquivo" });
+        return;
+      }
+      console.log('Arquivo JSON atualizado com sucesso em:', filePath);
+      res.send({ boo: true, mes: "Sucesso" });
+    });
+  });
+});
+
+app.delete('/api/excluirMedico/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const directory = path.join(__dirname, 'json');
+  const filePath = path.join(directory, 'medicos.json');
+
+  fs.readFile(filePath, 'utf8', (err, dataJson) => {
+    if (err) {
+      console.error('Erro ao ler o arquivo:', err);
+      res.status(500).send({ boo: false, mes: "Erro ao ler arquivo JSON" });
+      return;
+    }
+
+    let jsonData = [];
+    if (dataJson) {
+      jsonData = JSON.parse(dataJson);
+      if (!Array.isArray(jsonData)) {
+        jsonData = [];
+      }
+    }
+
+    const index = jsonData.findIndex(medico => medico.id === id);
+    if (index === -1) {
+      res.status(404).send({ boo: false, mes: "Médico não encontrado" });
+      return;
+    }
+
+    // Remove o médico do array
+    jsonData.splice(index, 1);
+
+    fs.writeFile(filePath, JSON.stringify(jsonData), 'utf8', (err) => {
+      if (err) {
+        console.error('Erro ao escrever no arquivo:', err);
+        res.status(500).send({ boo: false, mes: "Erro ao escrever no arquivo" });
+        return;
+      }
+      console.log('Arquivo JSON atualizado com sucesso em:', filePath);
+      res.send({ boo: true, mes: "Sucesso" });
+    });
+  });
+});
 
 
 app.listen(port, () => {

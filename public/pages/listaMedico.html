@@ -35,6 +35,7 @@
             <th>Nome</th>
             <th>Especialidade</th>
             <th>CRM</th>
+            <th>Ações</th>
         </tr>
         <tbody>
 
@@ -42,8 +43,8 @@
         </thead>
     </table>
 
-    <div class="mt-3">
-        <div class="w-100">
+    <div class="mt-3 w-100">
+        <div class="d-flex justify-content-center">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".modal">Adicionar Médico</button>
         </div>
     </div>
@@ -72,18 +73,68 @@
                         <label for="crm" class="form-label">CRM::</label>
                         <input type="text" id="crm" class="form-control" name="crm" required>
                     </div>
-                    <div>
-                        <button class="btn btn-primary" type="submit">Adicionar</button>
+                    <div class="d-flex justify-content-center p-3">
+                        <button class="btn btn-primary" type="submit" data-bs-dismiss="modal" aria-label="Close">Adicionar</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
+    <!-- Modal de Exclusão -->
+    <div class="modal fade delete-modal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Excluir Médico</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Tem certeza que deseja excluir este médico?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger btn-confirm-delete">Excluir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Edição -->
+    <div class="modal fade edit-modal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar Médico</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editMedicoForm" class="p-4">
+                        <div>
+                            <label for="editNome" class="form-label">Nome:</label>
+                            <input type="text" id="editNome" class="form-control" name="editNome" required>
+                        </div>
+                        <div>
+                            <label for="editEspecialidade" class="form-label">Especialidade:</label>
+                            <input type="text" id="editEspecialidade" class="form-control" name="editEspecialidade" required>
+                        </div>
+                        <div>
+                            <label for="editCrm" class="form-label">CRM:</label>
+                            <input type="text" id="editCrm" class="form-control" name="editCrm" required>
+                        </div>
+                        <div class="d-flex justify-content-center p-3">
+                            <button class="btn btn-primary" type="submit" data-bs-dismiss="modal" aria-label="Close">Salvar Alterações</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
         <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
           <div class="toast-body">
-            Preencha todos os campos antes de enviar.
+            <p class="mensagem" id="mesagemRetorno"></p>
           </div>
         </div>
     </div>

@@ -11,7 +11,7 @@ btn.addEventListener("click", (e) => {
 
   const timer = setTimeout(() => {
     var html = win.document.documentElement.outerHTML;
-    fetch('http://localhost:3000/hitoricoEnfermagem/enviar', {
+    fetch('http://localhost:3000/api/hitoricoEnfermagem/enviar', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -25,7 +25,7 @@ btn.addEventListener("click", (e) => {
         }
       })
       .catch((error) => {
-        console.error('Erro:', error);
+        console.log('Erro:', error);
         document.getElementById("popupFail").style.display = "flex";
       });
   }, 1000);
