@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then(data => {
                     console.log(data);
                     if (data.boo) {
-                        alert("Dados enviados com sucesso!");
                         // Limpar os campos do formulário após o envio bem sucedido
                         document.getElementById('nome').value = '';
                         document.getElementById('especialidade').value = '';
