@@ -8,6 +8,8 @@ let pdf = require("html-pdf");
 
 const app = express();
 const port = 3000;
+app.use(cors());
+app.use(bodyParser.json());
 
 // Função para ler o último ID usado
 function readLastUsedId(filePath, callback) {
@@ -31,8 +33,7 @@ function readLastUsedId(filePath, callback) {
   });
 }
 
-app.use(cors());
-app.use(bodyParser.json());
+
 
 app.post('/api/hitoricoEnfermagem/enviar', (req, res) => {
   const informacaoRecebida = req.body.html;
@@ -76,7 +77,6 @@ app.post('/api/addMedico/enviar', (req, res) => {
       }
     }
 
-    // Verifica se o CRM já existe no array jsonData
     for (let i = 0; i < jsonData.length; i++) {
       if (jsonData[i].crm === data.crm) {
         console.log('CRM já existe:', data.crm);
@@ -85,7 +85,6 @@ app.post('/api/addMedico/enviar', (req, res) => {
       }
     }
 
-    // Se o CRM não existir no array, adiciona o novo médico
     jsonData.push(data);
 
     fs.writeFile(filePath, JSON.stringify(jsonData), 'utf8', (err) => {
