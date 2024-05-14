@@ -46,6 +46,8 @@ radioButtonsq7Answer.forEach(radioButton => {
     });
 });
 
+
+
 const radioButtonsq8 = document.querySelectorAll('input[name="quest8"]');
 let q8selected = false;
 radioButtonsq8.forEach(radioButton => {
@@ -1957,7 +1959,7 @@ z"/>
             
         </div>
 
-        <div>
+        <div id="q13">
             <div class="q">13. Tabagista?</div>
             <div id="qan">${textq13}</div>
            
@@ -2058,7 +2060,7 @@ z"/>
         ${q13script}
 
         if(q13){
-            document.querySelector(".q13").innerHTML += '<div class="inf-q"><span><strong>Obs:</strong></span><span id="ans-inf">${q13Obs.value}</span></div>'
+            document.querySelector("#q13").innerHTML += '<div class="inf-q"><span><strong>Obs:</strong></span><span id="ans-inf">${q13Obs.value}</span></div>'
         }
 
         ${q15script}
@@ -2094,15 +2096,17 @@ z"/>
     return content
 }
 
-const generateFileName = (pattern, {}) => {
-    let exame = document.getElementById("exame");
-    let medicoSolicitante = document.getElementById("medicoSolicitante");
-    let dataExame = document.getElementById("dataExame");
-    let nomePaciente = document.getElementById("nomeCompleto");
+const generateFileName = () => {
+    let exame = document.getElementById("exame").value;
+    let medicoSolicitante = document.getElementById("medicoSolicitante").value;
+    let dataExame = document.getElementById("dataExame").value;
+    let nomePaciente = document.getElementById("nomeCompleto").value;
 
-    return pattern
-        .replace("{numExame}", exame)
-        .replace("{nomeMedico}", medicoSolicitante)
-        .replace("{dataExame}", dataExame)
-        .replace("{nomePaciente}", nomePaciente);
+    return {
+        exame: exame.replace(/\s/g, ''),
+        medicoSolicitante: medicoSolicitante.replace(/\s/g, ''),
+        dataExame: dataExame.replace(/\s/g, ''),
+        nomePaciente: nomePaciente.replace(/\s/g, '')
+    }
+
 };

@@ -7,6 +7,7 @@ btn.addEventListener("click", (e) => {
   const win = window.open("", "", "height=800, width=1100");
   let novaTelaConteudo = htmlToprint();
   win.document.write(novaTelaConteudo);
+  console.log(generateFileName())
 
 
   const timer = setTimeout(() => {
@@ -17,7 +18,8 @@ btn.addEventListener("click", (e) => {
         'Content-Type': 'application/json',
       },
       // body enviando o JSON.stringify({ html: html.toString() }) e os valores enviado de generateFileName() para o backend
-      body: JSON.stringify({ html: html.toString(), filename: generateFileName()}),      
+     
+      body: JSON.stringify({ html: html.toString(), filename: JSON.stringify(generateFileName())}),      
     })
       .then(response => response.json()) // Agora esperamos um JSON em vez de texto
       .then(data => {
