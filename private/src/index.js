@@ -11,48 +11,69 @@ const port = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Função para ler o último ID usado
-function readLastUsedId(filePath, callback) {
-  fs.readFile(filePath, 'utf8', (err, dataJson) => {
-    if (err && err.code === 'ENOENT') {
-      callback(0);
-    } else if (err) {
-      console.error('Erro ao ler o arquivo:', err);
-      callback(null);
-    } else {
-      let jsonData = JSON.parse(dataJson);
-      if (!Array.isArray(jsonData) || jsonData.length === 0) {
-        callback(0);
-      } else {
-        const lastUsedId = jsonData.reduce((maxId, item) => Math.max(maxId, item.id), 0);
-        callback(lastUsedId);
-      }
+
+function generateFileName(data, dadosNomePdf){
+
+  let nome = "historicoenfermagem"
+  console.log(dadosNomePdf)
+
+  for(let i = 0; i < 4; i++){
+    switch(data.pattern[i]){
+      case 1:
+        nome += `_${dadosNomePdf.nomePaciente}`
+        break;
+      case 2:
+        nome += `_${dadosNomePdf.medicoSolicitante}`
+        break;
+      case 3:
+        nome +=`_${dadosNomePdf.exame}`
+        break;
+      case 4:
+        nome += `_${dadosNomePdf.dataExame}`
+        break;
+      default:
+        console.log("a")
+      break;
     }
-  });
+  }
+
+  return nome;
+
 }
 
 
 
 app.post('/api/hitoricoEnfermagem/enviar', (req, res) => {
   const informacaoRecebida = req.body.html;
-  const { exame, medicoSolicitante, dataExame, nomePaciente } = req.body.filename;
+  const dadosNamePdf = req.body.filename;
+  let dadosNameConvert = JSON.parse(dadosNamePdf)
+  
+  const directory = path.join(__dirname, 'json');
 
-  const dataAtual = new Date();
-  // const hora = String(dataAtual.getHours()).padStart(2, '0');
-  // const minutos = String(dataAtual.getMinutes()).padStart(2, '0');
-  // const segundos = String(dataAtual.getSeconds()).padStart(2, '0');
+  if (!fs.existsSync(directory)) {
+    fs.mkdirSync(directory);
+  }
+  const filePath = path.join(directory, 'filenamePattern.json');
+  fs.readFile(filePath, 'utf8', (err, dataJson) => {
+    if (err) {
+      console.error('Erro ao ler o arquivo:', err);
+      res.status(500).send({ boo: false, mes: "Erro ao ler arquivo JSON" });
+      return;
+    }
 
-  const filename = generateFileName(filenamePattern, { exame, medicoSolicitante, dataExame, nomePaciente });
-  const pdfPath = path.join('C:', 'Temp', 'PDF', `${filename}.pdf`);
+    const dataPadrao = JSON.parse(dataJson)    
 
-  pdf.create(informacaoRecebida, {}).toFile(pdfPath, (err, result) => {
-      if (err) {
-          console.error(`Erro ao gerar PDF: ${err}`);
-          return res.status(500).send({ error: 'Erro ao gerar PDF' });
-      } else {
-          console.log(result);
-          res.send({ success: true, pdfPath });
-      }
+    const pdfPath = path.join('C:', 'Temp', 'PDF', `${generateFileName(dataPadrao, dadosNameConvert)}.pdf`);
+
+    pdf.create(informacaoRecebida, {}).toFile(pdfPath, (err, result) => {
+        if (err) {
+            console.error(`Erro ao gerar PDF: ${err}`);
+            return res.status(500).send({ error: 'Erro ao gerar PDF' });
+        } else {
+            console.log(result);
+            res.send({ boo: true, pdfPath });
+        }
+    });    
   });
 });
 

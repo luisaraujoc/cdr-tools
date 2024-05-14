@@ -49,11 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     function renderizarPadraoValores() {
-        // Cria uma string com os valores de padraoValores separados por vírgula
-        const padraoString = padraoValores.join(", ");
-        // Atribui a string à div examePadrao
         document.getElementById("examePadrao").textContent = filenamePattern;
-
     }
 
 
@@ -87,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ pattern: filenamePattern }),
+            body: JSON.stringify({ pattern: padraoValores }),
         })
             .then(response => response.json())
             .then(data => {
