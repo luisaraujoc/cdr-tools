@@ -8,6 +8,8 @@ let pdf = require("html-pdf");
 
 const app = express();
 const port = 3000;
+app.use(cors());
+app.use(bodyParser.json());
 
 // Função para ler o último ID usado
 function readLastUsedId(filePath, callback) {
@@ -29,8 +31,7 @@ function readLastUsedId(filePath, callback) {
   });
 }
 
-app.use(cors());
-app.use(bodyParser.json());
+
 
 app.post('/api/hitoricoEnfermagem/enviar', (req, res) => {
   const informacaoRecebida = req.body.html;
