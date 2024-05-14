@@ -7,7 +7,9 @@ btn.addEventListener("click", (e) => {
   const win = window.open("", "", "height=800, width=1100");
   let novaTelaConteudo = htmlToprint();
   win.document.write(novaTelaConteudo);
-  console.log(generateFileName())
+  let loader = document.getElementById("loading");
+  loader.style.display = "block";
+  document.body.style.overflow = 'hidden';
 
 
   const timer = setTimeout(() => {
