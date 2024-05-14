@@ -14,7 +14,8 @@ O servidor, por padrão, inicializa como `http://localhost:3000` para máquinas 
 
 ## Contatos e suporte
 
-- Para qualquer dúvida ou suporte, entre em contato comigo pelo e-mail <!-- mail to --> [luislk_@outlook.com](mailto:luislk_@outlook.com) ou []().
+- Para qualquer dúvida ou suporte, entre em contato pelo e-mail com [Luís](mailto:luislk_@outlook.com) ou [Lucas](Lesds2001@gmail.com).
+- Os mesmos e-mails podem ser usados para achar ambos no linkedin também.
 
 ## Agradecimentos
 
