@@ -1,4 +1,5 @@
 @import url('./navbar.css');
+@import url('./global.css');
 
 .nav-item .nav-link {
     width: 100px;
