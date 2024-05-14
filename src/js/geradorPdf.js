@@ -16,7 +16,8 @@ btn.addEventListener("click", (e) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ html: html.toString() }),
+      // body enviando o JSON.stringify({ html: html.toString() }) e os valores enviado de generateFileName() para o backend
+      body: JSON.stringify({ html: html.toString(), filename: generateFileName()}),      
     })
       .then(response => response.json()) // Agora esperamos um JSON em vez de texto
       .then(data => {
@@ -32,7 +33,6 @@ btn.addEventListener("click", (e) => {
 
   win.document.close();
   win.close();
-
   
 })
 

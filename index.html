@@ -48,49 +48,39 @@
         </div>
 
         <!-- Modal de Configuração -->
-        <div class="modal fade" id="configModal" tabindex="-1"
-            aria-labelledby="configModalLabel" aria-hidden="true">
-            <div
-                class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div id="configModal" class="modal" tabindex="-1">
+            <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title"
-                            id="configModalLabel">Configurações</h5>
-                        <button type="button" class="btn-close"
-                            data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h5 class="modal-title">Configurações</h5>
+                        <button type="button" class="btn-close" aria-label="Close"></button>
                     </div>
-                    <div
-                        class="modal-body d-flex justify-content-center flex-column">
-                        <h1>Definir Padrão de Nome de Arquivo</h1>
-                        <div class="row">
-                            <div class="col">
-                                <h5>Opções Disponíveis</h5>
-                                <ul id="availableOptions" class="list-group p-4">
-                                    <li class="list-group-item"
-                                        data-value="NomeDoMedico">NomeDoMedico</li>
-                                    <li class="list-group-item"
-                                        data-value="NumExame">NumExame</li>
-                                    <li class="list-group-item"
-                                        data-value="NomePaciente">NomePaciente</li>
-                                    <li class="list-group-item"
-                                        data-value="NomeFormulario">NomeFormulario</li>
-                                </ul>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="filenamePattern" class="form-label">Padrão de Nome de Arquivo</label>
+                                <div id="examePadrao">
+                                    exame
+                                </div>
+                                <div class="form-text">
+                                    <div class="list-group">
+                                        <button type="button" class="btn" id="numExame"><strong>{numExame}</strong>: Número do exame</button>
+                                        <button type="button" class="btn" id="nomeMedico"><strong>{nomeMedico}</strong>: Nome do médico</button>
+                                        <button type="button" class="btn" id="dataExame"><strong>{dataExame}</strong>: Data do exame</button>
+                                        <button type="button" class="btn" id="nomePaciente"><strong>{nomePaciente}</strong>: Nome do paciente</button>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col">
-                                <h5>Opções Selecionadas</h5>
-                                <ul id="selectedOptions" class="list-group p-4">
-                                    <!-- Opções selecionadas serão adicionadas aqui -->
-                                </ul>
-                            </div>
-                        </div>
-                        <p id="filenamePattern"></p>
-                        <div class="col">
-                            <button class="btn btn-outline-primary" id="saveButton">Salvar</button>
-                        </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" id="saveButton" class="btn btn-primary">Salvar</button>
                     </div>
                 </div>
             </div>
         </div>
+    
 
         <!-- Scripts -->
         <script src="./src/js/settings.js"></script>

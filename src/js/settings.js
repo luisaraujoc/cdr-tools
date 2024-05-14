@@ -1,95 +1,101 @@
-// Constantes para seletores frequentemente utilizados
-const configIcon = document.getElementById("configIcon");
-const configModal = document.getElementById("configModal");
-
-// Função para exibir o modal
-function showConfigModal() {
-    configModal.classList.add("show", "d-block");
-    configModal.setAttribute("aria-modal", "true");
-    configModal.focus();
-}
-
-// Função para ocultar o modal
-function hideConfigModal() {
-    configModal.classList.remove("show", "d-block");
-    configModal.setAttribute("aria-modal", "false");
-}
-
-// Adiciona um ouvinte de evento de clique ao ícone de configuração
-configIcon.addEventListener("click", function () {
-    showConfigModal();
-});
-
-// Adiciona um ouvinte de evento de clique ao botão fechar do modal
-configModal.querySelector(".btn-close").addEventListener("click", function () {
-    hideConfigModal();
-});
-
-// Adiciona um ouvinte de evento de clique ao botão salvar do modal
-configModal.querySelector("#saveButton").addEventListener("click", function () {
-    // Adicione aqui a lógica para salvar as configurações
-    hideConfigModal();
-});
-
-
-// drag and drop para parametrização dos nomes dos arquivos
-// apenas pega a ordem dos elementos e manda para arquivo de configuração do backend
 document.addEventListener("DOMContentLoaded", function() {
-  const availableOptions = document.getElementById("availableOptions");
-  const selectedOptions = document.getElementById("selectedOptions");
+    let nomePacienteBoo = false; // 1
+    let nomeMedicoBoo = false; // 2
+    let numExameBoo = false; // 3
+    let dataExameBoo = false; // 4
+    
+    
+    const filenamePatternInput = document.getElementById("examePadrao");
+    let filenamePattern = 'exame';
 
-  // Adicionar evento de clique às opções disponíveis
-  availableOptions.addEventListener("click", function(event) {
-      if (event.target.tagName === "LI") {
-          const option = event.target;
-          moveOption(option, availableOptions, selectedOptions);
-      }
-  });
+    let padraoValores = [];
 
-  // Adicionar evento de clique às opções selecionadas
-  selectedOptions.addEventListener("click", function(event) {
-      if (event.target.tagName === "LI") {
-          const option = event.target;
-          moveOption(option, selectedOptions, availableOptions);
-      }
-  });
+    // add event listener to li item
+    document.getElementById("numExame").addEventListener("click", () => {
+        if (!numExameBoo){
+            filenamePattern += "_{numExame}";
+            padraoValores.push(3);
+            console.log(padraoValores);
+            renderizarPadraoValores();
+            numExameBoo = true;
+        }
+    });
+    document.getElementById("nomeMedico").addEventListener("click", () => {
+        if (!nomeMedicoBoo){
+            filenamePattern+= "_{nomeMedico}";
+            padraoValores.push(2);
+            console.log(padraoValores);
+            renderizarPadraoValores();
+            nomeMedicoBoo = true;
+        }
+    });
+    document.getElementById("dataExame").addEventListener("click", () => {
+        if (!dataExameBoo){
+            filenamePattern += "_{dataExame}";
+            padraoValores.push(4);
+            console.log(padraoValores);
+            renderizarPadraoValores();
+            dataExameBoo = true;
+        }
+    });
+    document.getElementById("nomePaciente").addEventListener("click", () => {
+        if (!nomePacienteBoo){
+            filenamePattern += "_{nomePaciente}";
+            padraoValores.push(1);
+            console.log(padraoValores);
+            renderizarPadraoValores();
+            nomePacienteBoo = true;
+        }
+    });
 
-  // Função para mover a opção entre as listas
-  function moveOption(option, fromList, toList) {
-      option.remove(); // Remover a opção da lista atual
-      toList.appendChild(option); // Adicionar a opção à nova lista
-  }
+    function renderizarPadraoValores() {
+        // Cria uma string com os valores de padraoValores separados por vírgula
+        const padraoString = padraoValores.join(", ");
+        // Atribui a string à div examePadrao
+        document.getElementById("examePadrao").textContent = filenamePattern;
 
-  // Vincular evento de clique ao botão "Salvar"
-  const saveButton = document.getElementById("saveButton");
-  saveButton.addEventListener("click", savePattern);
+    }
 
-  // Função para salvar o padrão de nome
-  function savePattern() {
-      const selectedOptionItems = selectedOptions.querySelectorAll("li");
-      const pattern = Array.from(selectedOptionItems).map(option => option.dataset.value).join("-");
-      const filenamePattern = pattern + ".arquivo";
-      document.getElementById("filenamePattern").innerText = filenamePattern;
 
-      // Enviar o padrão de nome para o servidor Node.js via fetch API
-      fetch("http://seu-servidor-nodejs.com/salvar-padrao", {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ pattern: filenamePattern }),
-      })
-      .then((response) => {
-          if (!response.ok) {
-              throw new Error("Erro ao enviar o padrão de nome.");
-          }
-          return response.json();
-      })
-      .then((data) => {
-          console.log("Padrão de nome enviado com sucesso:", data);
-      })
-      .catch((error) => {
-          console.error("Erro:", error);
-      });
-  }
+    const configIcon = document.getElementById("configIcon");
+    const configModal = document.getElementById("configModal");
+
+    function showConfigModal() {
+        configModal.classList.add("show", "d-block");
+        configModal.setAttribute("aria-modal", "true");
+        configModal.focus();
+    }
+
+    function hideConfigModal() {
+        configModal.classList.remove("show", "d-block");
+        configModal.setAttribute("aria-modal", "false");
+    }
+
+    configIcon.addEventListener("click", function () {
+        showConfigModal();
+    });
+
+    configModal.querySelector(".btn-close").addEventListener("click", function () {
+        hideConfigModal();
+    });
+
+    configModal.querySelector("#saveButton").addEventListener("click", function () {
+        const filenamePattern = filenamePatternInput.value;
+
+        fetch('http://localhost:3000/api/salvar-padrao', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ pattern: filenamePattern }),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Padrão de nome salvo com sucesso:', data);
+                hideConfigModal();
+            })
+            .catch((error) => {
+                console.error('Erro ao salvar o padrão de nome:', error);
+            });
+    });
 });

@@ -2093,3 +2093,16 @@ z"/>
 
     return content
 }
+
+const generateFileName = (pattern, {}) => {
+    let exame = document.getElementById("exame");
+    let medicoSolicitante = document.getElementById("medicoSolicitante");
+    let dataExame = document.getElementById("dataExame");
+    let nomePaciente = document.getElementById("nomeCompleto");
+
+    return pattern
+        .replace("{numExame}", exame)
+        .replace("{nomeMedico}", medicoSolicitante)
+        .replace("{dataExame}", dataExame)
+        .replace("{nomePaciente}", nomePaciente);
+};

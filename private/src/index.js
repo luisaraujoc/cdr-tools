@@ -13,17 +13,15 @@ const port = 3000;
 function readLastUsedId(filePath, callback) {
   fs.readFile(filePath, 'utf8', (err, dataJson) => {
     if (err && err.code === 'ENOENT') {
-      // Se o arquivo não existe, significa que nenhum médico foi adicionado ainda
-      callback(0); // Retorna ID 0
+      callback(0);
     } else if (err) {
       console.error('Erro ao ler o arquivo:', err);
       callback(null);
     } else {
       let jsonData = JSON.parse(dataJson);
       if (!Array.isArray(jsonData) || jsonData.length === 0) {
-        callback(0); // Se o arquivo estiver vazio ou não contiver um array válido, retorna ID 0
+        callback(0);
       } else {
-        // Encontra o maior ID existente
         const lastUsedId = jsonData.reduce((maxId, item) => Math.max(maxId, item.id), 0);
         callback(lastUsedId);
       }
@@ -36,20 +34,25 @@ app.use(bodyParser.json());
 
 app.post('/api/hitoricoEnfermagem/enviar', (req, res) => {
   const informacaoRecebida = req.body.html;
-  let dataAtual = new Date();
-  const hora = dataAtual.getHours();
-  const minutos = dataAtual.getMinutes();
-  const segundos = dataAtual.getSeconds();
-  const path = (`C:`,`Temp`, `PDF`, `historico_enfermagem_${hora}-${minutos}-${segundos}.pdf`)
+  const { exame, medicoSolicitante, dataExame, nomePaciente } = req.body.filename;
 
-  pdf.create(informacaoRecebida, {}).toFile(path, (err, res) => {
-    if (err) {
-      console.log(`Deu erro ${err}`)
-    } else {
-      console.log(res)
-    }
-  })
-  res.send({ boo: true });
+  const dataAtual = new Date();
+  // const hora = String(dataAtual.getHours()).padStart(2, '0');
+  // const minutos = String(dataAtual.getMinutes()).padStart(2, '0');
+  // const segundos = String(dataAtual.getSeconds()).padStart(2, '0');
+
+  const filename = generateFileName(filenamePattern, { exame, medicoSolicitante, dataExame, nomePaciente });
+  const pdfPath = path.join('C:', 'Temp', 'PDF', `${filename}.pdf`);
+
+  pdf.create(informacaoRecebida, {}).toFile(pdfPath, (err, result) => {
+      if (err) {
+          console.error(`Erro ao gerar PDF: ${err}`);
+          return res.status(500).send({ error: 'Erro ao gerar PDF' });
+      } else {
+          console.log(result);
+          res.send({ success: true, pdfPath });
+      }
+  });
 });
 
 
@@ -76,16 +79,14 @@ app.post('/api/addMedico/enviar', (req, res) => {
       }
     }
 
-    // Verifica se o CRM já existe no array jsonData
     for (let i = 0; i < jsonData.length; i++) {
       if (jsonData[i].crm === data.crm) {
         console.log('CRM já existe:', data.crm);
-        res.send({boo: false,  mes: "CRM ja existe no sistema"});
+        res.send({ boo: false, mes: "CRM já existe no sistema" });
         return;
       }
     }
 
-    // Se o CRM não existir no array, adiciona o novo médico
     jsonData.push(data);
 
     fs.writeFile(filePath, JSON.stringify(jsonData), 'utf8', (err) => {
@@ -95,13 +96,12 @@ app.post('/api/addMedico/enviar', (req, res) => {
         return;
       }
       console.log('Arquivo JSON atualizado com sucesso em:', filePath);
-      res.send({ boo: true, mes: "Sucesso"});
+      res.send({ boo: true, mes: "Sucesso" });
     });
   });
 });
 
-
-app.get('/api/listMedicos', (req, res) => { // Alterado o nome do parâmetro para req
+app.get('/api/listMedicos', (req, res) => {
   const directory = path.join(__dirname, 'json');
 
   if (!fs.existsSync(directory)) {
@@ -113,7 +113,7 @@ app.get('/api/listMedicos', (req, res) => { // Alterado o nome do parâmetro par
   fs.readFile(filePath, 'utf8', (err, dataJson) => {
     if (err && err.code !== 'ENOENT') {
       console.error('Erro ao ler o arquivo:', err);
-      res.status(500).send({ boo: false }); // Alterada a resposta para lidar com erro
+      res.status(500).send({ boo: false });
       return;
     }
 
@@ -124,7 +124,7 @@ app.get('/api/listMedicos', (req, res) => { // Alterado o nome do parâmetro par
 
     res.send(jsonData);
   });
-})
+});
 
 app.put('/api/editarMedico/:id', (req, res) => {
   const id = parseInt(req.params.id);
@@ -153,7 +153,6 @@ app.put('/api/editarMedico/:id', (req, res) => {
       return;
     }
 
-    // Atualiza os dados do médico
     jsonData[index] = { ...jsonData[index], ...data };
 
     fs.writeFile(filePath, JSON.stringify(jsonData), 'utf8', (err) => {
@@ -194,7 +193,6 @@ app.delete('/api/excluirMedico/:id', (req, res) => {
       return;
     }
 
-    // Remove o médico do array
     jsonData.splice(index, 1);
 
     fs.writeFile(filePath, JSON.stringify(jsonData), 'utf8', (err) => {
@@ -209,6 +207,21 @@ app.delete('/api/excluirMedico/:id', (req, res) => {
   });
 });
 
+// Novo endpoint para salvar o padrão de nome de arquivo
+app.post('/api/salvar-padrao', (req, res) => {
+  const pattern = req.body.pattern;
+  const filePath = path.join(__dirname, 'json', 'filenamePattern.json');
+
+  fs.writeFile(filePath, JSON.stringify({ pattern }), 'utf8', (err) => {
+    if (err) {
+      console.error('Erro ao salvar o padrão de nome:', err);
+      res.status(500).send({ boo: false, mes: "Erro ao salvar o padrão de nome" });
+      return;
+    }
+    console.log('Padrão de nome salvo com sucesso em:', filePath);
+    res.send({ boo: true, mes: "Padrão de nome salvo com sucesso" });
+  });
+});
 
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
