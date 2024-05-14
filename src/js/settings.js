@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // add event listener to li item
     document.getElementById("numExame").addEventListener("click", () => {
-        if (!numExameBoo){
+        if (!numExameBoo && padraoValores.length < 4){
             filenamePattern += "_{numExame}";
             padraoValores.push(3);
             console.log(padraoValores);
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
     document.getElementById("nomeMedico").addEventListener("click", () => {
-        if (!nomeMedicoBoo){
+        if (!nomeMedicoBoo && padraoValores.length < 4){
             filenamePattern+= "_{nomeMedico}";
             padraoValores.push(2);
             console.log(padraoValores);
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
     document.getElementById("dataExame").addEventListener("click", () => {
-        if (!dataExameBoo){
+        if (!dataExameBoo && padraoValores.length < 4){
             filenamePattern += "_{dataExame}";
             padraoValores.push(4);
             console.log(padraoValores);
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
     document.getElementById("nomePaciente").addEventListener("click", () => {
-        if (!nomePacienteBoo){
+        if (!nomePacienteBoo && padraoValores.length < 4){
             filenamePattern += "_{nomePaciente}";
             padraoValores.push(1);
             console.log(padraoValores);
