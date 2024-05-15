@@ -148,3 +148,22 @@
       transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
     }
   }
+
+  @media (max-width: 900px) {
+    .pessoaExame, .medicoEspecialidade, .pergunta{
+      margin: 0 ;
+      margin-left: 0;
+      margin-right: 0;
+      width: 100%;
+    }
+
+    .content{
+      padding: 0 80px;
+    }
+  }
+  @media (max-width: 750px) {
+    
+    .content{
+      padding: 0 30px;
+    }
+  }

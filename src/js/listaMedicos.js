@@ -15,8 +15,8 @@ function listaMedicos() {
                     <td>${medico.crm}</td>
                     <td class="d-none medicoId">${medico.id}</td>
                     <td>
-                        <button type='button' class='btn btn-outline-info editButton' data-id="${medico.id}" data-bs-toggle="modal" data-bs-target=".edit-modal">Editar</button>
-                        <button type='button' class='btn btn-danger deleteButton' data-id="${medico.id}" data-bs-toggle="modal" data-bs-target=".delete-modal">Excluir</button>
+                        <button type='button' class='btn btn-outline-info editButton bot' data-id="${medico.id}" data-bs-toggle="modal" data-bs-target=".edit-modal">Editar</button>
+                        <button type='button' class='btn btn-danger deleteButton bot' data-id="${medico.id}" data-bs-toggle="modal" data-bs-target=".delete-modal">Excluir</button>
                     </td>
                 `;
         tableBody.appendChild(row);
