@@ -1939,7 +1939,7 @@ z"/>
             
         </div>
 
-        <div id="q13 question">
+        <div id="q13 question" class="q13t">
             <div class="q">13. Já realizou TC anteriormente?</div>
             <div id="qan">${textq13}</div>
             
@@ -1963,7 +1963,7 @@ z"/>
           
         </div>
 
-        <div id="q17 question">
+        <div class="q17t">
             <div class="q">17. Usa Hipoglicemiante oral?</div>
             <div id="qan">${textq17}</div>
           
@@ -2076,12 +2076,11 @@ z"/>
             
             document.querySelector(".q12").innerHTML += '<div class="inf-q"><span><strong>Obs:</strong></span><span id="ans-inf">${q12Obs.value}</span></div>'
         }
-/*
+
         ${q13script}
 
-        if(q13){
-            
-            document.querySelector("#q13").innerHTML += '<div class="inf-q"><span><strong>Obs:</strong></span><span id="ans-inf">${q13Qual.value}</span></div>'
+       if(q13){
+            document.querySelector(".q13t").innerHTML += '<div class="inf-q"> <span> <strong>Obs:</strong> </span> <span id="ans-inf">${q13Qual.value}</span> </div>'
         }
 
         ${q14script}
@@ -2100,13 +2099,12 @@ z"/>
         if(q16){
             
             document.querySelector(".q16").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong></span><span id="ans-inf">${q16Qual.value}</span></div>'
-        }*/
+        }
 
         ${q17script}
 
         if(q17){
-            
-            document.querySelector("#q17").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong></span><span id="ans-inf">${q17Qual.value}</span></div>'
+            document.querySelector(".q17t").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong></span><span id="ans-inf">${q17Qual.value}</span></div>'
         }
         
     
