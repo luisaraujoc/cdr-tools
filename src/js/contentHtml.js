@@ -395,15 +395,17 @@ body {
 
 .text-head {
     float: right;
-    width: calc(50% - 10px);
+    width: calc(50% + 10px);
     height: 100%;
-    border: 1px black solid;
+    border-right: 1px black solid;
+    border-bottom: 1px black solid;
+    border-top: 1px black solid;
     position: relative;
 }
 .text-head h4{
     position: absolute;
       top: 40%;
-      left: 23%;
+      left: 21%;
       transform: translate(-50%, -50%);
 }
 
@@ -569,7 +571,7 @@ td:nth-child(3) {
 
 svg{
     height:115px;
-    width: 400px;
+    width: 350px;
 }
     </style>
      
