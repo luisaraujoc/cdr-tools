@@ -12,6 +12,11 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
+app.get('/api/', (req, res) => {
+  res.send('End point teste');
+});
+
+
 function generateFileName(data, dadosNomePdf){
 
   let nome = "historicoenfermagem"
