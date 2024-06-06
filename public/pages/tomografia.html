@@ -48,19 +48,16 @@
                             <!-- flex inline, input de Codigo, Revisão, Próxima revisão -->
                             <div class="form-group">
                                 <label for="codigo">Código:</label>
-                                <input type="text" class="form-control"
-                                    id="codigo">
+                                <input type="text" class="form-control" id="codigo">
                             </div>
                             <div class="form-group">
                                 <label for="revisao">Revisão:</label>
-                                <input type="text" class="form-control"
-                                    id="revisao">
+                                <input type="text" class="form-control" id="revisao">
                             </div>
                             <div class="form-group">
                                 <label for="proximaRevisao">Próxima Revisão:</label>
                                 <!-- input de mês e ano -->
-                                <input type="month" class="form-control"
-                                    id="proximaRevisao">
+                                <input type="month" class="form-control" id="proximaRevisao">
                             </div>
                         </div>
                     </div>
@@ -68,24 +65,20 @@
                         <div class="col-6 px-2">
                             <div class="form-group">
                                 <label for="nome">Nome do Paciente</label>
-                                <input type="text" class="form-control"
-                                    id="paciente">
+                                <input type="text" class="form-control" id="paciente">
                             </div>
                             <div class="form-group">
                                 <label for="protocolo">Protocolo</label>
-                                <input type="text" class="form-control"
-                                    id="protocolo">
+                                <input type="text" class="form-control" id="protocolo">
                             </div>
                             <div class="form-group">
                                 <label for="idade">Exame</label>
-                                <input type="text" class="form-control" id="idade"
-                                    placeholder="Tomografia de...">
+                                <input type="text" class="form-control" id="idade" placeholder="Tomografia de...">
                             </div>
                             <div class="form-group">
                                 <label for="medico">Médico Solicitante</label>
                                 <select class="form-select" id="medicoSolicitante">
-                                    <option selected disabled>Selecione o
-                                        Médico</option>
+                                    <option selected disabled>Selecione o Médico</option>
                                     <option value="1">Dr. Fulano</option>
                                     <option value="2">Dr. Beltrano</option>
                                     <option value="3">Dr. Ciclano</option>
@@ -93,8 +86,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="data">Data do Exame</label>
-                                <input type="date" name="data" class="form-control"
-                                    id="dataExame">
+                                <input type="date" name="data" class="form-control" id="dataExame">
                             </div>
                         </div>
                         <div class="col-6 px-2">
@@ -130,325 +122,311 @@
 
                 <div class="card perguntas d-flex justify-content-evenly mt-4">
                     <div class="card-body">
-                        <div class="form-group">
-                            <label for="motivo">1. Qual o motivo da solicitação
-                                do exame:</label>
-                            <textarea name id="motivoExame"
-                                class="form-control"></textarea>
+                        <div class="form-group py-2">
+                            <label for="motivo">1. Qual o motivo da solicitação do exame:</label>
+                            <textarea name id="motivoExame" class="form-control"></textarea>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group py-2">
                             <div>
-                                <label for="queixa">2. Qual a principal
-                                    queixa?</label>
-                                <input type="text" class="form-control"
-                                    id="principalQueixa">
+                                <label for="queixa">2. Qual a principal queixa?</label>
+                                <input type="text" class="form-control" id="principalQueixa">
                             </div>
                             <div>
                                 <label for>Há quanto tempo?</label>
-                                <input type="text" class="form-control"
-                                    id="tempoSintomas">
+                                <input type="text" class="form-control" id="tempoSintomas">
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label>3. Já realizou alguma cirurgia na área em
-                                estudo?</label>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input border-primary"
-                                    type="checkbox" role="switch"
-                                    id="flexSwitchCheckDefault cirurgiaArea">
-                                <label for="flexSwitchCheckChecked"
-                                    class="form-check-label">Sim</label>
+                        <div class="form-group py-2">
+                            <label>3. Já realizou alguma cirurgia na área em estudo?</label>
+                            <div class="form-check">
+                                <div class="sim">
+                                    <input class="form-check-input" type="radio" name="cirurgiaArea" id="cirurgiaAreaSim">
+                                    <label class="form-check-label" for="cirurgiaAreaSim">Sim</label>
+                                </div>
+                                <div class="nao">
+                                    <input class="form-check-input" type="radio" name="cirurgiaArea" id="cirurgiaAreaNao">
+                                    <label class="form-check-label" for="cirurgiaAreaNao">Não</label>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group py-2">
                             <label>4. Já realizou alguma outra cirurgia?</label>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input border-primary"
-                                    type="checkbox" role="switch"
-                                    id="flexSwitchCheckDefault outraCirurgia">
-                                <label for="flexSwitchCheckChecked"
-                                    class="form-check-label">Sim</label>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for>5. Já realizou Quimioterapia?</label>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input border-primary"
-                                    type="checkbox" role="switch"
-                                    id="flexSwitchCheckDefault fezQuimio">
-                                <label for="flexSwitchCheckChecked"
-                                    class="form-check-label">Sim</label>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label>6. É portador de alguma enfermidade
-                                conhecida?</label>
-                            <div
-                                class="form-group d-flex flex-column justify-content-evenly py-3">
-                                <div class="form-check ">
-                                    <input class="form-check-input"
-                                        type="checkbox" value="hipertensao"
-                                        id="hipertensao">
-                                    <label class="form-label form-check-label"
-                                        for="hipertensao">Hipertensão</label>
+                            <div class="form-check">
+                                <div class="sim">
+                                    <input class="form-check-input" type="radio" name="outraCirurgia" id="outraCirurgiaSim">
+                                    <label class="form-check-label" for="outraCirurgiaSim">Sim</label>
                                 </div>
-
-                                <div class="form-check ">
-                                    <input class="form-check-input"
-                                        type="checkbox" value="cardiopatias"
-                                        id="cardiopatias">
-                                    <label class="form-label"
-                                        for="cardiopatias">Cardiopatias</label>
-                                </div>
-
-                                <div class="form-check ">
-                                    <input class="form-check-input"
-                                        type="checkbox" value="diabetes"
-                                        id="diabetes">
-                                    <label class="form-label"
-                                        for="diabetes">Diabetes</label>
-                                </div>
-
-                                <div class="form-check ">
-                                    <input class="form-check-input"
-                                        type="checkbox"
-                                        value="insuficienciaRenal"
-                                        id="insuficienciaRenal">
-                                    <label class="form-label"
-                                        for="insuficienciaRenal">Insuficiência
-                                        Renal</label>
-                                </div>
-
-                                <div class="form-check ">
-                                    <input class="form-check-input"
-                                        type="checkbox" value="anemiaFalciforme"
-                                        id="anemiaFalciforme">
-                                    <label class="form-label"
-                                        for="anemiaFalciforme">Anemia
-                                        Falciforme</label>
-                                </div>
-
-                                <div class="form-check ">
-                                    <input type="checkbox" id="mielomaMultiplo"
-                                        value="mielomaMultiplo"
-                                        class="form-check-input">
-                                    <label for="mielomaMultiplo"
-                                        class="form-label">Mieloma
-                                        Múltiplo</label>
-                                </div>
-
-                                <div class="form-check ">
-                                    <input type="checkbox" id="asma"
-                                        value="asma" class="form-check-input">
-                                    <label for="asma"
-                                        class="form-label">Asma</label>
-                                </div>
-
-                                <div class="form-check ">
-                                    <input type="checkbox" id="rinite"
-                                        value="rinite" class="form-check-input">
-                                    <label for="rinite"
-                                        class="form-label">Rinite</label>
-                                </div>
-
-                                <div class="form-check ">
-                                    <input type="checkbox" id="outros"
-                                        value="outros" class="form-check-input">
-                                    <label for="outros"
-                                        class="form-label">Outros</label>
+                                <div class="nao">
+                                    <input class="form-check-input" type="radio" name="outraCirurgia" id="outraCirurgiaNao">
+                                    <label class="form-check-label" for="outraCirurgiaNao">Não</label>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label>7. Utiliza algum medicamento?</label>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input border-primary"
-                                    type="checkbox" role="switch"
-                                    id="flexSwitchCheckDefault usaMedicamento">
-                                <label for="flexSwitchCheckChecked"
-                                    class="form-check-label">Sim</label>
+                        <div class="form-group py-2">
+                            <label>5. Já realizou Quimioterapia?</label>
+                            <div class="form-check">
+                                <div class="sim">
+                                    <input class="form-check-input" type="radio" name="fezQuimio" id="fezQuimioSim">
+                                    <label class="form-check-label" for="fezQuimioSim">Sim</label>
+                                </div>
+                                <div class="nao">
+                                    <input class="form-check-input" type="radio" name="fezQuimio" id="fezQuimioNao">
+                                    <label class="form-check-label" for="fezQuimioNao">Não</label>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label>8. Possui algum tipo de alergia?</label>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input border-primary"
-                                    type="checkbox" role="switch"
-                                    id="flexSwitchCheckDefault alergia">
-                                <label for="flexSwitchCheckChecked"
-                                    class="form-check-label">Sim</label>
+                        <div class="form-group py-2">
+                            <label>6. É portador de alguma enfermidade conhecida?</label>
+                            <div class="form-group d-flex flex-column justify-content-evenly py-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="hipertensao" id="hipertensao">
+                                    <label class="form-label form-check-label" for="hipertensao">Hipertensão</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="cardiopatias" id="cardiopatias">
+                                    <label class="form-label" for="cardiopatias">Cardiopatias</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="diabetes" id="diabetes">
+                                    <label class="form-label" for="diabetes">Diabetes</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="insuficienciaRenal" id="insuficienciaRenal">
+                                    <label class="form-label" for="insuficienciaRenal">Insuficiência Renal</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="anemiaFalciforme" id="anemiaFalciforme">
+                                    <label class="form-label" for="anemiaFalciforme">Anemia falciforme</label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="alergiaMedicamentos" id="alergiaMedicamentos">
+                                    <label class="form-label" for="alergiaMedicamentos">Alergia a medicamentos</label>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label>9. Possui alguma alergia medicamentosa
-                                (iodo)?</label>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input border-primary"
-                                    type="checkbox" role="switch"
-                                    id="flexSwitchCheckDefault alergiaIodo">
-                                <label for="flexSwitchCheckChecked"
-                                    class="form-check-label">Sim</label>
+                        <div class="form-group py-2">
+                            <label>7. Possui Marcapasso?</label>
+                            <div class="form-check">
+                                <div class="sim">
+                                    <input class="form-check-input" type="radio" name="marcapasso" id="marcapassoSim">
+                                    <label class="form-check-label" for="marcapassoSim">Sim</label>
+                                </div>
+                                <div class="nao">
+                                    <input class="form-check-input" type="radio" name="marcapasso" id="marcapassoNao">
+                                    <label class="form-check-label" for="marcapassoNao">Não</label>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label>10. Possui alguma alergia alimentar
-                                (camarão/mariscos)?</label>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input border-primary"
-                                    type="checkbox" role="switch"
-                                    id="flexSwitchCheckDefault alergiaAlimentar">
-                                <label for="flexSwitchCheckChecked"
-                                    class="form-check-label">Sim</label>
+                        <div class="form-group py-2">
+                            <label>8. Já realizou Radioterapia?</label>
+                            <div class="form-check">
+                                <div class="sim">
+                                <input class="form-check-input" type="radio" name="fezRadio" id="fezRadioSim">
+                                <label class="form-check-label" for="fezRadioSim">Sim</label>
+                                </div>
+                                <div class="nao">
+                                <input class="form-check-input" type="radio" name="fezRadio" id="fezRadioNao">
+                                <label class="form-check-label" for="fezRadioNao">Não</label>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label>11. Tabagista?</label>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input border-primary"
-                                    type="checkbox" role="switch"
-                                    id="flexSwitchCheckDefault tabagista">
-                                <label for="flexSwitchCheckChecked"
-                                    class="form-check-label">Sim</label>
+                        <div class="form-group py-2">
+                            <label>9. Possui Aneurisma?</label>
+                            <div class="form-check">
+                                <div class="sim">
+                                <input class="form-check-input" type="radio" name="aneurisma" id="aneurismaSim">
+                                <label class="form-check-label" for="aneurismaSim">Sim</label>
+                                </div>
+                                <div class="nao">
+                                <input class="form-check-input" type="radio" name="aneurisma" id="aneurismaNao">
+                                <label class="form-check-label" for="aneurismaNao">Não</label>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label>12. Já fez tratamento para
-                                tuberculose?</label>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input border-primary"
-                                    type="checkbox" role="switch"
-                                    id="flexSwitchCheckDefault tratamentoTuberculose">
-                                <label for="flexSwitchCheckChecked"
-                                    class="form-check-label">Sim</label>
+                        <div class="form-group py-2">
+                            <label>10. Possui algum objeto metálico no corpo (Próteses, DIU, etc)?</label>
+                            <div class="form-check">
+                                <div class="sim">
+                                <input class="form-check-input" type="radio" name="objetoMetal" id="objetoMetalSim">
+                                <label class="form-check-label" for="objetoMetalSim">Sim</label>
+                                </div>
+                                <div class="nao">
+                                <input class="form-check-input" type="radio" name="objetoMetal" id="objetoMetalNao">
+                                <label class="form-check-label" for="objetoMetalNao">Não</label>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label>13. Já realizou TC anteriormente?</label>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input border-primary"
-                                    type="checkbox" role="switch"
-                                    id="flexSwitchCheckDefault realizouTomografia">
-                                <label for="flexSwitchCheckChecked"
-                                    class="form-check-label">Sim</label>
+                        <div class="form-group py-2">
+                            <label>11. Utiliza Alguma medicação de uso contínuo?</label>
+                            <div class="form-check">
+                                <div class="sim">
+                                    <input class="form-check-input" type="radio" name="medContinuo" id="medContinuoSim">
+                                    <label class="form-check-label" for="medContinuoSim">Sim</label>
+                                </div>
+                                <div class="nao">
+                                    <input class="form-check-input" type="radio" name="medContinuo" id="medContinuoNao">
+                                    <label class="form-check-label" for="medContinuoNao">Não</label>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label>14. Já realizou algum exame prévio da área em
-                                estudo?</label>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input border-primary"
-                                    type="checkbox" role="switch"
-                                    id="flexSwitchCheckDefault exameArea">
-                                <label for="flexSwitchCheckChecked"
-                                    class="form-check-label">Sim</label>
+                        <div class="form-group py-2">
+                            <label>12. Para Mulheres: Há alguma possibilidade de gravidez?</label>
+                            <div class="form-check">
+                                <div class="sim">
+                                <input class="form-check-input" type="radio" name="gravidez" id="gravidezSim">
+                                <label class="form-check-label" for="gravidezSim">Sim</label>
+                                </div>
+                                <div class="nao">
+                                <input class="form-check-input" type="radio" name="gravidez" id="gravidezNao">
+                                <label class="form-check-label" for="gravidezNao">Não</label>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label>15. Será realizdo algum tipo de
-                                anestesia?</label>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input border-primary"
-                                    type="checkbox" role="switch"
-                                    id="flexSwitchCheckDefault usouAnestesia">
-                                <label for="flexSwitchCheckChecked"
-                                    class="form-check-label">Sim</label>
+                        <div class="form-group py-2">
+                            <label>13. Possui alergia a algum medicamento?</label>
+                            <div class="form-check">
+                                <div class="sim">
+                                <input class="form-check-input" type="radio" name="alergiaMedicamento" id="alergiaMedicamentoSim">
+                                <label class="form-check-label" for="alergiaMedicamentoSim">Sim</label>
+                                </div>
+                                <div class="nao">
+                                <input class="form-check-input" type="radio" name="alergiaMedicamento" id="alergiaMedicamentoNao">
+                                <label class="form-check-label" for="alergiaMedicamentoNao">Não</label>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label>16. Já realizou algum tipo de exame com uso
-                                de constraste iodado?</label>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input border-primary"
-                                    type="checkbox" role="switch"
-                                    id="flexSwitchCheckDefault usouContraste">
-                                <label for="flexSwitchCheckChecked"
-                                    class="form-check-label">Sim</label>
+                        <div class="form-group py-2">
+                            <label>14. Possui alguma restrição alimentar?</label>
+                            <div class="form-check">
+                                <div class="sim">
+                                <input class="form-check-input" type="radio" name="restricaoAlimentar" id="restricaoAlimentarSim">
+                                <label class="form-check-label" for="restricaoAlimentarSim">Sim</label>
+                                </div>
+                                <div class="nao">
+                                <input class="form-check-input" type="radio" name="restricaoAlimentar" id="restricaoAlimentarNao">
+                                <label class="form-check-label" for="restricaoAlimentarNao">Não</label>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label>17. Usa Hipoglicemiante oral?</label>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input border-primary"
-                                    type="checkbox" role="switch"
-                                    id="flexSwitchCheckDefault hipoglicemiadeOral">
-                                <label for="flexSwitchCheckChecked"
-                                    class="form-check-label">Sim</label>
+                        <div class="form-group py-2">
+                            <label>15. Tem alergia a algum contraste iodado?</label>
+                            <div class="form-check">
+                                <div class="sim">
+                                <input class="form-check-input" type="radio" name="alergiaContraste" id="alergiaContrasteSim">
+                                <label class="form-check-label" for="alergiaContrasteSim">Sim</label>
+
+                                <input class="form-check-input" type="radio" name="alergiaContraste" id="alergiaContrasteNao">
+                                <label class="form-check-label" for="alergiaContrasteNao">Não</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group py-2">
+                            <label>16. Já desmaiou alguma vez?</label>
+                            <div class="form-check">
+                                <div class="sim">
+                                    <input class="form-check-input" type="radio" name="desmaio" id="desmaioSim">
+                                    <label class="form-check-label" for="desmaioSim">Sim</label>
+                                </div>
+                                <div class="nao">
+                                    <input class="form-check-input" type="radio" name="desmaio" id="desmaioNao">
+                                    <label class="form-check-label" for="desmaioNao">Não</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group py-2">
+                            <label>17. Tem alguma fobia (como de lugares fechados, agulhas, etc)?</label>
+                            <div class="form-check">
+                                <div class="sim">
+                                    <input class="form-check-input" type="radio" name="fobia" id="fobiaSim">
+                                    <label class="form-check-label" for="fobiaSim">Sim</label>
+                                </div>
+                                <div class="nao">
+                                    <input class="form-check-input" type="radio" name="fobia" id="fobiaNao">
+                                    <label class="form-check-label" for="fobiaNao">Não</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group py-2">
+                            <label>18. Possui algum problema auditivo?</label>
+                            <div class="form-check">
+                                <div class="sim">
+                                    <input class="form-check-input" type="radio" name="problemaAuditivo" id="problemaAuditivoSim">
+                                    <label class="form-check-label" for="problemaAuditivoSim">Sim</label>
+                                </div>
+                                <div class="nao">
+                                    <input class="form-check-input" type="radio" name="problemaAuditivo" id="problemaAuditivoNao">
+                                    <label class="form-check-label" for="problemaAuditivoNao">Não</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group py-2">
+                            <label>19. Possui algum problema visual?</label>
+                            <div class="form-check">
+                                <div class="sim">
+                                    <input class="form-check-input" type="radio" name="problemaVisual" id="problemaVisualSim">
+                                    <label class="form-check-label" for="problemaVisualSim">Sim</label>
+                                </div>
+                                <div class="nao">
+                                    <input class="form-check-input" type="radio" name="problemaVisual" id="problemaVisualNao">
+                                    <label class="form-check-label" for="problemaVisualNao">Não</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group py-2">
+                            <label>20. Já teve alguma reação adversa durante um exame de imagem?</label>
+                            <div class="form-check">
+                                <div class="sim">
+                                    <input class="form-check-input" type="radio" name="reacaoAdversa" id="reacaoAdversaSim">
+                                    <label class="form-check-label" for="reacaoAdversaSim">Sim</label>
+                                </div>
+                                <div class="nao">
+                                    <input class="form-check-input" type="radio" name="reacaoAdversa" id="reacaoAdversaNao">
+                                    <label class="form-check-label" for="reacaoAdversaNao">Não</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group py-2">
+                            <label>21. Tem algum problema cardíaco?</label>
+                            <div class="form-check">
+                                <div class="sim">
+                                    <input class="form-check-input" type="radio" name="problemaCardiaco" id="problemaCardiacoSim">
+                                    <label class="form-check-label" for="problemaCardiacoSim">Sim</label>
+                                </div>
+                                <div class="nao">
+                                    <input class="form-check-input" type="radio" name="problemaCardiaco" id="problemaCardiacoNao">
+                                    <label class="form-check-label" for="problemaCardiacoNao">Não</label>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="card perguntas femininoExclusivo mt-4">
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label>18. Existe alguma possibilidade de estar
-                                grávida?</label>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input border-primary"
-                                    type="checkbox" role="switch"
-                                    id="flexSwitchCheckDefault possibilidadeGravidez">
-                                <label for="flexSwitchCheckChecked"
-                                    class="form-check-label">Sim</label>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label>19. Está amamentando?</label>
-                            <div class="form-check form-switch">
-                                <input class="form-check-input border-primary"
-                                    type="checkbox" role="switch"
-                                    id="flexSwitchCheckDefault amamentando">
-                                <label for="flexSwitchCheckChecked"
-                                    class="form-check-label">Sim</label>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label>20. Tipo de exame:</label>
-                            <input type="text" name="TipoExame" id="TipoExame"
-                                class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label>21. Orientação técnica:</label>
-                            <textarea name="OrientacaoMedica"
-                                id="OrientacaoMedica"
-                                class="form-control"></textarea>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-4 buttons ">
-                    <div class="card-body d-flex justify-content-center">
-                        <button type="button" class="btn btn-lg btn-primary mx-2"
-                            id="btnSalvar">Salvar</button>
-                        <button type="button" class="btn btn-lg btn-danger mx-2"
-                            id="btnCancelar">Visualizar</button>
-                    </div>
-                </div>
-
-                <div class="card-footer d-none">
-                    <div class="form-group">
-                        <label>Data:</label>
-                        <input class="form-control" type="date"
-                            id="DataPreenchimento">
-                    </div>
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
                 </div>
             </form>
         </div>
