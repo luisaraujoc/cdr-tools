@@ -284,7 +284,9 @@ const htmlToprint = () => {
     let idadePaciente = document.getElementById("idadeVal");
     let pesoPaciente = document.getElementById("peso");
     let alturaPaciente = document.getElementById("altura");
-    let procedimento = document.getElementById("procedimento");
+    let rgCpf = document.getElementById("procedimento");
+    
+    let telefone = document.getElementById("procedimento");
     let dataExame = document.getElementById("dataExame");
     let exame = document.getElementById("exame");
     let horaExame = document.getElementById("horaExame");
@@ -543,7 +545,6 @@ td:nth-child(3) {
 .q10,
 .q11,
 .q12,
-.q13,
 .q14,
 .q15,
 .q16,
@@ -1753,13 +1754,18 @@ z"/>
                     </div>
     
                     <div class="proced">
-                        <span>Procedimento:</span>
-                        <span id="procedAns">${procedimento.value}</span>
+                        <span>Rg ou CPF:</span>
+                        <span id="procedAns">${rgCpf.value}</span>
                     </div>
     
                     <div class="date">
                         <span>Data:</span>
                         <span id="dateAns">${converterData(dataExame.value)}</span>
+                    </div>
+
+                    <div class="proced">
+                        <span>Telefone:</span>
+                        <span id="procedAns">${telefone.value}</span>
                     </div>
                 </div>
     
@@ -1785,32 +1791,7 @@ z"/>
                 </li>
 
                 <li>
-                    <span>Hora:</span>
-                    <span id="time">${horaExame.value}</span>
-                </li>
-
-                <li>
-                    <span>PA:</span>
-                    <span id="pa">${paExame.value}</span>
-                </li>
-
-                <li>
-                    <span>FC:</span>
-                    <span id="fc">${fcExame.value}</span>
-                </li>
-
-                <li>
-                    <span>FR:</span>
-                    <span id="fr">${frExame.value}</span>
-                </li>
-
-                <li>
-                    <span>SPO2:</span>
-                    <span id="spo2">${spoExame.value}</span>
-                </li>
-
-                <li>
-                    <span>TAX:</span>
+                    <span>Protocolo:</span>
                     <span id="tax">${taxExame.value}</span>
                 </li>
             </ul>
@@ -1855,8 +1836,8 @@ z"/>
             <span class="q">Há quanto tempo: </span>
             <span id="an2#">${q2QntTempo.value}</span>
         </div>
-        </br>
-          <div class="q3 question">
+
+        <div class="q3 question">
             <div class="q">3. Já realizou alguma cirurgia na área em estudo?</div>
             <div id="qan">${textq3}</div>
             
@@ -1973,7 +1954,7 @@ z"/>
         </div>
 
         <div class="q14 question">
-            <div class="q">14. Já realizou algum exame prévio da área em estudo??</div>
+            <div class="q">14. Já realizou algum exame prévio da área em estudo?</div>
             <div id="qan">${textq14}</div>
             
         </div>
@@ -2015,12 +1996,12 @@ z"/>
         </div>
     </div>
 
-    <div class="assEntrevistador" style="margin-top: 80px;">
+    <div class="assEntrevistador" style="margin-top: 40px;">
         <span>Assinatura do paciente:</span>
         <span>___________________________________________</span>
     </div>
 
-    <div class="assEntrevistador" style="margin-top: 80px;">
+    <div class="assEntrevistador" style="margin-top: 40px;">
         <span>Assinatura do entrevistador:</span>
         <span>___________________________________________</span>
     </div>
