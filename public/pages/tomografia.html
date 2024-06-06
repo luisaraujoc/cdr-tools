@@ -1,64 +1,464 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../src/css/global.css">
-    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
-    <title>CDR Tools - Tomografia</title>
-</head>
-<body>
-    <!-- 
-        paciente
-        protocolo
-        exame
-        medicoSolicitante
-        DataExame
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../src/css/global.css">
+        <link rel="stylesheet"
+            href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet"
+            href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+        <title>CDR Tools - Tomografia</title>
+    </head>
+    <body>
 
-        -- variáveis de cada pergunta --
-        motivoExame
-        principalQueixa
-        tempoSintomas
-        cirurgiaArea
-        outraCirurgia
-        fezQuimio
-        tempoQuimio
-        portadorDoenca
-        quaisDoencas <- array
-        usaMedicamento
-        quaisMedicamentos
-        possuiAlergia
-        quaisAlergias
-        meciamentosAlergia
-        quaisMedicamentosAlergia
-        tabagista
-        tratamentoTuberculose
-        realizouTomografia
-        qualTomografia
-        intercorrenciasTomografia
-        qualIntercorrenciaTomografia
-        exameArea
-        quaisExamesArea
-        usouAneastesia
-        exameContraste
-        qualExameContraste
-        intercorrenciasContraste
-        qualIntercorrenciaContraste
-        hipoglicemiadeOral
+        <!-- loading -->
+        <!-- <div class="loading" id="loading">
+        <div class="loader">
+            <div class="inner one"></div>
+            <div class="inner two"></div>
+            <div class="inner three"></div>
+        </div>
+    </div> -->
 
-        --- Exclusivo sexo feminino ---
-        possivelGravidez
-        amamentando
+        <!-- nav -->
+        <div
+            class="navbar bg-body-tertiary border-bottom border- border-warning rounded-bottom d-flex justify-content-evenly">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand">
+                    <img src="../../src/img/logo.png" alt="logo" class="logo">
+                </a>
+                <div class="navbar-brand">
+                    <h5>Tomografia</h5>
+                </div>
+                <div class="nav-item">
+                    <a href="./formularios.html" class="nav-link"
+                        id="configIcon">
+                        <i
+                            class="bi bi-arrow-left-square-fill"></i><span>Voltar</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <form>
+                <div class="card d-flex justify-content-evenly mt-4">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-evenly px2">
+                            <!-- flex inline, input de Codigo, Revisão, Próxima revisão -->
+                            <div class="form-group">
+                                <label for="codigo">Código:</label>
+                                <input type="text" class="form-control"
+                                    id="codigo">
+                            </div>
+                            <div class="form-group">
+                                <label for="revisao">Revisão:</label>
+                                <input type="text" class="form-control"
+                                    id="revisao">
+                            </div>
+                            <div class="form-group">
+                                <label for="proximaRevisao">Próxima Revisão:</label>
+                                <!-- input de mês e ano -->
+                                <input type="month" class="form-control"
+                                    id="proximaRevisao">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body d-flex justify-content-evenly">
+                        <div class="col-6 px-2">
+                            <div class="form-group">
+                                <label for="nome">Nome do Paciente</label>
+                                <input type="text" class="form-control"
+                                    id="paciente">
+                            </div>
+                            <div class="form-group">
+                                <label for="protocolo">Protocolo</label>
+                                <input type="text" class="form-control"
+                                    id="protocolo">
+                            </div>
+                            <div class="form-group">
+                                <label for="idade">Exame</label>
+                                <input type="text" class="form-control" id="idade"
+                                    placeholder="Tomografia de...">
+                            </div>
+                            <div class="form-group">
+                                <label for="medico">Médico Solicitante</label>
+                                <select class="form-select" id="medicoSolicitante">
+                                    <option selected disabled>Selecione o
+                                        Médico</option>
+                                    <option value="1">Dr. Fulano</option>
+                                    <option value="2">Dr. Beltrano</option>
+                                    <option value="3">Dr. Ciclano</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="data">Data do Exame</label>
+                                <input type="date" name="data" class="form-control"
+                                    id="dataExame">
+                            </div>
+                        </div>
+                        <div class="col-6 px-2">
+                            <div class="form-group">
+                                <label for="dn">DN:</label>
+                                <input type="text" class="form-control" id="dn">
+                            </div>
+                            <div class="form-group d-flex flex-row justify-content-evenly">
+                                <div class="col-6 pe-2">
+                                    <label for="peso">Peso:</label>
+                                    <input type="number" class="form-control" id="peso" placeholder="54.4">
+                                </div>
+                                <div class="col-6 ps-2">
+                                    <label for="altura">Altura:</label>
+                                    <input type="number" class="form-control" id="altura" placeholder="1.80m ou 180cm">
+                                </div>
+                            </div>
+                            <div class="form-group d-flex flex-row justify-content-evenly">
+                                <div class="col-6 pe-2">
+                                    <!-- RG ou CPF -->
+                                    <label for="rg">RG ou CPF:</label>
+                                    <input type="text" class="form-control" id="rgCPF">
+                                </div>
+                                <div class="col-6 ps-2">
+                                    <!-- Telefone -->
+                                    <label for="telefone">Telefone:</label>
+                                    <input type="text" class="form-control" id="telefone">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        TipoExame
-        OrientacaoMedica
-        DataPreenchimento
-     -->
+                <div class="card perguntas d-flex justify-content-evenly mt-4">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="motivo">1. Qual o motivo da solicitação
+                                do exame:</label>
+                            <textarea name id="motivoExame"
+                                class="form-control"></textarea>
+                        </div>
 
-     <script src="../../node_modules/@popperjs/core/dist/cjs/popper.js"></script>
-     <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
-     <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-     <script src="../../src/js/tomografiaPage.js"></script>
-</body>
+                        <div class="form-group">
+                            <div>
+                                <label for="queixa">2. Qual a principal
+                                    queixa?</label>
+                                <input type="text" class="form-control"
+                                    id="principalQueixa">
+                            </div>
+                            <div>
+                                <label for>Há quanto tempo?</label>
+                                <input type="text" class="form-control"
+                                    id="tempoSintomas">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>3. Já realizou alguma cirurgia na área em
+                                estudo?</label>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input border-primary"
+                                    type="checkbox" role="switch"
+                                    id="flexSwitchCheckDefault cirurgiaArea">
+                                <label for="flexSwitchCheckChecked"
+                                    class="form-check-label">Sim</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>4. Já realizou alguma outra cirurgia?</label>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input border-primary"
+                                    type="checkbox" role="switch"
+                                    id="flexSwitchCheckDefault outraCirurgia">
+                                <label for="flexSwitchCheckChecked"
+                                    class="form-check-label">Sim</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for>5. Já realizou Quimioterapia?</label>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input border-primary"
+                                    type="checkbox" role="switch"
+                                    id="flexSwitchCheckDefault fezQuimio">
+                                <label for="flexSwitchCheckChecked"
+                                    class="form-check-label">Sim</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>6. É portador de alguma enfermidade
+                                conhecida?</label>
+                            <div
+                                class="form-group d-flex flex-column justify-content-evenly py-3">
+                                <div class="form-check ">
+                                    <input class="form-check-input"
+                                        type="checkbox" value="hipertensao"
+                                        id="hipertensao">
+                                    <label class="form-label form-check-label"
+                                        for="hipertensao">Hipertensão</label>
+                                </div>
+
+                                <div class="form-check ">
+                                    <input class="form-check-input"
+                                        type="checkbox" value="cardiopatias"
+                                        id="cardiopatias">
+                                    <label class="form-label"
+                                        for="cardiopatias">Cardiopatias</label>
+                                </div>
+
+                                <div class="form-check ">
+                                    <input class="form-check-input"
+                                        type="checkbox" value="diabetes"
+                                        id="diabetes">
+                                    <label class="form-label"
+                                        for="diabetes">Diabetes</label>
+                                </div>
+
+                                <div class="form-check ">
+                                    <input class="form-check-input"
+                                        type="checkbox"
+                                        value="insuficienciaRenal"
+                                        id="insuficienciaRenal">
+                                    <label class="form-label"
+                                        for="insuficienciaRenal">Insuficiência
+                                        Renal</label>
+                                </div>
+
+                                <div class="form-check ">
+                                    <input class="form-check-input"
+                                        type="checkbox" value="anemiaFalciforme"
+                                        id="anemiaFalciforme">
+                                    <label class="form-label"
+                                        for="anemiaFalciforme">Anemia
+                                        Falciforme</label>
+                                </div>
+
+                                <div class="form-check ">
+                                    <input type="checkbox" id="mielomaMultiplo"
+                                        value="mielomaMultiplo"
+                                        class="form-check-input">
+                                    <label for="mielomaMultiplo"
+                                        class="form-label">Mieloma
+                                        Múltiplo</label>
+                                </div>
+
+                                <div class="form-check ">
+                                    <input type="checkbox" id="asma"
+                                        value="asma" class="form-check-input">
+                                    <label for="asma"
+                                        class="form-label">Asma</label>
+                                </div>
+
+                                <div class="form-check ">
+                                    <input type="checkbox" id="rinite"
+                                        value="rinite" class="form-check-input">
+                                    <label for="rinite"
+                                        class="form-label">Rinite</label>
+                                </div>
+
+                                <div class="form-check ">
+                                    <input type="checkbox" id="outros"
+                                        value="outros" class="form-check-input">
+                                    <label for="outros"
+                                        class="form-label">Outros</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>7. Utiliza algum medicamento?</label>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input border-primary"
+                                    type="checkbox" role="switch"
+                                    id="flexSwitchCheckDefault usaMedicamento">
+                                <label for="flexSwitchCheckChecked"
+                                    class="form-check-label">Sim</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>8. Possui algum tipo de alergia?</label>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input border-primary"
+                                    type="checkbox" role="switch"
+                                    id="flexSwitchCheckDefault alergia">
+                                <label for="flexSwitchCheckChecked"
+                                    class="form-check-label">Sim</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>9. Possui alguma alergia medicamentosa
+                                (iodo)?</label>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input border-primary"
+                                    type="checkbox" role="switch"
+                                    id="flexSwitchCheckDefault alergiaIodo">
+                                <label for="flexSwitchCheckChecked"
+                                    class="form-check-label">Sim</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>10. Possui alguma alergia alimentar
+                                (camarão/mariscos)?</label>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input border-primary"
+                                    type="checkbox" role="switch"
+                                    id="flexSwitchCheckDefault alergiaAlimentar">
+                                <label for="flexSwitchCheckChecked"
+                                    class="form-check-label">Sim</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>11. Tabagista?</label>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input border-primary"
+                                    type="checkbox" role="switch"
+                                    id="flexSwitchCheckDefault tabagista">
+                                <label for="flexSwitchCheckChecked"
+                                    class="form-check-label">Sim</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>12. Já fez tratamento para
+                                tuberculose?</label>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input border-primary"
+                                    type="checkbox" role="switch"
+                                    id="flexSwitchCheckDefault tratamentoTuberculose">
+                                <label for="flexSwitchCheckChecked"
+                                    class="form-check-label">Sim</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>13. Já realizou TC anteriormente?</label>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input border-primary"
+                                    type="checkbox" role="switch"
+                                    id="flexSwitchCheckDefault realizouTomografia">
+                                <label for="flexSwitchCheckChecked"
+                                    class="form-check-label">Sim</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>14. Já realizou algum exame prévio da área em
+                                estudo?</label>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input border-primary"
+                                    type="checkbox" role="switch"
+                                    id="flexSwitchCheckDefault exameArea">
+                                <label for="flexSwitchCheckChecked"
+                                    class="form-check-label">Sim</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>15. Será realizdo algum tipo de
+                                anestesia?</label>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input border-primary"
+                                    type="checkbox" role="switch"
+                                    id="flexSwitchCheckDefault usouAnestesia">
+                                <label for="flexSwitchCheckChecked"
+                                    class="form-check-label">Sim</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>16. Já realizou algum tipo de exame com uso
+                                de constraste iodado?</label>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input border-primary"
+                                    type="checkbox" role="switch"
+                                    id="flexSwitchCheckDefault usouContraste">
+                                <label for="flexSwitchCheckChecked"
+                                    class="form-check-label">Sim</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>17. Usa Hipoglicemiante oral?</label>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input border-primary"
+                                    type="checkbox" role="switch"
+                                    id="flexSwitchCheckDefault hipoglicemiadeOral">
+                                <label for="flexSwitchCheckChecked"
+                                    class="form-check-label">Sim</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card perguntas femininoExclusivo mt-4">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>18. Existe alguma possibilidade de estar
+                                grávida?</label>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input border-primary"
+                                    type="checkbox" role="switch"
+                                    id="flexSwitchCheckDefault possibilidadeGravidez">
+                                <label for="flexSwitchCheckChecked"
+                                    class="form-check-label">Sim</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>19. Está amamentando?</label>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input border-primary"
+                                    type="checkbox" role="switch"
+                                    id="flexSwitchCheckDefault amamentando">
+                                <label for="flexSwitchCheckChecked"
+                                    class="form-check-label">Sim</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>20. Tipo de exame:</label>
+                            <input type="text" name="TipoExame" id="TipoExame"
+                                class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label>21. Orientação técnica:</label>
+                            <textarea name="OrientacaoMedica"
+                                id="OrientacaoMedica"
+                                class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-4 buttons ">
+                    <div class="card-body d-flex justify-content-center">
+                        <button type="button" class="btn btn-lg btn-primary mx-2"
+                            id="btnSalvar">Salvar</button>
+                        <button type="button" class="btn btn-lg btn-danger mx-2"
+                            id="btnCancelar">Visualizar</button>
+                    </div>
+                </div>
+
+                <div class="card-footer d-none">
+                    <div class="form-group">
+                        <label>Data:</label>
+                        <input class="form-control" type="date"
+                            id="DataPreenchimento">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <script
+            src="../../node_modules/@popperjs/core/dist/cjs/popper.js"></script>
+        <script
+            src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+        <script
+            src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../../src/js/tomografiaPage.js"></script>
+    </body>
 </html>

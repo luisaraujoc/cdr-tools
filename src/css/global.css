@@ -3,36 +3,51 @@
   scrollbar-width: thin;
   scrollbar-color: #FFBD4A #C2C2C2;
 }*/
+@import url('./navbar.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+.form-control {
+  margin: 0.2em 0 0.8em 0;
+}
+
+.form-control label {
+  font-size: 1rem;
+  font-weight: 500;
+}
 
 /* Chrome, Edge and Safari */
 *::-webkit-scrollbar {
-    height: 5px;
-    width: 5px;
-  }
-  *::-webkit-scrollbar-track {
-    border-radius: 10px;
-    background-color: #C2C2C2;
-    border: 6px double #FFFFFF;
-  }
-  
-  *::-webkit-scrollbar-track:hover {
-    background-color: #E8E8E8;
-  }
-  
-  *::-webkit-scrollbar-track:active {
-    background-color: #FFFFFF;
-  }
-  
-  *::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background-color: #FFBD4A;
-  }
-  
-  *::-webkit-scrollbar-thumb:hover {
-    background-color: #DBA240;
-  }
-  
-  *::-webkit-scrollbar-thumb:active {
-    background-color: #DBA240;
-  }
-  
+  height: 5px;
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #C2C2C2;
+  border: 6px double #FFFFFF;
+}
+
+*::-webkit-scrollbar-track:hover {
+  background-color: #E8E8E8;
+}
+
+*::-webkit-scrollbar-track:active {
+  background-color: #FFFFFF;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #FFBD4A;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #DBA240;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: #DBA240;
+}
