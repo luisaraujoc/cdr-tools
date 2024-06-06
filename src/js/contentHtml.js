@@ -2042,7 +2042,7 @@ z"/>
         ${q10script}
 
         if(q10){
-            document.querySelector(".q10").innerHTML += '<div class="inf-q"><span><strong>Qual: </strong></span><span id="ans-inf">${q10Tempo.value}</span></div>'
+            document.querySelector(".q10").innerHTML += '<div class="inf-q"><span><strong>Por quanto tempo: </strong></span><span id="ans-inf">${q10Tempo.value}</span></div>'
         }
 
         ${q11script}

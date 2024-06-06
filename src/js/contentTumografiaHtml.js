@@ -1,3 +1,18 @@
+
+
+
+const radioButtonsq3 = document.querySelectorAll('input[name="quest3"]');
+let q3selected = false;
+radioButtonsq3.forEach(radioButton => {
+    radioButton.addEventListener('change', () => {
+        if (radioButton.value === "sim") {
+            q3selected = true;
+        } else if (radioButton.value === "nao") {
+            q3selected = false;
+        }
+    });
+});
+
 const radioButtonsq4 = document.querySelectorAll('input[name="quest4"]');
 let q4selected = false;
 radioButtonsq4.forEach(radioButton => {
@@ -10,81 +25,19 @@ radioButtonsq4.forEach(radioButton => {
     });
 });
 
-const radioButtonsq6 = document.querySelectorAll('input[name="quest6"]');
-let q6selected = false;
-radioButtonsq6.forEach(radioButton => {
+const radioButtonsq5 = document.querySelectorAll('input[name="quest5"]');
+let q5selected = false;
+radioButtonsq5.forEach(radioButton => {
     radioButton.addEventListener('change', () => {
         if (radioButton.value === "sim") {
-            q6selected = true;
+            q5selected = true;
         } else if (radioButton.value === "nao") {
-            q6selected = false;
+            q5selected = false;
         }
     });
 });
 
-const radioButtonsq7 = document.querySelectorAll('input[name="quest7"]');
-let q7selected = false;
-radioButtonsq7.forEach(radioButton => {
-    radioButton.addEventListener('change', () => {
-        if (radioButton.value === "sim") {
-            q7selected = true;
-        } else if (radioButton.value === "nao") {
-            q7selected = false;
-        }
-    });
-});
-
-const radioButtonsq7Answer = document.querySelectorAll('input[name="quest71Answer"]');
-let localGeralq7 = false;
-radioButtonsq7Answer.forEach(radioButton => {
-    radioButton.addEventListener('change', () => {
-        if (radioButton.value === "local") {            
-            localGeralq7 = true;
-        } else if (radioButton.value === "geral") {
-            localGeralq7 = false;
-        }
-    });
-});
-
-
-
-const radioButtonsq8 = document.querySelectorAll('input[name="quest8"]');
-let q8selected = false;
-radioButtonsq8.forEach(radioButton => {
-    radioButton.addEventListener('change', () => {
-        if (radioButton.value === "sim") {
-            q8selected = true;
-        } else if (radioButton.value === "nao") {
-            q8selected = false;
-        }
-    });
-});
-
-const radioButtonsq9 = document.querySelectorAll('input[name="quest9"]');
-let q9selected = false;
-radioButtonsq9.forEach(radioButton => {
-    radioButton.addEventListener('change', () => {
-        if (radioButton.value === "sim") {
-            q9selected = true;
-        } else if (radioButton.value === "nao") {
-            q9selected = false;
-        }
-    });
-});
-
-const radioButtonsq10 = document.querySelectorAll('input[name="quest10"]');
-let q10selected = false;
-radioButtonsq10.forEach(radioButton => {
-    radioButton.addEventListener('change', () => {
-        if (radioButton.value === "sim") {
-            q10selected = true;
-        } else if (radioButton.value === "nao") {
-            q10selected = false;
-        }
-    });
-});
-
-const radioButtonsq11 = document.querySelectorAll('.d-inp');
+const radioButtonsq6 = document.querySelectorAll('.d-inp');
 let hipertensao = false;
 let cardiopatias = false;
 let diabetes = false;
@@ -94,7 +47,7 @@ let mieloma = false;
 let asma = false;
 let rinite = false;
 let outros = false;
-radioButtonsq11.forEach(radioButton => {
+radioButtonsq6.forEach(radioButton => {
     radioButton.addEventListener('change', () => {
         switch (radioButton.name) {
             case 'hipertensao':
@@ -128,6 +81,66 @@ radioButtonsq11.forEach(radioButton => {
     });
 });
 
+const radioButtonsq7 = document.querySelectorAll('input[name="quest7"]');
+let q7selected = false;
+radioButtonsq7.forEach(radioButton => {
+    radioButton.addEventListener('change', () => {
+        if (radioButton.value === "sim") {
+            q7selected = true;
+        } else if (radioButton.value === "nao") {
+            q7selected = false;
+        }
+    });
+});
+
+const radioButtonsq8 = document.querySelectorAll('input[name="quest7"]');
+let q8selected = false;
+radioButtonsq8.forEach(radioButton => {
+    radioButton.addEventListener('change', () => {
+        if (radioButton.value === "sim") {
+            q8selected = true;
+        } else if (radioButton.value === "nao") {
+            q8selected = false;
+        }
+    });
+});
+
+const radioButtonsq9 = document.querySelectorAll('input[name="quest7"]');
+let q9selected = false;
+radioButtonsq9.forEach(radioButton => {
+    radioButton.addEventListener('change', () => {
+        if (radioButton.value === "sim") {
+            q9selected = true;
+        } else if (radioButton.value === "nao") {
+            q9selected = false;
+        }
+    });
+});
+
+const radioButtonsq10 = document.querySelectorAll('input[name="quest10"]');
+let q10selected = false;
+radioButtonsq10.forEach(radioButton => {
+    radioButton.addEventListener('change', () => {
+        if (radioButton.value === "sim") {
+            q10selected = true;
+        } else if (radioButton.value === "nao") {
+            q10selected = false;
+        }
+    });
+});
+
+const radioButtonsq11 = document.querySelectorAll('input[name="quest13"]');
+let q11selected = false;
+radioButtonsq11.forEach(radioButton => {
+    radioButton.addEventListener('change', () => {
+        if (radioButton.value === "sim") {
+            q11selected = true;
+        } else if (radioButton.value === "nao") {
+            q11selected = false;
+        }
+    });
+});
+
 const radioButtonsq12 = document.querySelectorAll('input[name="quest12"]');
 let q12selected = false;
 radioButtonsq12.forEach(radioButton => {
@@ -140,7 +153,7 @@ radioButtonsq12.forEach(radioButton => {
     });
 });
 
-const radioButtonsq13 = document.querySelectorAll('input[name="quest13"]');
+const radioButtonsq13 = document.querySelectorAll('input[name="quest12"]');
 let q13selected = false;
 radioButtonsq13.forEach(radioButton => {
     radioButton.addEventListener('change', () => {
@@ -164,7 +177,19 @@ radioButtonsq14.forEach(radioButton => {
     });
 });
 
-const radioButtonsq15 = document.querySelectorAll('input[name="quest15"]');
+const radioButtonsq14_1 = document.querySelectorAll('input[name="intercorrenciaCondict"]');
+let q14_1selected = false;
+radioButtonsq14_1.forEach(radioButton => {
+    radioButton.addEventListener('change', () => {
+        if (radioButton.value === "sim") {
+            q14_1selected = true;
+        } else if (radioButton.value === "nao") {
+            q14_1selected = false;
+        }
+    });
+});
+
+const radioButtonsq15 = document.querySelectorAll('input[name="quest12"]');
 let q15selected = false;
 radioButtonsq15.forEach(radioButton => {
     radioButton.addEventListener('change', () => {
@@ -176,22 +201,7 @@ radioButtonsq15.forEach(radioButton => {
     });
 });
 
-
-
-const radioButtonsq15_1 = document.querySelectorAll('input[name="intercorrenciaCondict"]');
-let q15_1selected = false;
-radioButtonsq15_1.forEach(radioButton => {
-    radioButton.addEventListener('change', () => {
-        if (radioButton.value === "sim") {
-            q15_1selected = true;
-        } else if (radioButton.value === "nao") {
-            q15_1selected = false;
-        }
-    });
-});
-
-
-const radioButtonsq16 = document.querySelectorAll('input[name="quest16"]');
+const radioButtonsq16 = document.querySelectorAll('input[name="quest12"]');
 let q16selected = false;
 radioButtonsq16.forEach(radioButton => {
     radioButton.addEventListener('change', () => {
@@ -199,18 +209,6 @@ radioButtonsq16.forEach(radioButton => {
             q16selected = true;
         } else if (radioButton.value === "nao") {
             q16selected = false;
-        }
-    });
-});
-
-const radioButtonsq16_1 = document.querySelectorAll('input[name="intercorrenciaCondict16"]');
-let q16_1selected = false;
-radioButtonsq16_1.forEach(radioButton => {
-    radioButton.addEventListener('change', () => {
-        if (radioButton.value === "sim") {
-            q16_1selected = true;
-        } else if (radioButton.value === "nao") {
-            q16_1selected = false;
         }
     });
 });
@@ -235,6 +233,18 @@ radioButtonsq18.forEach(radioButton => {
             q18selected = true;
         } else if (radioButton.value === "nao") {
             q18selected = false;
+        }
+    });
+});
+
+const radioButtonsq19 = document.querySelectorAll('input[name="amamentando"]');
+let q19selected = false;
+radioButtonsq19.forEach(radioButton => {
+    radioButton.addEventListener('change', () => {
+        if (radioButton.value === "sim") {
+            q19selected = true;
+        } else if (radioButton.value === "nao") {
+            q19selected = false;
         }
     });
 });
@@ -288,78 +298,81 @@ const htmlToprint = () => {
     let especialidade = document.getElementById("especialidade");
     let q1 = document.getElementById("q1");
     let q2 = document.getElementById("quest");
-    let q2QntTempo = document.getElementById("quanto-tempo");
-    let q3 = document.getElementById("quest3")
+    let q2QntTempo = document.getElementById("quanto-tempo");    
+    let q3 = q3selected;
+    let q3Qual = document.getElementById("quest31")
     let q4 = q4selected;
-    let q4Desde = document.getElementById("answerCondict")
-    let q5Exame = document.querySelectorAll(".q5exame")
-    let q5Valor = document.querySelectorAll(".q5valor")
-    let q5data = document.querySelectorAll(".q5data")
-    let q6 = q6selected;
-    let q6Quais = document.getElementById("condictVerifyAnswer")
+    let q4Qual = document.getElementById("quest41")
+    let q5 = q5selected;
+    let q5Qual = document.getElementById("quest51")
+    let q6Quais = document.getElementById("outrasEnfermidades")    
     let q7 = q7selected;
-    let q7C = localGeralq7;
+    let q7Qual = document.getElementById("quest71")  
     let q8 = q8selected;
-    let q8Qual = document.getElementById("quest81")    
+    let q8Qual = document.getElementById("quest81") 
     let q9 = q9selected;
-    let q9Qual = document.getElementById("quest91")
+    let q9Qual = document.getElementById("quest81") 
     let q10 = q10selected
-    let q10Tempo = document.getElementById("quest101")
-    let q11Quais = document.getElementById("outrasEnfermidades")
+    let q10Qual = document.getElementById("quest101")
+    let q11 = q11selected;
+    let q11Obs = document.getElementById("Observações");
     let q12 = q12selected;
-    let q12Qual = document.getElementById("alergiaAnswer")
+    let q12Obs = document.getElementById("alergiaAnswer")    
     let q13 = q13selected;
-    let q13Obs = document.getElementById("Observações");
+    let q13Qual = document.getElementById("alergiaAnswer")
     let q14 = q14selected;
+    let q14_1 = q14_1selected;
+    let q14Qual = document.getElementById("intercorrenciaText")    
     let q15 = q15selected;
-    let q15_1 = q15_1selected;
-    let q15_1Quais = document.getElementById("intercorrenciaText")
-    let q16 = q16selected;    
-    let q16_1 = q16_1selected;
-    let q16_1Quais = document.getElementById("intercorrenciaText16")
+    let q15Qual = document.getElementById("alergiaAnswer")
+    let q16 = q16selected;
+    let q16Qual = document.getElementById("alergiaAnswer")
     let q17 = q17selected;
-    let q18 = q18selected;
+    let q17Qual = document.getElementById("alergiaAnswer")
+    let q18 = q18selected;    
+    let q19 = q19selected;
 
     // variaveis que levarão texto para o html
+    let textq3 = simNaoStr(q3);  
     let textq4 = simNaoStr(q4);
-    let textq6 = simNaoStr(q6);
-    let textq7 = simNaoStr(q7);
-    let textq8 = simNaoStr(q8);    
-    let textq9 = simNaoStr(q9);
+    let textq5 = simNaoStr(q5);
+    let textq7 = simNaoStr(q7);  
+    let textq8 = simNaoStr(q8);      
+    let textq9 = simNaoStr(q9);  
     let textq10 = simNaoStr(q10);
+    let textq11 = simNaoStr(q11);
     let textq12 = simNaoStr(q12);
     let textq13 = simNaoStr(q13);
     let textq14 = simNaoStr(q14);
+    let textq14_1 = simNaoStr(q14_1);
     let textq15 = simNaoStr(q15);
-    let textq15_1 = simNaoStr(q15_1);
     let textq16 = simNaoStr(q16);
-    let textq16_1 = simNaoStr(q16_1);
     let textq17 = simNaoStr(q17);    
-    let textq18 = simNaoStr(q18);
-    let textq11Hipertensao = isSelected(hipertensao); 
-    let textq11Cardiopatias = isSelected(cardiopatias);
-    let textq11Diabetes = isSelected(diabetes);
-    let textq11Insurenal = isSelected(insurenal);
-    let textq11AnemiaFalci = isSelected(anemiaFalci);
-    let textq11Mieloma = isSelected(mieloma);
-    let textq11Asma = isSelected(asma);
-    let textq11Rinite = isSelected(rinite);
-    let textq11Outros = isSelected(outros);
+    let textq18 = simNaoStr(q18);     
+    let textq19 = simNaoStr(q19);
+    let textq6Hipertensao = isSelected(hipertensao); 
+    let textq6Cardiopatias = isSelected(cardiopatias);
+    let textq6Diabetes = isSelected(diabetes);
+    let textq6Insurenal = isSelected(insurenal);
+    let textq6AnemiaFalci = isSelected(anemiaFalci);
+    let textq6Mieloma = isSelected(mieloma);
+    let textq6Asma = isSelected(asma);
+    let textq6Rinite = isSelected(rinite);
+    let textq6Outros = isSelected(outros);    
+    let q3script = pergScritStr(q3, "q3"); 
     let q4script = pergScritStr(q4, "q4");
-    let q6script = pergScritStr(q6, "q6");
-    let q7script = pergScritStr(q7, "q7");
-    let q8script = pergScritStr(q8, "q8");    
-    let q9script = pergScritStr(q9, "q9");   
+    let q5script = pergScritStr(q5, "q5");
+    let q6script = pergScritStr(outros, "q6");
+    let q7script = pergScritStr(q7, "q7");   
+    let q8script = pergScritStr(q8, "q8");   
+    let q9script = pergScritStr(q9, "q8");   
     let q10script = pergScritStr(q10, "q10");
-    let q11script = pergScritStr(outros, "q11");
+    let q11script = pergScritStr(q11, "q11");
     let q12script = pergScritStr(q12, "q12");
     let q13script = pergScritStr(q13, "q13");
-    let q15script = pergScritStr(q15, "q15");    
-    let q15_1script = pergScritStr(q15_1, "q15_1");
-    let q16script = pergScritStr(q16, "q16");    
-    let q16_1script = pergScritStr(q16_1, "q16_1");
-    let q7Choose = q7C ? "Local" : "Geral";
-    let rowTable = funcRowTable(q5Exame, q5Valor, q5data);
+    let q14script = pergScritStr(q14, "q14");   
+    let q16script = pergScritStr(q16, "q16");        
+    let q17script = pergScritStr(q17, "q17");   
 
     
     let content = `<!DOCTYPE html>
@@ -1843,147 +1856,143 @@ z"/>
             <span id="an2#">${q2QntTempo.value}</span>
         </div>
         </br>
-        <div class="q3 question" style="flex-direction: column; align-items: start; gap: 5px;">
-            <span class="q">6. Exames prévios da área em estudo:</span>
-            <div class="q3Inner">
-                <span style="font-weight: bold;">Já realizou alguma cirurgia na área em estudo? </span></br>
-                <span id="q3an">${textq3}</span>
-                
-            </div>
+          <div class="q3 question">
+            <div class="q">3. Já realizou alguma cirurgia na área em estudo?</div>
+            <div id="qan">${textq3}</div>
+            
         </div>
 
         <div class="q4 question">
-            <div>
-                <span class="q">4. Está em Jejum?</span>
-                <span id="an4">${textq4}</span>
-            </div>            
-            
-        </div>
-
-        <div class="q5 tab">
-            <span class="q">5. Exames Laboratoriais:</span>
-
-            <table id="table-q5">
-                <tr>
-                    <th>Exames</th>
-                    <th>Valores</th>
-                    <th>Data</th>
-                </tr>               
-
-                ${rowTable}
-
-            </table>
-        </div>
-
-        <div class="q6 question" style="flex-direction: column; align-items: start; gap: 5px;">
-            <span class="q">6. Exames prévios da área em estudo:</span>
-            <div class="q6Inner">
-                <span style="font-weight: bold;">Trouxe verificação? </span></br>
-                <span id="q6an">${textq6}</span>
-                
-            </div>
-        </div>
-
-        <div class="question q7">
-            <div class="q">7. Será realizado algum tipo de anestesia?</div>
-            <div id="qan">${textq7}</div>
-            
-        </div>
-        <div class="q8 question">
-            <div class="q">8. Já realizou alguma cirurgia na área em estudo?</div>
-            <div id="qan">${textq8}</div>
-            
-        </div>
-        <div class="q9 question">
-            <div class="q">9. Já realizou alguma outra cirurgia?</div>
-            <div id="qan">${textq9}</div>
+            <div class="q">4. Já realizou alguma outra cirurgia?</div>
+            <div id="qan">${textq4}</div>
            
         </div>
-        <div class="q10 question">
-            <div class="q">10. Já realizou Quimioterapia?</div>
-            <div id="qan">${textq10}</div>
-            
-        </div>
-        <div class="q11 question">
-            <span class="q">11. É portador de alguma enfermidade conhecida?</span>
+
+        <div class="q5 question">
+            <div class="q">5. Já realizou Quimioterapia?</div>
+            <div id="qan">${textq5}</div>
+           
+        </div>   
+
+        <div class="q6 question">
+            <span class="q">6. É portador de alguma enfermidade conhecida?</span>
           
-            <div class="box-q11 qan">
+            <div class="box-q6 qan">
                 <span class="rad-choose">
-                    <span id="hipertensao">(${textq11Hipertensao})</span>
+                    <span id="hipertensao">(${textq6Hipertensao})</span>
                     <span>Hipertensão</span>
                 </span>
 
                 <span class="rad-choose">
-                    <span id="cardiopatias">(${textq11Cardiopatias})</span>
+                    <span id="cardiopatias">(${textq6Cardiopatias})</span>
                     <span>Cardiopatias</span>
                 </span>
 
                 <span class="rad-choose">
-                    <span id="diabetes">(${textq11Diabetes})</span>
+                    <span id="diabetes">(${textq6Diabetes})</span>
                     <span>Diabetes</span>
                 </span>
 
                 <span class="rad-choose">
-                    <span id="insuficienciaRenal">(${textq11Insurenal})</span>
+                    <span id="insuficienciaRenal">(${textq6Insurenal})</span>
                     <span>Insuficiencia Renal</span>
                 </span>
 
                 <span class="rad-choose">
-                    <span id="anemiaFalciforme">(${textq11AnemiaFalci})</span>
+                    <span id="anemiaFalciforme">(${textq6AnemiaFalci})</span>
                     <span>Anemia Falciforme</span>
                 </span>
 
                 <span class="rad-choose">
-                    <span id="mieloMultiplo">(${textq11Mieloma})</span>
+                    <span id="mieloMultiplo">(${textq6Mieloma})</span>
                     <span>Mielo Mútiplo</span>
                 </span>
 
                 <span class="rad-choose">
-                    <span id="asma">(${textq11Asma})</span>
+                    <span id="asma">(${textq6Asma})</span>
                     <span>Asma</span>
                 </span>
 
                 <span class="rad-choose">
-                    <span id="rinite">(${textq11Rinite})</span>
+                    <span id="rinite">(${textq6Rinite})</span>
                     <span>Rinite</span>
                 </span>
 
                 <span class="rad-choose">
-                    <span id="outros">(${textq11Outros})</span>
+                    <span id="outros">(${textq6Outros})</span>
                     <span>Outros:</span>
                 </span>
             </div>
            
             
+        </div>     
+
+        
+
+        <div class="question q7">
+            <div class="q">7. Utiliza algum medicamento?</div>
+            <div id="qan">${textq7}</div>
+            
+        </div>
+
+        <div class="question q8">
+            <div class="q">8. Possui algum tipo de alergia?</div>
+            <div id="qan">${textq8}</div>
+            
+        </div>
+
+         <div class="question q9">
+            <div class="q">9. Possui alguma alergia medicamentosa (iodo)?</div>
+            <div id="qan">${textq9}</div>
+            
+        </div>
+     
+        
+        <div class="q10 question">
+            <div class="q">10. Possui alguma alergia alimentar (camarão/mariscos)?</div>
+            <div id="qan">${textq10}</div>
+            
+        </div>
+
+          <div id="q11">
+            <div class="q">11. Tabagista?</div>
+            <div id="qan">${textq11}</div>
+           
         </div>
 
         <div class="q12 question">
-            <div class="q">12. Possui algum tipo de alergia medicamentosa ou alimentar (iodo, camarão, ovo, entre outros)?</div>
+            <div class="q">12. Já fez tratamento para tuberculose?</div>
             <div id="qan">${textq12}</div>
             
         </div>
 
-        <div id="q13">
-            <div class="q">13. Tabagista?</div>
+        <div class="q13 question">
+            <div class="q">13. Já realizou TC anteriormente?</div>
             <div id="qan">${textq13}</div>
-           
+            
         </div>
 
         <div class="q14 question">
-            <div class="q">14. Já fez tratamento para tuberculose?</div>
+            <div class="q">14. Já realizou algum exame prévio da área em estudo??</div>
             <div id="qan">${textq14}</div>
             
         </div>
 
         <div class="q15 question">
-            <div class="q">15. Já realizou Cineagicoronariografia e/ou Angioplastia Coronária anteriormente?</div>
-            <div id="qan">${textq15}</div>     
+            <div class="q">15. Será realizado algum tipo de anestesia?</div>
+            <div id="qan">${textq15}</div>    
 
         </div>
 
         <div class="q16 question">
-            <div class="q">16. Já realizou algum tipo de exame com uso de contrastante iodado (TC, Cateterismo Cardiado ou Urografia Excretora)?</div>
+            <div class="q">16. Já realizou algum tipo de exame com uso de contraste iodado? Por exemplo: TC, Cateterismo Cardíaco ou Urografia Excretora?</div>
             <div id="qan">${textq16}</div>
+          
+        </div>
+
+        <div class="q17 question">
+            <div class="q">17. Usa Hipoglicemiante oral?</div>
+            <div id="qan">${textq17}</div>
           
         </div>
 
@@ -1994,16 +2003,21 @@ z"/>
         </br>
         
         <div style="clear:left;">
-            <div class="q">17. Existe alguma possibilidade de estar grávida?</div>
-            <div id="qan">${textq17}</div>
-            
-        </div>
-
-        <div class="q18 question">
-            <div class="q">18. Está Amamentando? </div>
+            <div class="q">18. Existe alguma possibilidade de estar grávida?</div>
             <div id="qan">${textq18}</div>
             
         </div>
+
+        <div class="q19 question">
+            <div class="q">19. Está Amamentando? </div>
+            <div id="qan">${textq19}</div>
+            
+        </div>
+    </div>
+
+    <div class="assEntrevistador" style="margin-top: 80px;">
+        <span>Assinatura do paciente:</span>
+        <span>___________________________________________</span>
     </div>
 
     <div class="assEntrevistador" style="margin-top: 80px;">
@@ -2012,30 +2026,45 @@ z"/>
     </div>
     <script>
 
+
+        ${q3script}
+
+        if(q3){
+            document.querySelector(".q3").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong> ${q3Qual.value}:</span><span id="ans-inf"></span></div>'
+        }        
+
         ${q4script}
+
         if(q4){
-            document.querySelector(".q4").innerHTML += "<div><span class='q'><strong>Desde que horarios?</strong> Desde às </span> <span id='time-fasting'>${q4Desde.value}</span></div>"
+            document.querySelector(".q4").innerHTML += '<div class="inf-q"><span> <strong> Qual: </strong> </span><span id="ans-inf">${q4Qual.value}</span></div>'
+        }
+
+         ${q5script}
+
+        if(q5){
+            document.querySelector(".q5").innerHTML += '<div class="inf-q"><span> <strong> Tempo: </strong> </span><span id="ans-inf">${q5Qual.value}</span></div>'
         }
 
         ${q6script}
+
         
         if(q6){
-            document.querySelector(".q6Inner").innerHTML += "<div class='inf-q' style='margin-top: 5px;'><span style='font-weight: bold;'>Quais:</span> <span id='ans-inf' style='word-wrap: reak-word; overflow: hidden; text-overflow: ellipsis; max-width: 1200px;'>${q6Quais.value}</span></div>"        
+            document.querySelector(".q6").innerHTML +=  "<div class='inf-q' style='margin-top: 5px;'><span style='font-weight: bold;'><strong>Quais:</strong></span> <span id='ans-inf' style='word-wrap: reak-word; overflow: hidden; text-overflow: ellipsis; max-width: 1200px;'>${q6Quais.value}</span></div>"        
         }
-
+        
         ${q7script}
 
         if(q7){
-            document.querySelector(".q7").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong> ${q7Choose}</span><span id="ans-inf"></span></div>'
+            document.querySelector(".q7").innerHTML += '<div class="inf-q"><span> <strong> Qual: </strong> </span><span id="ans-inf">${q7Qual.value}</span></div>'
         }
-
+        
         ${q8script}
 
         if(q8){
-            document.querySelector(".q8").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong> ${q8Qual.value}:</span><span id="ans-inf"></span></div>'
+            document.querySelector(".q8").innerHTML += '<div class="inf-q"><span> <strong> Qual: </strong> </span><span id="ans-inf">${q8Qual.value}</span></div>'
         }
 
-        ${q9script}
+         ${q9script}
 
         if(q9){
             document.querySelector(".q9").innerHTML += '<div class="inf-q"><span> <strong> Qual: </strong> </span><span id="ans-inf">${q9Qual.value}</span></div>'
@@ -2044,52 +2073,53 @@ z"/>
         ${q10script}
 
         if(q10){
-            document.querySelector(".q10").innerHTML += '<div class="inf-q"><span><strong>Qual: </strong></span><span id="ans-inf">${q10Tempo.value}</span></div>'
+            document.querySelector(".q10").innerHTML += '<div class="inf-q"><span><strong>Qual: </strong></span><span id="ans-inf">${q10Qual.value}</span></div>'
         }
 
+        
         ${q11script}
 
-        
         if(q11){
-            document.querySelector(".q11").innerHTML +=  "<div class='inf-q' style='margin-top: 5px;'><span style='font-weight: bold;'><strong>Quais:</strong></span> <span id='ans-inf' style='word-wrap: reak-word; overflow: hidden; text-overflow: ellipsis; max-width: 1200px;'>${q11Quais.value}</span></div>"        
+            document.querySelector("#q11").innerHTML += '<div class="inf-q"><span><strong>Obs:</strong></span><span id="ans-inf">${q11Obs.value}</span></div>'
         }
 
         ${q12script}
 
         if(q12){
             
-            document.querySelector(".q12").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong></span><span id="ans-inf">${q12Qual.value}</span></div>'
+            document.querySelector(".q12").innerHTML += '<div class="inf-q"><span><strong>Obs:</strong></span><span id="ans-inf">${q12Obs.value}</span></div>'
         }
 
         ${q13script}
 
         if(q13){
-            document.querySelector("#q13").innerHTML += '<div class="inf-q"><span><strong>Obs:</strong></span><span id="ans-inf">${q13Obs.value}</span></div>'
+            
+            document.querySelector(".q13").innerHTML += '<div class="inf-q"><span><strong>Obs:</strong></span><span id="ans-inf">${q13Qual.value}</span></div>'
         }
 
-        ${q15script}
+        ${q14script}
         
        
-        if(q15){
-            document.querySelector(".q15").innerHTML += '<div class="obsq15" style="margin-top: 5px;"><span class="q">Aconteceu alguma intercorrência?</span><span id="obsans15">${textq15_1}</span></div>'
-        }
+        if(q14){
 
-        ${q15_1script}
-
-        if(q15_1){
-            document.querySelector(".q15").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong></span><span id="ans-inf">${q15_1Quais.value}</span></div>'
+            document.querySelector(".q14").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong></span><span id="ans-inf">${q14Qual.value}</span></div>'
+        
+            document.querySelector(".q14").innerHTML += '<div class="obsq15" style="margin-top: 5px;"><span class="q">Trouxe para comparação?</span><span id="obsans14">${textq14_1}</span></div>'
+              
         }
 
         ${q16script}
 
         if(q16){
-            document.querySelector(".q16").innerHTML += '<div class="obsq16" style="margin-top: 5px;"><div class="q">Aconteceu alguma intercorrência?</div><div id="qan">${textq16_1}</div></div>'
+            
+            document.querySelector(".q16").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong></span><span id="ans-inf">${q16Qual.value}</span></div>'
         }
 
-        ${q16_1script}
+        ${q17script}
 
-        if(q16_1){
-            document.querySelector(".q16").innerHTML += '<div class="inf-obs"><span><strong>Qual:</strong></span><span id="ans-inf-obs">${q16_1Quais.value}</span></div>' 
+        if(q17){
+            
+            document.querySelector(".q17").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong></span><span id="ans-inf">${q17Qual.value}</span></div>'
         }
         
     
