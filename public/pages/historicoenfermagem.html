@@ -10,29 +10,33 @@
     
     <link rel="stylesheet" href="../../src/css/global.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.2.7/purify.min.js"></script>
-    <title>CDR - Histórico de Enfermagem</title>
+    <title>CDR - Novo Histórico de Enfermagem</title>
 </head>
 
 <body>
-  
-    
 
-    <div
-        class="navbar bg-body-tertiary border-bottom border- border-warning rounded-bottom d-flex justify-content-evenly">
+
+
+    <!-- nav -->
+    <div class="navbar bg-body-tertiary border-bottom border- border-warning rounded-bottom d-flex justify-content-evenly">
         <div class="container-fluid">
             <a href="#" class="navbar-brand">
                 <img src="../../src/img/logo.png" alt="logo" class="logo">
             </a>
             <div class="navbar-brand">
-                <h5>Histórico de Enfermagem</h5>
+                <h5>Anamnese Hemodinâmica</h5>
             </div>
             <div class="nav-item">
-                <a href="./formularios.html" class="nav-link" id="configIcon">
-                    <i class="bi bi-arrow-left-square-fill"></i><span>Voltar</span>
+                <a href="./formularios.html" class="nav-link"
+                    id="configIcon">
+                    <i
+                        class="bi bi-arrow-left-square-fill"></i><span>Voltar</span>
                 </a>
             </div>
         </div>
     </div>
+    <!-- nav -->
+
 
     <!-- Nav -->
     <div class="loading" id="loading">
@@ -66,430 +70,447 @@
     </div>
 
     <div class="content">
+
+    <!-- Container -->
+    <div class="container">
+
         <form action method="post">
-            <div class="pessoaExame d-flex justify-content-evenly">
-                <div class="form-group informacoes-pessoais col-8 p-2">
-                    <!-- Nome -->
-                    <div class="nome">
-                        <label for="nomeCompleto">Nome Completo:</label>
-                        <input type="text" name="nomeCompleto" id="nomeCompleto" class="form-control">
-                    </div>
-                    <!-- Idade -->
-                    <div class="idade col-12 d-flex justify-content-between">
-                        <div class="leftIdade col-6">
-                            <label for="dataNascimento">Data de
-                                Nascimento</label>
-                            <input type="date" name="dataNascimento" id="dataNascimento" class="form-control">
-                        </div>
-                        <div class="rightIdade col-4">
-                            <label for="idadeVal">Idade: </label>
-                            <input type="text" name="idadeVal" id="idadeVal" class="form-control" disabled>
-                        </div>
-                    </div>
-                    <!-- Peso e altura -->
-                    <div class="pesoAltura d-flex justify-content-between col-12">
-                        <div class="peso">
-                            <label for="peso">Peso:</label>
-                            <input type="number" name="peso" id="peso" class="form-control">
-                        </div>
-                        <div class="altura">
-                            <label for="altura">Altura</label>
-                            <input type="number" name="altura" id="altura" class="form-control">
-                        </div>
-                    </div>
-                    <div class="procedimentoData d-flex justify-content-between col-12">
-                        <div class="col-6">
-                            <label for="procedimento">Procedimento:</label>
-                            <input type="text" name="procedimento" id="procedimento" class="form-control">
-                        </div>
-                        <div class="col-5">
-                            <label for="dataExame">Data:</label>
-                            <input type="date" name="dataExame" id="dataExame" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-field sobreExame col-3 d-flex flex-column">
-                    <label for="exame">Exame</label>
-                    <input type="text" name="exame" id="exame" class="form-control">
-                    <!--  -->
-                    <label for="horaExame">Hora:</label>
-                    <input type="time" name="horaExame" id="horaExame" class="form-control">
-                    <!--  -->
-                    <label for="paExame">PA:</label>
-                    <input type="text" name="paExame" id="paExame" class="form-control">
-                    <!--  -->
-                    <label for="fcExame">FC:</label>
-                    <input type="text" name="fcExame" id="fcExame" class="form-control">
-                    <!--  -->
-                    <label for="frExame">FR</label>
-                    <input type="text" name="frExame" id="frExame" class="form-control">
-                    <!--  -->
-                    <label for="spo2Exame">SPO2</label>
-                    <input type="number" name="spo2Exame" id="spo2Exame" min="0" max="100" class="form-control">
-                    <!--  -->
-                    <label for="taxExame">TAX</label>
-                    <input type="text" name="taxExame" id="taxExame" class="form-control">
-                </div>
-            </div>
-            <div class="form-field mx-auto d-flex flex-row col-7 justify-content-between medicoEspecialidade">
-                <div class="form-group w-50 p-2">
-                    <label for="medicoSolicitante">Médico Solicitante:</label>
-                    <select name="medicoSolicitante" id="medicoSolicitante" class="form-select">
-                        <option>Selecione o médico...</option>
-
-                    </select>
-                </div>
-                <div class="form-group w-50 p-2">
-                    <label for="crm">CRM:</label>
-                    <input type="text" name="crm" id="crm" class="form-control" readonly>
-                </div>
-                <div class="form-group w-50 p-2">
-                    <label for="especialidade">Especialidade:</label>
-                    <input type="text" name="especialidade" id="especialidade" class="form-control" readonly>
-                </div>
-            </div>
-
-            <hr>
-            <div class="form-field perguntas">
-                <div class="pergunta form-group">
-                    <label for="quest" class="textPergunta">1. Qual o motivo
-                        da solicitação do exame: </label>
-                    <input type="text" name="quest" class="form-control" id="q1">
-                </div>
-                <div class="pergunta form-group d-flex flex-column">
-                    <label for="quest2">2. Qual a principal queixa?</label>
-                    <input type="text" name="quest2" id="quest" class="form-control">
-                    <label for="quantTempo" class="textPergunta">Há quanto
-                        tempo: </label>
-                    <input type="text" name="quantTempo" class="form-control" id="quanto-tempo">
-                </div>
-                <div class="pergunta form-group">
-                    <label for="quest3">3. Quais medicamentos de uso
-                        contínuo?</label>
-                    <textarea name="quest3" id="quest3" class="form-control"></textarea>
-                </div>
-                <div class="pergunta form-group">
-                    <!-- <label for="quest4">4. Está de Jejum?</label> -->
-                    <span>4. Está de Jejum?</span>
-                    <div class="form-check">
-                        <input type="radio" name="quest4" value="sim" class="form-check-input" id="q4true">
-                        <label for="quest4">Sim</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="radio" name="quest4" value="nao" class="form-check-input" id="q4false">
-                        <label for="quest4">Não</label>
-                    </div>
-                    <div class="hide condictanswer quest4">
-                        <label for="answerCondict">Desde às:</label>
-                        <input type="time" name="answerCondict" id="answerCondict" class="form-control">
-                    </div>
-                </div>
-                <div class="pergunta form-group">
-                    <span>5. Exames laboratoriais:</span>
-                    <div class="headerExames row mx-auto mt-3 border rounded-top">
-                        <div class="col d-flex justify-content-center">
-                            <span>Exames</span>
-                        </div>
-                        <div class="col d-flex justify-content-center">
-                            <span>Valor</span>
-                        </div>
-                        <div class="col d-flex justify-content-center">
-                            <span>Data</span>
-                        </div>
-                    </div>
-                    <div id="examesContainer">
-                        <div class="answersExames row">
-                            <div class="col">
-                                <input type="text" name="nameExames[]" class="form-control q5exame">
+            <div class="card mt-4">
+                <div class="card-body">
+                    <div class="d-flex">
+                        <div class="left col-8">
+                            <!-- Nome -->
+                            <div class="nome">
+                                <label for="nomeCompleto">Nome Completo:</label>
+                                <input type="text" name="nomeCompleto" id="nomeCompleto" class="form-control">
                             </div>
-                            <div class="col">
-                                <input type="number" name="valueExames[]" class="form-control q5valor">
+                            <!-- Idade -->
+                            <div class="idade col-12 d-flex justify-content-between">
+                                <div class="leftIdade col-6">
+                                    <label for="dataNascimento">Data de
+                                        Nascimento</label>
+                                    <input type="date" name="dataNascimento" id="dataNascimento" class="form-control">
+                                </div>
+                                <div class="rightIdade col-4">
+                                    <label for="idadeVal">Idade: </label>
+                                    <input type="text" name="idadeVal" id="idadeVal" class="form-control" disabled>
+                                </div>
                             </div>
-                            <div class="col">
-                                <input type="date" name="dateExames[]" class="form-control q5data">
+                            <!-- Peso e altura -->
+                            <div class="pesoAltura col-12 d-flex justify-content-between">
+                                <div class="leftPesoAltura col-6">
+                                    <label for="peso">Peso:</label>
+                                    <input type="text" name="peso" id="peso" class="form-control">
+                                </div>
+                                <div class="rightPesoAltura col-6">
+                                    <label for="altura">Altura:</label>
+                                    <input type="text" name="altura" id="altura" class="form-control">
+                                </div>
+                            </div>
+                            <!-- Procedimento e data -->
+                            <div class="procedimentoData col-12 d-flex justify-content-between">
+                                <div class="leftProcedimento col-6">
+                                    <label for="procedimento">Procedimento:</label>
+                                    <input type="text" name="procedimento" id="procedimento" class="form-control">
+                                </div>
+                                <div class="rightData col-6">
+                                    <label for="dataProcedimento">Data do Procedimento:</label>
+                                    <input type="date" name="dataProcedimento" id="dataProcedimento" class="form-control">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <button type="button" class="mt-3 p-2 btn btn-primary" id="addExame">
-                            Adicionar mais exames
-                        </button>
-                    </div>
-                </div>
-                <div class="pergunta form-group">
-                    <span>6. Exames prévios da área de estudo:</span>
-                    <label for="quest6" class="condict" id="condict">Trouxe
-                        para verificação?</label>
-                    <p>
-                        <input type="radio" name="quest6" id="answer q6true" value="sim" class="form-check-input"> Sim
-                    </p>
-                    <p>
-                        <input type="radio" name="quest6" id="answer q6false" value="nao" class="form-check-input"> Não
-                    </p>
-                    <div class="hide condictanswer VerifyAnswer">
-                        <label for="condictVerifyAnswer">Quais?</label>
-                        <input type="text" class="form-control" anme="condictVerifyAnswer" id="condictVerifyAnswer">
-                    </div>
-                </div>
-                <div class="pergunta form-group">
-                    <label for="quest7">7. Será realizado algum tipo de
-                        anestesia?</label>
-                    <div class="form-check">
-                        <input type="radio" name="quest7" id="anestAnswer q7true" class="form-check-input" value="sim">
-                        Sim
-                    </div>
-                    <div class="form-check">
-                        <input type="radio" name="quest7" id="anestAnswer q7false" class="form-check-input" value="nao">
-                        Não
-                    </div>
-                    <div class="hide condictAnestAnswer">
-                        <label for="quest71">Qual?</label>
-                        <div class="form-check">
-                            <input type="radio" name="quest71Answer" id="quest71Answer q7local" class="form-check-input"
-                                value="local">
-                            Local
+                        <div class="right col-3 ms-5">
+                            <label for="exame">Exame</label>
+                            <input type="text" name="exame" id="exame" class="form-control">
+                            <!--  -->
+                            <label for="horaExame">Hora:</label>
+                            <input type="time" name="horaExame" id="horaExame" class="form-control">
+                            <!--  -->
+                            <label for="paExame">PA:</label>
+                            <input type="text" name="paExame" id="paExame" class="form-control">
+                            <!--  -->
+                            <label for="fcExame">FC:</label>
+                            <input type="text" name="fcExame" id="fcExame" class="form-control">
+                            <!--  -->
+                            <label for="frExame">FR</label>
+                            <input type="text" name="frExame" id="frExame" class="form-control">
+                            <!--  -->
+                            <label for="spo2Exame">SPO2</label>
+                            <input type="number" name="spo2Exame" id="spo2Exame" min="0" max="100" class="form-control">
+                            <!--  -->
+                            <label for="taxExame">TAX</label>
+                            <input type="text" name="taxExame" id="taxExame" class="form-control">
                         </div>
-                        <div class="form-check">
-                            <input type="radio" name="quest71Answer" id="quest71Answer q7geral" class="form-check-input"
-                                value="geral">
-                            Geral
-                        </div>
-                    </div>
-                </div>
-                <div class="pergunta form-group">
-                    <label for="quest8">8. Já realizou alguma cirurgia na
-                        área
-                        de estudo?</label>
-                    <div class="form-check">
-                        <input type="radio" name="quest8" id="cirurgiaAnswer q8true" class="form-check-input"
-                            value="sim"> Sim
-                    </div>
-                    <div class="form-check">
-                        <input type="radio" name="quest8" id="cirurgiaAnswer q8false" class="form-check-input"
-                            value="nao"> Não
-                    </div>
-                    <div class="hide condictCirurgiaAnswer">
-                        <label for="quest81">Qual?</label>
-                        <input type="text" name="quest81" id="quest81" class="form-control">
-                    </div>
-                </div>
-                <div class="pergunta form-group">
-                    <span>9. Já realizou alguma outra cirurgia?</span>
-                    <div class="form-check">
-                        <input type="radio" name="quest9" id="outraCirurgiaAnswer q9true" class="form-check-input"
-                            value="sim">
-                        <label for="quest9">Sim</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="radio" name="quest9" id="outraCirurgiaAnswer q9false" class="form-check-input"
-                            value="nao">
-                        <label for="quest9">Não</label>
-                    </div>
-                    <div class="hide condictOutraCirurgiaAnswer">
-                        <label for="quest91">Qual?</label>
-                        <input type="text" name="quest91" id="quest91" class="form-control">
-                    </div>
-                </div>
-                <div class="pergunta form-group">
-                    <span>10. Já realizou Quimioterapia?</span>
-                    <div class="form-check">
-                        <input type="radio" name="quest10" id="quest10 q10true" class="form-check-input" value="sim">
-                        <label for="quest10">Sim</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="radio" name="quest10" id="quest10 q10false" class="form-check-input" value="nao">
-                        <label for="quest10">Não</label>
-                    </div>
-                    <div class="hide QuimioTempo">
-                        <label for="quest101">Por quanto tempo?</label>
-                        <input type="text" name="quest101" id="quest101" class="form-control">
-                    </div>
-                </div>
-                <div class="pergunta form-group">
-                    <span>11. É Portador de alguma enfermidade
-                        conhecida?</span>
-                    <div class="row">
-                        <div class="col form-check">
-                            <input type="checkbox" name="hipertensao" id="hipertensao" class="form-check-input d-inp">
-                            <label for="hipertensao">Hipertensão</label>
-                        </div>
-                        <div class="col form-check">
-                            <input type="checkbox" name="cardiopatias" id="cardiopatias" class="form-check-input d-inp">
-                            <label for="cardiopatias">Cardiopatias</label>
-                        </div>
-                        <div class="col form-check">
-                            <input type="checkbox" name="diabetes" id="diabetes" class="form-check-input d-inp">
-                            <label for="diabetes">Diabetes</label>
-                        </div>
-                        <div class="col form-check">
-                            <input type="checkbox" name="insurenal" id="insurenal" class="form-check-input d-inp">
-                            <label for="insurenal">Insuficiência
-                                Renal</label>
-                        </div>
-                        <div class="col form-check">
-                            <input type="checkbox" name="anemiaFalci" id="anemiaFalci" class="form-check-input d-inp">
-                            <label for="anemiaFalci">Anemia
-                                Falciforme</label>
-                        </div>
-                        <div class="col form-check">
-                            <input type="checkbox" name="mieloma" id="mieloma" class="form-check-input d-inp">
-                            <label for="mieloma">Mieloma Múltiplo</label>
-                        </div>
-                        <div class="col form-check">
-                            <input type="checkbox" name="asma" id="asma" class="form-check-input d-inp">
-                            <label for="asma">Asma</label>
-                        </div>
-                        <div class="col form-check">
-                            <input type="checkbox" name="rinite" id="rinite" class="form-check-input d-inp">
-                            <label for="rinite">Rinite</label>
-                        </div>
-                        <div class="col form-check">
-                            <input type="checkbox" name="outros" id="outros" class="form-check-input d-inp">
-                            <label for="outros">Outras</label>
-                        </div>
-                    </div>
-                    <div class="hide enfermidades">
-                        <label for="outrasEnfermidades">Quais?</label>
-                        <input type="text" name="outrasEnfermidades" id="outrasEnfermidades"
-                            class="form-control enfermidadeText">
-                    </div>
-                </div>
-                <div class="pergunta form-group">
-                    <span>
-                        12. Possui algum tipo de alergia medicamentosa ou
-                        alimentar (iodo, camarão, ovo, entre outros)?
-                    </span>
-                    <div class="form-check">
-                        <input type="radio" name="quest12" id="quest12" value="sim" class="form-check-input">
-                        <label for="quest12">Sim</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="radio" name="quest12" id="quest12" value="nao" class="form-check-input">
-                        <label for="quest12">Não</label>
-                    </div>
-                    <div class="hide alergia">
-                        <label for="alergiaAnswer">Qual?</label>
-                        <input type="text" name="alergiaAnswer" id="alergiaAnswer" class="form-control">
-                    </div>
-                </div>
-                <div class="pergunta form-group">
-                    <span>13. Tabagista?</span>
-                    <div class="form-check">
-                        <input type="radio" name="quest13" id="quest13" value="sim" class="form-check-input">
-                        <label for="quest13">Sim</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="radio" name="quest13" id="quest13" value="não" class="form-check-input">
-                        <label for="quest13">Não</label>
-                    </div>
-                    <div class="hide tabagista">
-                        <span>OBS.:</span>
-                        <input type="text" id="Observações" class="form-control">
-                    </div>
-                </div>
-                <div class="pergunta form-group">
-                    <span>14. Já fez tratamento para tuberculose?</span>
-                    <div class="form-check">
-                        <input type="radio" name="quest14" id="quest14" class="form-check-input" value="sim">
-                        <label for="quest14">Sim</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="radio" name="quest14" id="quest14" class="form-check-input" value="nao">
-                        <label for="quest14">Não</label>
-                    </div>
-                </div>
-                <div class="pergunta form-group">
-                    <span>15. Já realizou Cineangiocoronariografia e/ou
-                        Angioplastia Coronária anteriormente?</span>
-                    <div class="form-check">
-                        <input type="radio" name="quest15" id="quest15" class="form-check-input" value="sim">
-                        <label for="quest15">Sim</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="radio" name="quest15" id="quest15" class="form-check-input" value="nao">
-                        <label for="quest15">Não</label>
-                    </div>
-                    <div class="hide angio">
-                        <span>Aconteceu alguma intercorrência?</span>
-                        <div class="form-check">
-                            <input type="radio" name="intercorrenciaCondict" id="intercorrenciaCondict"
-                                class="form-check-input" value="sim">
-                            <label for="intercorrenciaCondict">Sim</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" name="intercorrenciaCondict" id="intercorrenciaCondict"
-                                class="form-check-input" value="nao">
-                            <label for="intercorrenciaCondict">Não</label>
-                        </div>
-                        <div class="hide intercorrenciaText">
-                            <span>Qual?</span>
-                            <input type="text" name="intercorrenciaText" id="intercorrenciaText" class="form-control">
-                        </div>
-                    </div>
-                </div>
-                <div class="pergunta form-group">
-                    <span>16. Já realizou algum tipo de exame com uso de contraste iodado (TC, Cateterismo Cardíaco ou
-                        Urografia Excretora)?</span>
-                    <div class="form-check">
-                        <input type="radio" name="quest16" id="quest16" class="form-check-input" value="sim">
-                        <label for="quest16">Sim</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="radio" name="quest16" id="quest16" class="form-check-input" value="nao">
-                        <label for="quest16">Não</label>
-                    </div>
-                    <div class="hide contra">
-                        <span>Aconteceu alguma intercorrência?</span>
-                        <div class="form-check">
-                            <input type="radio" name="intercorrenciaCondict16" id="intercorrenciaCondict"
-                                class="form-check-input" value="sim">
-                            <label for="intercorrenciaCondict">Sim</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" name="intercorrenciaCondict16" id="intercorrenciaCondict"
-                                class="form-check-input" value="nao">
-                            <label for="intercorrenciaCondict">Não</label>
-                        </div>
-                        <div class="hide intercorrenciaText">
-                            <span>Qual?</span>
-                            <input type="text" name="intercorrenciaText" id="intercorrenciaText16" class="form-control">
-                        </div>
-                    </div>
-                </div>
-
-                <!--  -->
-                <div class="pergunta separador">
-                    <hr>
-                    <h4>Exclusivo para o sexo feminino</h4>
-                </div>
-                <div class="pergunta form-group">
-                    <label for="pergunta1">17. Existe alguma possibilidade
-                        de estar grávida?</label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gravida" id="gravida_sim" value="sim">
-                        <label class="form-check-label" for="gravida_sim">Sim</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gravida" id="gravida_nao" value="nao">
-                        <label class="form-check-label" for="gravida_nao">Não</label>
-                    </div>
-                </div>
-                <div class="pergunta form-group">
-                    <label for="pergunta2">18. Está amamentando?</label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="amamentando" id="amamentando_sim"
-                            value="sim">
-                        <label class="form-check-label" for="amamentando_sim">Sim</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="amamentando" id="amamentando_nao"
-                            value="nao">
-                        <label class="form-check-label" for="amamentando_nao">Não</label>
                     </div>
                 </div>
             </div>
-            <div class="form-field"></div>
-
+    
+            <!-- médico solicitante, especialidade e crm -->
+            <div class="card mt-4">
+                <div class="card-body">
+                    <div class="d-flex justify-content-evenly">
+                        <div class="form-group">
+                            <label for="medicoSolicitante">Médico Solicitante:</label>
+                            <select name="medicoSolicitante" id="medicoSolicitante" class="form-control form-select">
+                                <option value="0" disabled>Selecione o médico solicitante</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="crm">CRM:</label>
+                            <input type="text" name="crm" id="crm" class="form-control" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="especialidade">Especialidade:</label>
+                            <input type="text" name="especialidade" id="especialidade" class="form-control" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- perguntas -->
+            <div class="card mt-4">
+                <div class="card-body m-5">
+                    <div class="pergunta form-group">
+                        <label for="quest" class="textPergunta">1. Qual o motivo
+                            da solicitação do exame: </label>
+                        <input type="text" name="quest" class="form-control" id="q1">
+                    </div>
+                    <div class="pergunta form-group d-flex flex-column">
+                        <label for="quest2">2. Qual a principal queixa?</label>
+                        <input type="text" name="quest2" id="quest" class="form-control">
+                        <label for="quantTempo" class="textPergunta">Há quanto
+                            tempo: </label>
+                        <input type="text" name="quantTempo" class="form-control" id="quanto-tempo">
+                    </div>
+                    <div class="pergunta form-group">
+                        <label for="quest3">3. Quais medicamentos de uso
+                            contínuo?</label>
+                        <textarea name="quest3" id="quest3" class="form-control"></textarea>
+                    </div>
+                    <div class="pergunta form-group">
+                        <!-- <label for="quest4">4. Está de Jejum?</label> -->
+                        <span>4. Está de Jejum?</span>
+                        <div class="form-check">
+                            <input type="radio" name="quest4" value="sim" class="form-check-input" id="q4true">
+                            <label for="quest4">Sim</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="quest4" value="nao" class="form-check-input" id="q4false">
+                            <label for="quest4">Não</label>
+                        </div>
+                        <div class="hide condictanswer quest4">
+                            <label for="answerCondict">Desde às:</label>
+                            <input type="time" name="answerCondict" id="answerCondict" class="form-control">
+                        </div>
+                    </div>
+                    <div class="pergunta form-group">
+                        <span>5. Exames laboratoriais:</span>
+                        <div class="headerExames row mx-auto mt-3 border rounded-top">
+                            <div class="col d-flex justify-content-center">
+                                <span>Exames</span>
+                            </div>
+                            <div class="col d-flex justify-content-center">
+                                <span>Valor</span>
+                            </div>
+                            <div class="col d-flex justify-content-center">
+                                <span>Data</span>
+                            </div>
+                        </div>
+                        <div id="examesContainer">
+                            <div class="answersExames row">
+                                <div class="col">
+                                    <input type="text" name="nameExames[]" class="form-control q5exame">
+                                </div>
+                                <div class="col">
+                                    <input type="number" name="valueExames[]" class="form-control q5valor">
+                                </div>
+                                <div class="col">
+                                    <input type="date" name="dateExames[]" class="form-control q5data">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="mt-3 p-2 btn btn-primary" id="addExame">
+                                Adicionar mais exames
+                            </button>
+                        </div>
+                    </div>
+                    <div class="pergunta form-group">
+                        <span>6. Exames prévios da área de estudo:</span>
+                        <label for="quest6" class="condict" id="condict">Trouxe
+                            para verificação?</label>
+                        <p>
+                            <input type="radio" name="quest6" id="answer q6true" value="sim" class="form-check-input"> Sim
+                        </p>
+                        <p>
+                            <input type="radio" name="quest6" id="answer q6false" value="nao" class="form-check-input"> Não
+                        </p>
+                        <div class="hide condictanswer VerifyAnswer">
+                            <label for="condictVerifyAnswer">Quais?</label>
+                            <input type="text" class="form-control" anme="condictVerifyAnswer" id="condictVerifyAnswer">
+                        </div>
+                    </div>
+                    <div class="pergunta form-group">
+                        <label for="quest7">7. Será realizado algum tipo de
+                            anestesia?</label>
+                        <div class="form-check">
+                            <input type="radio" name="quest7" id="anestAnswer q7true" class="form-check-input" value="sim">
+                            Sim
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="quest7" id="anestAnswer q7false" class="form-check-input" value="nao">
+                            Não
+                        </div>
+                        <div class="hide condictAnestAnswer">
+                            <label for="quest71">Qual?</label>
+                            <div class="form-check">
+                                <input type="radio" name="quest71Answer" id="quest71Answer q7local" class="form-check-input"
+                                    value="local">
+                                Local
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" name="quest71Answer" id="quest71Answer q7geral" class="form-check-input"
+                                    value="geral">
+                                Geral
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pergunta form-group">
+                        <label for="quest8">8. Já realizou alguma cirurgia na
+                            área
+                            de estudo?</label>
+                        <div class="form-check">
+                            <input type="radio" name="quest8" id="cirurgiaAnswer q8true" class="form-check-input"
+                                value="sim"> Sim
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="quest8" id="cirurgiaAnswer q8false" class="form-check-input"
+                                value="nao"> Não
+                        </div>
+                        <div class="hide condictCirurgiaAnswer">
+                            <label for="quest81">Qual?</label>
+                            <input type="text" name="quest81" id="quest81" class="form-control">
+                        </div>
+                    </div>
+                    <div class="pergunta form-group">
+                        <span>9. Já realizou alguma outra cirurgia?</span>
+                        <div class="form-check">
+                            <input type="radio" name="quest9" id="outraCirurgiaAnswer q9true" class="form-check-input"
+                                value="sim">
+                            <label for="quest9">Sim</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="quest9" id="outraCirurgiaAnswer q9false" class="form-check-input"
+                                value="nao">
+                            <label for="quest9">Não</label>
+                        </div>
+                        <div class="hide condictOutraCirurgiaAnswer">
+                            <label for="quest91">Qual?</label>
+                            <input type="text" name="quest91" id="quest91" class="form-control">
+                        </div>
+                    </div>
+                    <div class="pergunta form-group">
+                        <span>10. Já realizou Quimioterapia?</span>
+                        <div class="form-check">
+                            <input type="radio" name="quest10" id="quest10 q10true" class="form-check-input" value="sim">
+                            <label for="quest10">Sim</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="quest10" id="quest10 q10false" class="form-check-input" value="nao">
+                            <label for="quest10">Não</label>
+                        </div>
+                        <div class="hide QuimioTempo">
+                            <label for="quest101">Por quanto tempo?</label>
+                            <input type="text" name="quest101" id="quest101" class="form-control">
+                        </div>
+                    </div>
+                    <div class="pergunta form-group">
+                        <span>11. É Portador de alguma enfermidade
+                            conhecida?</span>
+                        <div class="row">
+                            <div class="col form-check">
+                                <input type="checkbox" name="hipertensao" id="hipertensao" class="form-check-input d-inp">
+                                <label for="hipertensao">Hipertensão</label>
+                            </div>
+                            <div class="col form-check">
+                                <input type="checkbox" name="cardiopatias" id="cardiopatias" class="form-check-input d-inp">
+                                <label for="cardiopatias">Cardiopatias</label>
+                            </div>
+                            <div class="col form-check">
+                                <input type="checkbox" name="diabetes" id="diabetes" class="form-check-input d-inp">
+                                <label for="diabetes">Diabetes</label>
+                            </div>
+                            <div class="col form-check">
+                                <input type="checkbox" name="insurenal" id="insurenal" class="form-check-input d-inp">
+                                <label for="insurenal">Insuficiência
+                                    Renal</label>
+                            </div>
+                            <div class="col form-check">
+                                <input type="checkbox" name="anemiaFalci" id="anemiaFalci" class="form-check-input d-inp">
+                                <label for="anemiaFalci">Anemia
+                                    Falciforme</label>
+                            </div>
+                            <div class="col form-check">
+                                <input type="checkbox" name="mieloma" id="mieloma" class="form-check-input d-inp">
+                                <label for="mieloma">Mieloma Múltiplo</label>
+                            </div>
+                            <div class="col form-check">
+                                <input type="checkbox" name="asma" id="asma" class="form-check-input d-inp">
+                                <label for="asma">Asma</label>
+                            </div>
+                            <div class="col form-check">
+                                <input type="checkbox" name="rinite" id="rinite" class="form-check-input d-inp">
+                                <label for="rinite">Rinite</label>
+                            </div>
+                            <div class="col form-check">
+                                <input type="checkbox" name="outros" id="outros" class="form-check-input d-inp">
+                                <label for="outros">Outras</label>
+                            </div>
+                        </div>
+                        <div class="hide enfermidades">
+                            <label for="outrasEnfermidades">Quais?</label>
+                            <input type="text" name="outrasEnfermidades" id="outrasEnfermidades"
+                                class="form-control enfermidadeText">
+                        </div>
+                    </div>
+                    <div class="pergunta form-group">
+                        <span>
+                            12. Possui algum tipo de alergia medicamentosa ou
+                            alimentar (iodo, camarão, ovo, entre outros)?
+                        </span>
+                        <div class="form-check">
+                            <input type="radio" name="quest12" id="quest12" value="sim" class="form-check-input">
+                            <label for="quest12">Sim</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="quest12" id="quest12" value="nao" class="form-check-input">
+                            <label for="quest12">Não</label>
+                        </div>
+                        <div class="hide alergia">
+                            <label for="alergiaAnswer">Qual?</label>
+                            <input type="text" name="alergiaAnswer" id="alergiaAnswer" class="form-control">
+                        </div>
+                    </div>
+                    <div class="pergunta form-group">
+                        <span>13. Tabagista?</span>
+                        <div class="form-check">
+                            <input type="radio" name="quest13" id="quest13" value="sim" class="form-check-input">
+                            <label for="quest13">Sim</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="quest13" id="quest13" value="não" class="form-check-input">
+                            <label for="quest13">Não</label>
+                        </div>
+                        <div class="hide tabagista">
+                            <span>OBS.:</span>
+                            <input type="text" id="Observações" class="form-control">
+                        </div>
+                    </div>
+                    <div class="pergunta form-group">
+                        <span>14. Já fez tratamento para tuberculose?</span>
+                        <div class="form-check">
+                            <input type="radio" name="quest14" id="quest14" class="form-check-input" value="sim">
+                            <label for="quest14">Sim</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="quest14" id="quest14" class="form-check-input" value="nao">
+                            <label for="quest14">Não</label>
+                        </div>
+                    </div>
+                    <div class="pergunta form-group">
+                        <span>15. Já realizou Cineangiocoronariografia e/ou
+                            Angioplastia Coronária anteriormente?</span>
+                        <div class="form-check">
+                            <input type="radio" name="quest15" id="quest15" class="form-check-input" value="sim">
+                            <label for="quest15">Sim</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="quest15" id="quest15" class="form-check-input" value="nao">
+                            <label for="quest15">Não</label>
+                        </div>
+                        <div class="hide angio">
+                            <span>Aconteceu alguma intercorrência?</span>
+                            <div class="form-check">
+                                <input type="radio" name="intercorrenciaCondict" id="intercorrenciaCondict"
+                                    class="form-check-input" value="sim">
+                                <label for="intercorrenciaCondict">Sim</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" name="intercorrenciaCondict" id="intercorrenciaCondict"
+                                    class="form-check-input" value="nao">
+                                <label for="intercorrenciaCondict">Não</label>
+                            </div>
+                            <div class="hide intercorrenciaText">
+                                <span>Qual?</span>
+                                <input type="text" name="intercorrenciaText" id="intercorrenciaText" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pergunta form-group">
+                        <span>16. Já realizou algum tipo de exame com uso de contraste iodado (TC, Cateterismo Cardíaco ou
+                            Urografia Excretora)?</span>
+                        <div class="form-check">
+                            <input type="radio" name="quest16" id="quest16" class="form-check-input" value="sim">
+                            <label for="quest16">Sim</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" name="quest16" id="quest16" class="form-check-input" value="nao">
+                            <label for="quest16">Não</label>
+                        </div>
+                        <div class="hide contra">
+                            <span>Aconteceu alguma intercorrência?</span>
+                            <div class="form-check">
+                                <input type="radio" name="intercorrenciaCondict16" id="intercorrenciaCondict"
+                                    class="form-check-input" value="sim">
+                                <label for="intercorrenciaCondict">Sim</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" name="intercorrenciaCondict16" id="intercorrenciaCondict"
+                                    class="form-check-input" value="nao">
+                                <label for="intercorrenciaCondict">Não</label>
+                            </div>
+                            <div class="hide intercorrenciaText">
+                                <span>Qual?</span>
+                                <input type="text" name="intercorrenciaText" id="intercorrenciaText16" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5>Exclusivo para sexo feminino</h5>
+                </div>
+                <div class="card-body m-5">
+                    <div class="pergunta form-group">
+                        <label for="pergunta1">17. Existe alguma possibilidade
+                            de estar grávida?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gravida" id="gravida_sim" value="sim">
+                            <label class="form-check-label" for="gravida_sim">Sim</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gravida" id="gravida_nao" value="nao">
+                            <label class="form-check-label" for="gravida_nao">Não</label>
+                        </div>
+                    </div>
+                    <div class="pergunta form-group">
+                        <label for="pergunta2">18. Está amamentando?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="amamentando" id="amamentando_sim"
+                                value="sim">
+                            <label class="form-check-label" for="amamentando_sim">Sim</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="amamentando" id="amamentando_nao"
+                                value="nao">
+                            <label class="form-check-label" for="amamentando_nao">Não</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
             <div class="form-group d-flex justify-content-center mx-auto my-2">
                 <button type="button" class="btn btn-lg btn-primary m-2" id="btn-salvar">Salvar</button>
                 <button type="button" class="btn btn-lg btn-dark m-2" id="btn-visualizar">Visualizar</button>
@@ -497,23 +518,6 @@
         </form>
     </div>
 
-    <!-- Pop-up Bootstrap -->
-    <!-- <div id="popupSave" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h4 class="modal-title">Salvo com Sucesso</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                O PDF foi salvo com sucesso em C:\Temp\
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                </div>
-            </div>
-            </div>
-        </div> -->
 
     <script src="../../src/js/script.js"></script>
     <script src="../../src/js/medicoSolicitante.js"></script>
@@ -521,15 +525,9 @@
     <script src="../../src/js/contentHtmlToShow.js"></script>
     <script src="../../src/js/geradorPdf.js"></script>
     <script src="../../src/js/mostrarPdf.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-        crossorigin="anonymous"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>
