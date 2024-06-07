@@ -7,11 +7,14 @@
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../src/css/style.css">
+    
+    <link rel="stylesheet" href="../../src/css/global.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.2.7/purify.min.js"></script>
     <title>CDR - Novo Histórico de Enfermagem</title>
 </head>
 
 <body>
+
 
 
     <!-- nav -->
@@ -34,8 +37,43 @@
     </div>
     <!-- nav -->
 
+
+    <!-- Nav -->
+    <div class="loading" id="loading">
+        <div class="loader">
+            <div class="inner one"></div>
+            <div class="inner two"></div>
+            <div class="inner three"></div>
+        </div>  
+    </div>
+
+    <div id="popupSuc" class="modal">
+        <div class="modal-content">
+            <div class="mensagem">
+                <img alt="Cadastro realizado!" src="../../src/img/gif.gif" class="checkGif" />
+
+                <p>Formulario enviado com sucesso!</p>
+                <a href="./historicoenfermagem.html" id="closeModalBtn">Fechar </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="popupFail" class="modal">
+        <div class="modal-content">
+            <div class="mensagem">
+                <img alt="Cadastro realizado!" src="../../src/img/cancelar.png" class="checkGif" />
+
+                <p>Falha ao enviar formulario!</p>
+                <a href="" id="closeModalBtn">Fechar</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+
     <!-- Container -->
     <div class="container">
+
         <form action method="post">
             <div class="card mt-4">
                 <div class="card-body">

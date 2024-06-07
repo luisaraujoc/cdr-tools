@@ -1,7 +1,7 @@
 
 
 
-const radioButtonsq3 = document.querySelectorAll('input[name="quest3"]');
+const radioButtonsq3 = document.querySelectorAll('input[name="cirurgia"]');
 let q3selected = false;
 radioButtonsq3.forEach(radioButton => {
     radioButton.addEventListener('change', () => {
@@ -13,7 +13,7 @@ radioButtonsq3.forEach(radioButton => {
     });
 });
 
-const radioButtonsq4 = document.querySelectorAll('input[name="quest4"]');
+const radioButtonsq4 = document.querySelectorAll('input[name="outraCirurgia"]');
 let q4selected = false;
 radioButtonsq4.forEach(radioButton => {
     radioButton.addEventListener('change', () => {
@@ -25,7 +25,7 @@ radioButtonsq4.forEach(radioButton => {
     });
 });
 
-const radioButtonsq5 = document.querySelectorAll('input[name="quest5"]');
+const radioButtonsq5 = document.querySelectorAll('input[name="quimioterapia"]');
 let q5selected = false;
 radioButtonsq5.forEach(radioButton => {
     radioButton.addEventListener('change', () => {
@@ -49,7 +49,7 @@ let rinite = false;
 let outros = false;
 radioButtonsq6.forEach(radioButton => {
     radioButton.addEventListener('change', () => {
-        switch (radioButton.name) {
+        switch (radioButton.value) {
             case 'hipertensao':
                 hipertensao = hipertensao ? false : true;
                 break;
@@ -59,13 +59,13 @@ radioButtonsq6.forEach(radioButton => {
             case 'diabetes':
                 diabetes = diabetes ? false : true;
                 break;
-            case 'insurenal':
+            case 'insuficienciaRenal':
                 insurenal = insurenal ? false : true;
                 break;
-            case 'anemiaFalci':
+            case 'anemiaFalciforme':
                 anemiaFalci = anemiaFalci ? false : true;
                 break;
-            case 'mieloma':
+            case 'mielomaMultiplo':
                 mieloma = mieloma ? false : true;
                 break;
             case 'asma':
@@ -81,7 +81,7 @@ radioButtonsq6.forEach(radioButton => {
     });
 });
 
-const radioButtonsq7 = document.querySelectorAll('input[name="quest7"]');
+const radioButtonsq7 = document.querySelectorAll('input[name="medicamento"]');
 let q7selected = false;
 radioButtonsq7.forEach(radioButton => {
     radioButton.addEventListener('change', () => {
@@ -93,7 +93,7 @@ radioButtonsq7.forEach(radioButton => {
     });
 });
 
-const radioButtonsq8 = document.querySelectorAll('input[name="quest7"]');
+const radioButtonsq8 = document.querySelectorAll('input[name="alergia"]');
 let q8selected = false;
 radioButtonsq8.forEach(radioButton => {
     radioButton.addEventListener('change', () => {
@@ -105,7 +105,7 @@ radioButtonsq8.forEach(radioButton => {
     });
 });
 
-const radioButtonsq9 = document.querySelectorAll('input[name="quest7"]');
+const radioButtonsq9 = document.querySelectorAll('input[name="alergiaMedicamentosa"]');
 let q9selected = false;
 radioButtonsq9.forEach(radioButton => {
     radioButton.addEventListener('change', () => {
@@ -117,7 +117,7 @@ radioButtonsq9.forEach(radioButton => {
     });
 });
 
-const radioButtonsq10 = document.querySelectorAll('input[name="quest10"]');
+const radioButtonsq10 = document.querySelectorAll('input[name="alergiaAlimentar"]');
 let q10selected = false;
 radioButtonsq10.forEach(radioButton => {
     radioButton.addEventListener('change', () => {
@@ -129,7 +129,7 @@ radioButtonsq10.forEach(radioButton => {
     });
 });
 
-const radioButtonsq11 = document.querySelectorAll('input[name="quest13"]');
+const radioButtonsq11 = document.querySelectorAll('input[name="tabagista"]');
 let q11selected = false;
 radioButtonsq11.forEach(radioButton => {
     radioButton.addEventListener('change', () => {
@@ -141,7 +141,7 @@ radioButtonsq11.forEach(radioButton => {
     });
 });
 
-const radioButtonsq12 = document.querySelectorAll('input[name="quest12"]');
+const radioButtonsq12 = document.querySelectorAll('input[name="tuberculose"]');
 let q12selected = false;
 radioButtonsq12.forEach(radioButton => {
     radioButton.addEventListener('change', () => {
@@ -153,7 +153,7 @@ radioButtonsq12.forEach(radioButton => {
     });
 });
 
-const radioButtonsq13 = document.querySelectorAll('input[name="quest12"]');
+const radioButtonsq13 = document.querySelectorAll('input[name="tcAnterior"]');
 let q13selected = false;
 radioButtonsq13.forEach(radioButton => {
     radioButton.addEventListener('change', () => {
@@ -165,7 +165,7 @@ radioButtonsq13.forEach(radioButton => {
     });
 });
 
-const radioButtonsq14 = document.querySelectorAll('input[name="quest14"]');
+const radioButtonsq14 = document.querySelectorAll('input[name="examePrevio"]');
 let q14selected = false;
 radioButtonsq14.forEach(radioButton => {
     radioButton.addEventListener('change', () => {
@@ -177,7 +177,7 @@ radioButtonsq14.forEach(radioButton => {
     });
 });
 
-const radioButtonsq14_1 = document.querySelectorAll('input[name="intercorrenciaCondict"]');
+const radioButtonsq14_1 = document.querySelectorAll('input[name="quest14_1"]');
 let q14_1selected = false;
 radioButtonsq14_1.forEach(radioButton => {
     radioButton.addEventListener('change', () => {
@@ -189,7 +189,7 @@ radioButtonsq14_1.forEach(radioButton => {
     });
 });
 
-const radioButtonsq15 = document.querySelectorAll('input[name="quest12"]');
+const radioButtonsq15 = document.querySelectorAll('input[name="anestesia"]');
 let q15selected = false;
 radioButtonsq15.forEach(radioButton => {
     radioButton.addEventListener('change', () => {
@@ -201,7 +201,7 @@ radioButtonsq15.forEach(radioButton => {
     });
 });
 
-const radioButtonsq16 = document.querySelectorAll('input[name="quest12"]');
+const radioButtonsq16 = document.querySelectorAll('input[name="contrasteIodado"]');
 let q16selected = false;
 radioButtonsq16.forEach(radioButton => {
     radioButton.addEventListener('change', () => {
@@ -213,7 +213,7 @@ radioButtonsq16.forEach(radioButton => {
     });
 });
 
-const radioButtonsq17 = document.querySelectorAll('input[name="gravida"]');
+const radioButtonsq17 = document.querySelectorAll('input[name="hipoglicemiante"]');
 let q17selected = false;
 radioButtonsq17.forEach(radioButton => {
     radioButton.addEventListener('change', () => {
@@ -225,7 +225,7 @@ radioButtonsq17.forEach(radioButton => {
     });
 });
 
-const radioButtonsq18 = document.querySelectorAll('input[name="amamentando"]');
+const radioButtonsq18 = document.querySelectorAll('input[name="possibilidadeGravidez"]');
 let q18selected = false;
 radioButtonsq18.forEach(radioButton => {
     radioButton.addEventListener('change', () => {
@@ -237,7 +237,7 @@ radioButtonsq18.forEach(radioButton => {
     });
 });
 
-const radioButtonsq19 = document.querySelectorAll('input[name="amamentando"]');
+const radioButtonsq19 = document.querySelectorAll('input[name="possibilidadeAmamentacao"]');
 let q19selected = false;
 radioButtonsq19.forEach(radioButton => {
     radioButton.addEventListener('change', () => {
@@ -279,60 +279,57 @@ const htmlToprint = () => {
     const isSelected = op => op ? 'x' : ' '; 
 
     
-    let nomePaciente = document.getElementById("nomeCompleto");
-    let dataNascimento = document.getElementById("dataNascimento");
-    let idadePaciente = document.getElementById("idadeVal");
+    let nomePaciente = document.getElementById("paciente");
+    let dataNascimento = document.getElementById("dn");
     let pesoPaciente = document.getElementById("peso");
     let alturaPaciente = document.getElementById("altura");
-    let rgCpf = document.getElementById("procedimento");
+    let rgCpf = document.getElementById("rgCPF");
     
-    let telefone = document.getElementById("procedimento");
+    let telefone = document.getElementById("telefone");
     let dataExame = document.getElementById("dataExame");
     let exame = document.getElementById("exame");
     let horaExame = document.getElementById("horaExame");
-    let paExame = document.getElementById("paExame");
-    let fcExame = document.getElementById("fcExame");
-    let frExame = document.getElementById("frExame");
-    let spoExame = document.getElementById("spo2Exame");
-    let taxExame = document.getElementById("taxExame");
+    let protocolo = document.getElementById("protocolo");
     let medicoSolicitante = document.getElementById("medicoSolicitante");
-    let crm = document.getElementById("crm");
-    let especialidade = document.getElementById("especialidade");
-    let q1 = document.getElementById("q1");
-    let q2 = document.getElementById("quest");
-    let q2QntTempo = document.getElementById("quanto-tempo");    
+
+    
+    let q1 = document.getElementById("motivoExame");
+    let q2 = document.getElementById("principalQueixa");
+    let q2QntTempo = document.getElementById("motivoExame");    
     let q3 = q3selected;
-    let q3Qual = document.getElementById("quest31")
+    let q3Qual = document.getElementById("motivoExame")
     let q4 = q4selected;
-    let q4Qual = document.getElementById("quest41")
+    let q4Qual = document.getElementById("motivoExame")
     let q5 = q5selected;
-    let q5Qual = document.getElementById("quest51")
-    let q6Quais = document.getElementById("outrasEnfermidades")    
+    let q5Qual = document.getElementById("motivoExame")
+    let q6Quais = document.getElementById("motivoExame")    
     let q7 = q7selected;
-    let q7Qual = document.getElementById("quest71")  
+    let q7Qual = document.getElementById("motivoExame")  
     let q8 = q8selected;
-    let q8Qual = document.getElementById("quest81") 
+    let q8Qual = document.getElementById("motivoExame") 
     let q9 = q9selected;
-    let q9Qual = document.getElementById("quest81") 
+    let q9Qual = document.getElementById("motivoExame") 
     let q10 = q10selected
-    let q10Qual = document.getElementById("quest101")
+    let q10Qual = document.getElementById("motivoExame")
     let q11 = q11selected;
-    let q11Obs = document.getElementById("Observações");
+    let q11Obs = document.getElementById("motivoExame");
     let q12 = q12selected;
-    let q12Obs = document.getElementById("alergiaAnswer")    
+    let q12Obs = document.getElementById("motivoExame")    
     let q13 = q13selected;
-    let q13Qual = document.getElementById("alergiaAnswer")
+    let q13Qual = document.getElementById("motivoExame")
     let q14 = q14selected;
     let q14_1 = q14_1selected;
-    let q14Qual = document.getElementById("intercorrenciaText")    
+    let q14Qual = document.getElementById("motivoExame")    
     let q15 = q15selected;
-    let q15Qual = document.getElementById("alergiaAnswer")
+    let q15Qual = document.getElementById("motivoExame")
     let q16 = q16selected;
-    let q16Qual = document.getElementById("alergiaAnswer")
+    let q16Qual = document.getElementById("motivoExame")
     let q17 = q17selected;
-    let q17Qual = document.getElementById("alergiaAnswer")
+    let q17Qual = document.getElementById("motivoExame")
     let q18 = q18selected;    
-    let q19 = q19selected;
+    let q19 = q19selected;    
+    let q20 = document.getElementById("TipoExame");
+    let q21 = document.getElementById("OrientacaoMedica");
 
     // variaveis que levarão texto para o html
     let textq3 = simNaoStr(q3);  
@@ -367,7 +364,7 @@ const htmlToprint = () => {
     let q6script = pergScritStr(outros, "q6");
     let q7script = pergScritStr(q7, "q7");   
     let q8script = pergScritStr(q8, "q8");   
-    let q9script = pergScritStr(q9, "q8");   
+    let q9script = pergScritStr(q9, "q9");   
     let q10script = pergScritStr(q10, "q10");
     let q11script = pergScritStr(q11, "q11");
     let q12script = pergScritStr(q12, "q12");
@@ -420,7 +417,7 @@ body {
 .text-head h4{
     position: absolute;
       top: 40%;
-      left: 21%;
+      left: 20%;
       transform: translate(-50%, -50%);
 }
 
@@ -1730,7 +1727,7 @@ M93.697449,64.631027
 z"/>
 </svg></div>
         <div class="text-head">            
-            <h4>HISTÓRICO DE ENFERMAGEM</h4>
+            <h4>QUESTIONÁRIO DE AVALIAÇÃO CLÍNICA</h4>
         </div>
     </div>
 
@@ -1770,11 +1767,7 @@ z"/>
                 </div>
     
                 <div class="right-info">
-                    <div class="age">
-                        <span>Idade: </span>
-                        <span id="ageAns">${idadePaciente.value}</span>
-                    </div>
-    
+                        
                     <div class="height">
                         <span>Altura:</span>
                         <span id="heightAns">${alturaPaciente.value}</span>
@@ -1792,7 +1785,7 @@ z"/>
 
                 <li>
                     <span>Protocolo:</span>
-                    <span id="tax">${taxExame.value}</span>
+                    <span id="tax">${protocolo.value}</span>
                 </li>
             </ul>
         </div>
@@ -1802,21 +1795,7 @@ z"/>
         <div class="box-docName">
             <span>Médico Solicitante: </span>
             <span id="doc-name">${medicoSolicitante.value}</span>
-        </div>
-
-        <div class="box-crm">
-            <span>CRM:</span>
-            <span id="crm">
-                ${crm.value}
-            </span>
-        </div>
-
-        <div class="box-spec">
-            <span>Especialidade</span>
-            <span id="area">
-                ${especialidade.value}
-            </span>
-        </div>        
+        </div>      
     </div>
 
     <div class="questions">
@@ -1836,7 +1815,7 @@ z"/>
             <span class="q">Há quanto tempo: </span>
             <span id="an2#">${q2QntTempo.value}</span>
         </div>
-
+        <br/>
         <div class="q3 question">
             <div class="q">3. Já realizou alguma cirurgia na área em estudo?</div>
             <div id="qan">${textq3}</div>
@@ -1947,7 +1926,7 @@ z"/>
             
         </div>
 
-        <div class="q13 question">
+        <div id="q13 question">
             <div class="q">13. Já realizou TC anteriormente?</div>
             <div id="qan">${textq13}</div>
             
@@ -1971,13 +1950,13 @@ z"/>
           
         </div>
 
-        <div class="q17 question">
+        <div id="q17 question">
             <div class="q">17. Usa Hipoglicemiante oral?</div>
             <div id="qan">${textq17}</div>
           
         </div>
 
-        
+        </br>
         <div class="q" style="font-size: 20px;">
             Exclusivo para o sexo feminino
         </div>
@@ -1993,6 +1972,20 @@ z"/>
             <div class="q">19. Está Amamentando? </div>
             <div id="qan">${textq19}</div>
             
+        </div>
+
+         <div class="q20 question">
+            <span class="q" style="width: 320px;">20 Qual o motivo da solicitação do exame:</span>
+            <span id="an1">
+                ${q20.value}
+            </span>
+        </div>
+
+        <div class="q21 question">
+            <span class="q" style="width: 330px;">21. Qual o motivo da solicitação do exame:</span>
+            <span id="an1">
+                ${q21.value}
+            </span>
         </div>
     </div>
 
@@ -2070,12 +2063,12 @@ z"/>
             
             document.querySelector(".q12").innerHTML += '<div class="inf-q"><span><strong>Obs:</strong></span><span id="ans-inf">${q12Obs.value}</span></div>'
         }
-
+/*
         ${q13script}
 
         if(q13){
             
-            document.querySelector(".q13").innerHTML += '<div class="inf-q"><span><strong>Obs:</strong></span><span id="ans-inf">${q13Qual.value}</span></div>'
+            document.querySelector("#q13").innerHTML += '<div class="inf-q"><span><strong>Obs:</strong></span><span id="ans-inf">${q13Qual.value}</span></div>'
         }
 
         ${q14script}
@@ -2094,13 +2087,13 @@ z"/>
         if(q16){
             
             document.querySelector(".q16").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong></span><span id="ans-inf">${q16Qual.value}</span></div>'
-        }
+        }*/
 
         ${q17script}
 
         if(q17){
             
-            document.querySelector(".q17").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong></span><span id="ans-inf">${q17Qual.value}</span></div>'
+            document.querySelector("#q17").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong></span><span id="ans-inf">${q17Qual.value}</span></div>'
         }
         
     
@@ -2115,7 +2108,7 @@ const generateFileName = () => {
     let exame = document.getElementById("exame").value;
     let medicoSolicitante = document.getElementById("medicoSolicitante").value;
     let dataExame = document.getElementById("dataExame").value;
-    let nomePaciente = document.getElementById("nomeCompleto").value;
+    let nomePaciente = document.getElementById("paciente").value;
 
     return {
         exame: exame.replace(/\s/g, ''),
