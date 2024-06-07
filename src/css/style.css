@@ -1,5 +1,5 @@
 @import url('./navbar.css');
-@import url('./global.css');
+/* @import url('./global.css'); */
 
 .nav-item .nav-link {
     width: 100px;
@@ -121,7 +121,7 @@
     animation: rotate-three 1s linear infinite;
     border-top: 3px solid #EFEFFA;
   }
-  
+
   @keyframes rotate-one {
     0% {
       transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
@@ -150,12 +150,12 @@
   }
 
   @media (max-width: 900px) {
-    .pessoaExame, .medicoEspecialidade, .pergunta{
+   /* .pessoaExame, .medicoEspecialidade, .pergunta{
       margin: 0 ;
       margin-left: 0;
       margin-right: 0;
       width: 100%;
-    }
+    } */
 
     .content{
       padding: 0 80px;
