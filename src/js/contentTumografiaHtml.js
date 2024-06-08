@@ -268,14 +268,6 @@ const htmlToprint = () => {
         return ret;
     };
     
-    const funcRowTable = (exame, valor, data) =>{
-        let ret = '';
-        for(let i = 0; i < exame.length; i++){             
-            ret += `<tr><td>${exame[i].value}</td><td>${valor[i].value}</td><td>${converterData(data[i].value)}</td></tr>`
-        }
-        return ret;    
-    }
-
     const isSelected = op => op ? 'x' : ' '; 
 
     
@@ -381,209 +373,218 @@ const htmlToprint = () => {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Historico Enfermagem ${nomePaciente.value}</title>
     <style>
+
     * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-body {
-    padding: 20px;
-}
-
-.head {
-    height: 120px;
-    overflow: hidden;
-}
-
-.logo {
-    float: left;
-    width: calc(50% - 10px);
-    border: 1px black solid;
-    height: 100%;
-    position: relative;
-}
-
-.text-head {
-    float: right;
-    width: calc(50% + 10px);
-    height: 100%;
-    border-right: 1px black solid;
-    border-bottom: 1px black solid;
-    border-top: 1px black solid;
-    position: relative;
-}
-.text-head h4{
-    position: absolute;
-      top: 40%;
-      left: 20%;
-      transform: translate(-50%, -50%);
-}
-
-.first-box {
-    margin-top: 15px;
-    border: solid 1px black;
-    padding: 10px;
-    overflow: hidden;
-}
-
-.cabecalho {
-    width: calc(80% - 10px);
-    float: left;
-    overflow: hidden;
-}
-
-.infos-box {
-    overflow: hidden;
-}
-
-.left-info,
-.right-info {
-    float: left;
-    width: 50%;
-}
-
-.left-info div,
-.right-info div {
-    margin-top: 20px;
-}
-
-.aside-box {
-    width: calc(20% - 10px);
-    float: right;
-    border-left: solid 1px black;
-    padding: 0 10px;
-    overflow: hidden;
-}
-
-.aside-box ul {
-    text-decoration: none;
-    list-style: none;
-}
-
-ul li {
-    margin-bottom: 5px;
-    margin-top: 5px;
-    overflow: hidden;
-}
-
-.doctor-info {
-    overflow: hidden;
-    width: 800px;
-    margin: 15px 0;
-}
-
-.box-docName {
-    width: 70%;
-    float: left;
-}
-
-.box-crm,
-.box-spec {
-    width: 30%;
-    float: left;
-}
-
-.box-spec{
-    margin-top: 10px;
-}
-
-.question {
-    margin: 20px 0;
-    overflow: hidden;
-}
-
-.q {
-    font-weight: bold;
-    width: auto;
-    float: left;
-    margin-right: 10px;
-}
-.text-med{    
-    clear: left;
-}
-
-.text-med p {
-    display: inline-block;
-    line-height: 25px;
-}
-
-#table-q5 {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-#table-q5 th,
-#table-q5 td {
-    border: #000 1px solid;
-    text-align: center;
-    padding: 6px;
-}
-
-th:nth-child(1),
-td:nth-child(1) {
-    width: 33%;
-}
-
-th:nth-child(2),
-td:nth-child(2) {
-    width: 33%;
-}
-
-th:nth-child(3),
-td:nth-child(3) {
-    width: 33%;
-}
-
-.q7,
-.q8,
-.q9,
-.q10,
-.q11,
-.q12,
-.q14,
-.q15,
-.q16,
-.q17,
-.q18 {
-    overflow: hidden;
-    margin: 10px 0;
-}
-
-.box-q11 {
-    overflow: hidden;
-    margin-top: 10px;
-}
-
-.q12,
-.q15,
-.q16 {
-    width: 100%;
-    float: left;
-    margin-top: 10px;
-}
-
-.q12 .q,
-.q15 .q,
-.q16 .q {
-    width: 100%;
-    float: left;
-}
-
-#qan, .qan {
-    clear: left;
-}
-
-.rad-choose{
-    margin-right: 25px;
-    margin-bottom: 5px;
-}
-
-svg{
-    height:115px;
-    width: 350px;
-}
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+     }
+     
+     body {
+        padding: 20px;
+     }
+     
+     .head {
+        height: 120px;
+        overflow: hidden;
+     }
+     
+     .logo {
+        float: left;
+        width: calc(50% - 10px);
+        border: 1px black solid;
+        height: 100%;
+        position: relative;
+     }
+     
+     .text-head {
+        float: right;
+        width: calc(50% + 10px);
+        height: 100%;
+        border-right: 1px black solid;
+        border-bottom: 1px black solid;
+        border-top: 1px black solid;
+        position: relative;
+        text-align: center;
+     }
+     
+     .text-head h4 {
+        position: absolute;
+        top: 40%;
+        left: 10%;
+        transform: translate(-50%, -50%);
+     }
+     
+     .first-box {
+        margin-top: 15px;
+        border: solid 1px black;
+        padding: 10px;
+        overflow: hidden;
+     }
+     
+     .cabecalho {
+        width: calc(50% - 10px);
+        float: left;
+        overflow: hidden;
+        border-right: solid 1px black;
+     }
+     
+     .infos-box {
+        overflow: hidden;
+        
+     }
+     
+     .left-info {
+        float: left;
+        width: 100%;
+     }
+     
+     .left-info div,
+     .right-info div {
+        margin-bottom: 20px;
+     }
+     
+     .aside-box {
+        width: calc(50% - 10px);
+        float: right;
+        overflow: hidden;
+     }
+     
+     .aside-box ul {
+        text-decoration: none;
+        list-style: none;   
+     }
+     
+     ul li {
+        margin-bottom: 15px;
+        overflow: hidden;
+        margin-bottom: 20px;
+     }
+     
+     .qt{
+         font-weight: 700;
+     }
+     
+     .doctor-info {
+        overflow: hidden;
+        width: 800px;
+        margin: 15px 0;
+     }
+     
+     .box-docName {
+        width: 70%;
+        float: left;
+     }
+     
+     .box-crm,
+     .box-spec {
+        width: 30%;
+        float: left;
+     }
+     
+     .box-spec {
+        margin-top: 10px;
+     }
+     
+     .question {
+        margin: 20px 0;
+        overflow: hidden;
+     }
+     
+     .q {
+        font-weight: bold;
+        width: auto;
+        float: left;
+        margin-right: 10px;
+     }
+     
+     .text-med {
+        clear: left;
+     }
+     
+     .text-med p {
+        display: inline-block;
+        line-height: 25px;
+     }
+     
+     #table-q5 {
+        border-collapse: collapse;
+        width: 100%;
+     }
+     
+     #table-q5 th,
+     #table-q5 td {
+        border: #000 1px solid;
+        text-align: center;
+        padding: 6px;
+     }
+     
+     th:nth-child(1),
+     td:nth-child(1) {
+        width: 33%;
+     }
+     
+     th:nth-child(2),
+     td:nth-child(2) {
+        width: 33%;
+     }
+     
+     th:nth-child(3),
+     td:nth-child(3) {
+        width: 33%;
+     }
+     
+     .q7,
+     .q8,
+     .q9,
+     .q10,
+     .q11,
+     .q12,
+     .q14,
+     .q15,
+     .q16,
+     .q17,
+     .q18 {
+        overflow: hidden;
+        margin: 10px 0;
+     }
+     
+     .box-q11 {
+        overflow: hidden;
+        margin-top: 10px;
+     }
+     
+     .q12,
+     .q15,
+     .q16 {
+        width: 100%;
+        float: left;
+        margin-top: 10px;
+     }
+     
+     .q12 .q,
+     .q15 .q,
+     .q16 .q {
+        width: 100%;
+        float: left;
+     }
+     
+     #qan,
+     .qan {
+        clear: left;
+     }
+     
+     .rad-choose {
+        margin-right: 25px;
+        margin-bottom: 5px;
+     }
+     
+     svg {
+        height: 115px;
+        width: 350px;
+     }
+     
     </style>
      
 </head>
@@ -1731,72 +1732,84 @@ z"/>
         </div>
     </div>
 
-    <div class="first-box">
-        <div class="cabecalho">
-            <div class="name-box">
-                <span>Nome Completo: </span>
-                <span>${nomePaciente.value}</span>
+   <div class="first-box">
+      <div class="cabecalho">
+         
+
+         <div class="infos-box">
+            <div class="left-info">
+
+               <div class="name-box">
+                  <span class="qt">Nome Completo: </span>
+                  <span>${nomePaciente.value}</span>
+               </div>
+
+               <div class="birthDay">
+                  <span class="qt">Data de Nascimento:</span>
+                  <span id="birthDayAns">${converterData(dataNascimento.value)}</span>
+               </div>
+
+               <div class="weight">
+                  <span class="qt">Peso:</span>
+                  <span id="weightAns">${pesoPaciente.value}kg</span>
+               </div>
+
+
+
+               <div class="proced">
+                  <span class="qt">Telefone:</span>
+                  <span id="procedAns">${telefone.value}</span>
+               </div>
+
+
+
+               <div class="height">
+                  <span class="qt">Altura:</span>
+                  <span id="heightAns">${alturaPaciente.value}</span>
+               </div>
+
+               <div class="proced">
+                  <span class="qt">Rg ou CPF:</span>
+                  <span id="procedAns">${rgCpf.value}</span>
+               </div>
+
+              
             </div>
-    
-            <div class="infos-box">
-                <div class="left-info">
-                    <div class="birthDay">
-                        <span>Data de Nascimento:</span>
-                        <span id="birthDayAns">${converterData(dataNascimento.value)}</span>                     
-                    </div>
-    
-                    <div class="weight">
-                        <span>Peso:</span>
-                        <span id="weightAns">${pesoPaciente.value} kg</span>
-                    </div>
-    
-                    <div class="proced">
-                        <span>Rg ou CPF:</span>
-                        <span id="procedAns">${rgCpf.value}</span>
-                    </div>
-    
-                    <div class="date">
-                        <span>Data:</span>
-                        <span id="dateAns">${converterData(dataExame.value)}</span>
-                    </div>
 
-                    <div class="proced">
-                        <span>Telefone:</span>
-                        <span id="procedAns">${telefone.value}</span>
-                    </div>
-                </div>
-    
-                <div class="right-info">
-                        
-                    <div class="height">
-                        <span>Altura:</span>
-                        <span id="heightAns">${alturaPaciente.value}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="aside-box">
-            <ul>
-                <li>
-                    <span>Exame:</span>
-                    <span id="exameNumber">${exame.value}</span>
-                </li>
+         </div>
 
-                <li>
-                    <span>Protocolo:</span>
-                    <span id="tax">${protocolo.value}</span>
-                </li>
-            </ul>
-        </div>
-    </div>
+         
+      </div>
 
-    <div class="doctor-info">
-        <div class="box-docName">
-            <span>Médico Solicitante: </span>
-            <span id="doc-name">${medicoSolicitante.value}</span>
-        </div>      
-    </div>
+      <div class="aside-box">
+         <ul>
+
+            <li>
+               <span class="qt">Protocolo:</span>
+               <span id="tax">${protocolo.value}</span>
+            </li>
+
+            <li>
+               <span class="qt">Exame:</span>
+               <span id="exameNumber">${exame.value}</span>
+            </li>
+
+
+
+            <li>
+               <span class="qt">Médico Solicitante: </span>
+               <span id="doc-name">${medicoSolicitante.value}</span>
+            </li>
+
+            <li>
+               <span class="qt">Data Exame:</span>
+               <span id="dateAns">${converterData(dataExame.value)}</span>
+            </li>
+         </ul>
+      </div>
+   </div>
+
 
     <div class="questions">
         <div class="q1 question">
