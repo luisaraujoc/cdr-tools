@@ -261,7 +261,7 @@ const htmlToprint = () => {
     const funcRowTable = (exame, valor, data) =>{
         let ret = '';
         for(let i = 0; i < exame.length; i++){             
-            ret += `<tr><td>${exame[i].value}</td><td>${valor[i].value}</td><td>${converterData(data[i].value)}</td></tr>`
+            ret += `<tr><td>${exame[i].value}</td><td>${valor[i].value}</td><td>${data[i].value != "" ? converterData(data[i].value) : "..."}</td></tr>`
         }
         return ret;    
     }
@@ -275,7 +275,7 @@ const htmlToprint = () => {
     let pesoPaciente = document.getElementById("peso");
     let alturaPaciente = document.getElementById("altura");
     let procedimento = document.getElementById("procedimento");
-    let dataExame = document.getElementById("dataExame");
+    let dataExame = document.getElementById("dataProcedimento");
     let exame = document.getElementById("exame");
     let horaExame = document.getElementById("horaExame");
     let paExame = document.getElementById("paExame");
@@ -1731,7 +1731,7 @@ z"/>
                 <div class="left-info">
                     <div class="birthDay">
                         <span>Data de Nascimento:</span>
-                        <span id="birthDayAns">${converterData(dataNascimento.value)}</span>                     
+                        <span id="birthDayAns">${dataNascimento.value != "" ? converterData(dataNascimento.value) : "..."}</span>                     
                     </div>
     
                     <div class="weight">
@@ -1746,7 +1746,7 @@ z"/>
     
                     <div class="date">
                         <span>Data:</span>
-                        <span id="dateAns">${converterData(dataExame.value)}</span>
+                        <span id="dateAns">${dataExame.value != "" ? converterData(dataExame.value) : "..."}</span>
                     </div>
                 </div>
     
@@ -2101,7 +2101,7 @@ z"/>
 const generateFileName = () => {
     let exame = document.getElementById("exame").value;
     let medicoSolicitante = document.getElementById("medicoSolicitante").value;
-    let dataExame = document.getElementById("dataExame").value;
+    let dataExame = document.getElementById("dataProcedimento").value;
     let nomePaciente = document.getElementById("nomeCompleto").value;
 
     return {
