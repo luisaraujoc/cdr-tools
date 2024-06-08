@@ -1,40 +1,39 @@
 
 
-
 const radioButtonsq3 = document.querySelectorAll('input[name="cirurgia"]');
 let q3selected = false;
 radioButtonsq3.forEach(radioButton => {
-    radioButton.addEventListener('change', () => {
-        if (radioButton.value === "sim") {
-            q3selected = true;
-        } else if (radioButton.value === "nao") {
-            q3selected = false;
-        }
-    });
+   radioButton.addEventListener('change', () => {
+      if (radioButton.value === "sim") {
+         q3selected = true;
+      } else if (radioButton.value === "nao") {
+         q3selected = false;
+      }
+   });
 });
 
 const radioButtonsq4 = document.querySelectorAll('input[name="outraCirurgia"]');
 let q4selected = false;
 radioButtonsq4.forEach(radioButton => {
-    radioButton.addEventListener('change', () => {
-        if (radioButton.value === "sim") {
-            q4selected = true;
-        } else if (radioButton.value === "nao") {
-            q4selected = false;
-        }
-    });
+   radioButton.addEventListener('change', () => {
+      if (radioButton.value === "sim") {
+         q4selected = true;
+      } else if (radioButton.value === "nao") {
+         q4selected = false;
+      }
+   });
 });
 
 const radioButtonsq5 = document.querySelectorAll('input[name="quimioterapia"]');
 let q5selected = false;
 radioButtonsq5.forEach(radioButton => {
-    radioButton.addEventListener('change', () => {
-        if (radioButton.value === "sim") {
-            q5selected = true;
-        } else if (radioButton.value === "nao") {
-            q5selected = false;
-        }
-    });
+   radioButton.addEventListener('change', () => {
+      if (radioButton.value === "sim") {
+         q5selected = true;
+      } else if (radioButton.value === "nao") {
+         q5selected = false;
+      }
+   });
 });
 
 const radioButtonsq6 = document.querySelectorAll('.d-inp');
@@ -48,325 +47,377 @@ let asma = false;
 let rinite = false;
 let outros = false;
 radioButtonsq6.forEach(radioButton => {
-    radioButton.addEventListener('change', () => {
-        switch (radioButton.value) {
-            case 'hipertensao':
-                hipertensao = hipertensao ? false : true;
-                break;
-            case 'cardiopatias':    
-                cardiopatias = cardiopatias ? false : true;
-                break;
-            case 'diabetes':
-                diabetes = diabetes ? false : true;
-                break;
-            case 'insuficienciaRenal':
-                insurenal = insurenal ? false : true;
-                break;
-            case 'anemiaFalciforme':
-                anemiaFalci = anemiaFalci ? false : true;
-                break;
-            case 'mielomaMultiplo':
-                mieloma = mieloma ? false : true;
-                break;
-            case 'asma':
-                asma = asma ? false : true;
-                break;
-            case 'rinite':
-                rinite = rinite ? false : true;
-                break;
-            case 'outros': 
-                outros = outros ? false : true;
-                break;
-        }
-    });
+   radioButton.addEventListener('change', () => {
+      switch (radioButton.value) {
+         case 'hipertensao':
+            hipertensao = hipertensao ? false : true;
+            break;
+         case 'cardiopatias':
+            cardiopatias = cardiopatias ? false : true;
+            break;
+         case 'diabetes':
+            diabetes = diabetes ? false : true;
+            break;
+         case 'insuficienciaRenal':
+            insurenal = insurenal ? false : true;
+            break;
+         case 'anemiaFalciforme':
+            anemiaFalci = anemiaFalci ? false : true;
+            break;
+         case 'mielomaMultiplo':
+            mieloma = mieloma ? false : true;
+            break;
+         case 'asma':
+            asma = asma ? false : true;
+            break;
+         case 'rinite':
+            rinite = rinite ? false : true;
+            break;
+         case 'outros':
+            outros = outros ? false : true;
+            break;
+      }
+   });
 });
 
 const radioButtonsq7 = document.querySelectorAll('input[name="medicamento"]');
 let q7selected = false;
 radioButtonsq7.forEach(radioButton => {
-    radioButton.addEventListener('change', () => {
-        if (radioButton.value === "sim") {
-            q7selected = true;
-        } else if (radioButton.value === "nao") {
-            q7selected = false;
-        }
-    });
+   radioButton.addEventListener('change', () => {
+      if (radioButton.value === "sim") {
+         q7selected = true;
+      } else if (radioButton.value === "nao") {
+         q7selected = false;
+      }
+   });
 });
 
 const radioButtonsq8 = document.querySelectorAll('input[name="alergia"]');
 let q8selected = false;
 radioButtonsq8.forEach(radioButton => {
-    radioButton.addEventListener('change', () => {
-        if (radioButton.value === "sim") {
-            q8selected = true;
-        } else if (radioButton.value === "nao") {
-            q8selected = false;
-        }
-    });
+   radioButton.addEventListener('change', () => {
+      if (radioButton.value === "sim") {
+         q8selected = true;
+      } else if (radioButton.value === "nao") {
+         q8selected = false;
+      }
+   });
 });
 
 const radioButtonsq9 = document.querySelectorAll('input[name="alergiaMedicamentosa"]');
 let q9selected = false;
 radioButtonsq9.forEach(radioButton => {
-    radioButton.addEventListener('change', () => {
-        if (radioButton.value === "sim") {
-            q9selected = true;
-        } else if (radioButton.value === "nao") {
-            q9selected = false;
-        }
-    });
+   radioButton.addEventListener('change', () => {
+      if (radioButton.value === "sim") {
+         q9selected = true;
+      } else if (radioButton.value === "nao") {
+         q9selected = false;
+      }
+   });
 });
 
 const radioButtonsq10 = document.querySelectorAll('input[name="alergiaAlimentar"]');
 let q10selected = false;
 radioButtonsq10.forEach(radioButton => {
-    radioButton.addEventListener('change', () => {
-        if (radioButton.value === "sim") {
-            q10selected = true;
-        } else if (radioButton.value === "nao") {
-            q10selected = false;
-        }
-    });
+   radioButton.addEventListener('change', () => {
+      if (radioButton.value === "sim") {
+         q10selected = true;
+      } else if (radioButton.value === "nao") {
+         q10selected = false;
+      }
+   });
 });
 
 const radioButtonsq11 = document.querySelectorAll('input[name="tabagista"]');
 let q11selected = false;
 radioButtonsq11.forEach(radioButton => {
-    radioButton.addEventListener('change', () => {
-        if (radioButton.value === "sim") {
-            q11selected = true;
-        } else if (radioButton.value === "nao") {
-            q11selected = false;
-        }
-    });
+   radioButton.addEventListener('change', () => {
+      if (radioButton.value === "sim") {
+         q11selected = true;
+      } else if (radioButton.value === "nao") {
+         q11selected = false;
+      }
+   });
 });
 
 const radioButtonsq12 = document.querySelectorAll('input[name="tuberculose"]');
 let q12selected = false;
 radioButtonsq12.forEach(radioButton => {
-    radioButton.addEventListener('change', () => {
-        if (radioButton.value === "sim") {
-            q12selected = true;
-        } else if (radioButton.value === "nao") {
-            q12selected = false;
-        }
-    });
+   radioButton.addEventListener('change', () => {
+      if (radioButton.value === "sim") {
+         q12selected = true;
+      } else if (radioButton.value === "nao") {
+         q12selected = false;
+      }
+   });
 });
 
 const radioButtonsq13 = document.querySelectorAll('input[name="tcAnterior"]');
 let q13selected = false;
 radioButtonsq13.forEach(radioButton => {
-    radioButton.addEventListener('change', () => {
-        if (radioButton.value === "sim") {
-            q13selected = true;
-        } else if (radioButton.value === "nao") {
-            q13selected = false;
-        }
-    });
+   radioButton.addEventListener('change', () => {
+      if (radioButton.value === "sim") {
+         q13selected = true;
+      } else if (radioButton.value === "nao") {
+         q13selected = false;
+      }
+   });
 });
 
 const radioButtonsq14 = document.querySelectorAll('input[name="examePrevio"]');
 let q14selected = false;
 radioButtonsq14.forEach(radioButton => {
-    radioButton.addEventListener('change', () => {
-        if (radioButton.value === "sim") {
-            q14selected = true;
-        } else if (radioButton.value === "nao") {
-            q14selected = false;
-        }
-    });
+   radioButton.addEventListener('change', () => {
+      if (radioButton.value === "sim") {
+         q14selected = true;
+      } else if (radioButton.value === "nao") {
+         q14selected = false;
+      }
+   });
 });
 
 const radioButtonsq14_1 = document.querySelectorAll('input[name="quest14_1"]');
 let q14_1selected = false;
 radioButtonsq14_1.forEach(radioButton => {
-    radioButton.addEventListener('change', () => {
-        if (radioButton.value === "sim") {
-            q14_1selected = true;
-        } else if (radioButton.value === "nao") {
-            q14_1selected = false;
-        }
-    });
+   radioButton.addEventListener('change', () => {
+      if (radioButton.value === "sim") {
+         q14_1selected = true;
+      } else if (radioButton.value === "nao") {
+         q14_1selected = false;
+      }
+   });
 });
 
 const radioButtonsq15 = document.querySelectorAll('input[name="anestesia"]');
 let q15selected = false;
 radioButtonsq15.forEach(radioButton => {
-    radioButton.addEventListener('change', () => {
-        if (radioButton.value === "sim") {
-            q15selected = true;
-        } else if (radioButton.value === "nao") {
-            q15selected = false;
-        }
-    });
+   radioButton.addEventListener('change', () => {
+      if (radioButton.value === "sim") {
+         q15selected = true;
+      } else if (radioButton.value === "nao") {
+         q15selected = false;
+      }
+   });
 });
 
 const radioButtonsq16 = document.querySelectorAll('input[name="contrasteIodado"]');
 let q16selected = false;
 radioButtonsq16.forEach(radioButton => {
-    radioButton.addEventListener('change', () => {
-        if (radioButton.value === "sim") {
-            q16selected = true;
-        } else if (radioButton.value === "nao") {
-            q16selected = false;
-        }
-    });
+   radioButton.addEventListener('change', () => {
+      if (radioButton.value === "sim") {
+         q16selected = true;
+      } else if (radioButton.value === "nao") {
+         q16selected = false;
+      }
+   });
 });
 
 const radioButtonsq17 = document.querySelectorAll('input[name="hipoglicemiante"]');
 let q17selected = false;
 radioButtonsq17.forEach(radioButton => {
-    radioButton.addEventListener('change', () => {
-        if (radioButton.value === "sim") {
-            q17selected = true;
-        } else if (radioButton.value === "nao") {
-            q17selected = false;
-        }
-    });
+   radioButton.addEventListener('change', () => {
+      if (radioButton.value === "sim") {
+         q17selected = true;
+      } else if (radioButton.value === "nao") {
+         q17selected = false;
+      }
+   });
 });
 
 const radioButtonsq18 = document.querySelectorAll('input[name="possibilidadeGravidez"]');
 let q18selected = false;
 radioButtonsq18.forEach(radioButton => {
-    radioButton.addEventListener('change', () => {
-        if (radioButton.value === "sim") {
-            q18selected = true;
-        } else if (radioButton.value === "nao") {
-            q18selected = false;
-        }
-    });
+   radioButton.addEventListener('change', () => {
+      if (radioButton.value === "sim") {
+         q18selected = true;
+      } else if (radioButton.value === "nao") {
+         q18selected = false;
+      }
+   });
 });
 
 const radioButtonsq19 = document.querySelectorAll('input[name="possibilidadeAmamentacao"]');
 let q19selected = false;
 radioButtonsq19.forEach(radioButton => {
-    radioButton.addEventListener('change', () => {
-        if (radioButton.value === "sim") {
-            q19selected = true;
-        } else if (radioButton.value === "nao") {
-            q19selected = false;
-        }
-    });
+   radioButton.addEventListener('change', () => {
+      if (radioButton.value === "sim") {
+         q19selected = true;
+      } else if (radioButton.value === "nao") {
+         q19selected = false;
+      }
+   });
 });
 
 
 const htmlToprint = () => {
 
-    const converterData = (data) => {
-        var partes = data.split("-");
-        var dataConvertida = partes[2] + "/" + partes[1] + "/" + partes[0];
-        return dataConvertida;
-    }
+   const converterData = (data) => {
+      var partes = data.split("-");
+      var dataConvertida = partes[2] + "/" + partes[1] + "/" + partes[0];
+      return dataConvertida;
+   }
 
-    const simNaoStr = (perg) => {
-        let ret = perg ? "(x)Sim ( )Não" : "( )Sim (x)Não"; 
-        return ret;
-    };
-    
-    const pergScritStr = (perg, varName) => {
-        let ret = perg ? `let ${varName} = true` : `let ${varName} = false`;
-        return ret;
-    };
-    
-    const isSelected = op => op ? 'x' : ' '; 
+   const converterDataMonth = (data) => {
+      var partes = data.split("-");
+      var mes = ""
+      switch (partes[1]) {
+         case "01":
+            mes = "Janeiro"
+            break;
+         case "02":
+            mes = "Fevereiro"
+            break;
+         case "03":
+            mes = "Março"
+            break;
+         case "04":
+            mes = "Abril"
+            break;
+         case "05":
+            mes = "Maio"
+            break;
+         case "06":
+            mes = "Junho"
+            break;
+         case "07":
+            mes = "Julho"
+            break;
+         case "08":
+            mes = "Agosto"
+            break;
+         case "09":
+            mes = "Setembro"
+            break;
+         case "10":
+            mes = "Outubro"
+            break;
+         case "11":
+            mes = "Novembro"
+            break;
+         case "12":
+            mes = "Dezembro"
+            break;
 
-    
-    let nomePaciente = document.getElementById("paciente");
-    let dataNascimento = document.getElementById("dn");
-    let pesoPaciente = document.getElementById("peso");
-    let alturaPaciente = document.getElementById("altura");
-    let rgCpf = document.getElementById("rgCPF");
-    
-    let telefone = document.getElementById("telefone");
-    let dataExame = document.getElementById("dataExame");
-    let exame = document.getElementById("exame");
-    let horaExame = document.getElementById("horaExame");
-    let protocolo = document.getElementById("protocolo");
-    let medicoSolicitante = document.getElementById("medicoSolicitante");
 
-    
-    let q1 = document.getElementById("motivoExame");
-    let q2 = document.getElementById("principalQueixa");
-    let q2QntTempo = document.getElementById("motivoExame");    
-    let q3 = q3selected;
-    let q3Qual = document.getElementById("motivoExame")
-    let q4 = q4selected;
-    let q4Qual = document.getElementById("motivoExame")
-    let q5 = q5selected;
-    let q5Qual = document.getElementById("motivoExame")
-    let q6Quais = document.getElementById("motivoExame")    
-    let q7 = q7selected;
-    let q7Qual = document.getElementById("motivoExame")  
-    let q8 = q8selected;
-    let q8Qual = document.getElementById("motivoExame") 
-    let q9 = q9selected;
-    let q9Qual = document.getElementById("motivoExame") 
-    let q10 = q10selected
-    let q10Qual = document.getElementById("motivoExame")
-    let q11 = q11selected;
-    let q11Obs = document.getElementById("motivoExame");
-    let q12 = q12selected;
-    let q12Obs = document.getElementById("motivoExame")    
-    let q13 = q13selected;
-    let q13Qual = document.getElementById("motivoExame")
-    let q14 = q14selected;
-    let q14_1 = q14_1selected;
-    let q14Qual = document.getElementById("motivoExame")    
-    let q15 = q15selected;
-    let q15Qual = document.getElementById("motivoExame")
-    let q16 = q16selected;
-    let q16Qual = document.getElementById("motivoExame")
-    let q17 = q17selected;
-    let q17Qual = document.getElementById("motivoExame")
-    let q18 = q18selected;    
-    let q19 = q19selected;    
-    let q20 = document.getElementById("TipoExame");
-    let q21 = document.getElementById("OrientacaoMedica");
+      }
 
-    // variaveis que levarão texto para o html
-    let textq3 = simNaoStr(q3);  
-    let textq4 = simNaoStr(q4);
-    let textq5 = simNaoStr(q5);
-    let textq7 = simNaoStr(q7);  
-    let textq8 = simNaoStr(q8);      
-    let textq9 = simNaoStr(q9);  
-    let textq10 = simNaoStr(q10);
-    let textq11 = simNaoStr(q11);
-    let textq12 = simNaoStr(q12);
-    let textq13 = simNaoStr(q13);
-    let textq14 = simNaoStr(q14);
-    let textq14_1 = simNaoStr(q14_1);
-    let textq15 = simNaoStr(q15);
-    let textq16 = simNaoStr(q16);
-    let textq17 = simNaoStr(q17);    
-    let textq18 = simNaoStr(q18);     
-    let textq19 = simNaoStr(q19);
-    let textq6Hipertensao = isSelected(hipertensao); 
-    let textq6Cardiopatias = isSelected(cardiopatias);
-    let textq6Diabetes = isSelected(diabetes);
-    let textq6Insurenal = isSelected(insurenal);
-    let textq6AnemiaFalci = isSelected(anemiaFalci);
-    let textq6Mieloma = isSelected(mieloma);
-    let textq6Asma = isSelected(asma);
-    let textq6Rinite = isSelected(rinite);
-    let textq6Outros = isSelected(outros);    
-    let q3script = pergScritStr(q3, "q3"); 
-    let q4script = pergScritStr(q4, "q4");
-    let q5script = pergScritStr(q5, "q5");
-    let q6script = pergScritStr(outros, "q6");
-    let q7script = pergScritStr(q7, "q7");   
-    let q8script = pergScritStr(q8, "q8");   
-    let q9script = pergScritStr(q9, "q9");   
-    let q10script = pergScritStr(q10, "q10");
-    let q11script = pergScritStr(q11, "q11");
-    let q12script = pergScritStr(q12, "q12");
-    let q13script = pergScritStr(q13, "q13");
-    let q14script = pergScritStr(q14, "q14");   
-    let q16script = pergScritStr(q16, "q16");        
-    let q17script = pergScritStr(q17, "q17");   
+      var dataConvertida = mes + "/" + partes[0];
+      return dataConvertida;
+   }
 
-    
-    let content = `<!DOCTYPE html>
+   const simNaoStr = (perg) => {
+      let ret = perg ? "(x)Sim ( )Não" : "( )Sim (x)Não";
+      return ret;
+   };
+
+   const pergScritStr = (perg, varName) => {
+      let ret = perg ? `let ${varName} = true` : `let ${varName} = false`;
+      return ret;
+   };
+
+   const isSelected = op => op ? 'x' : ' ';
+
+   let dataProxRev = document.getElementById("proximaRevisao");
+   let codigo = document.getElementById("codigo")
+   let revisao = document.getElementById("revisao")
+
+
+   let nomePaciente = document.getElementById("paciente");
+   let dataNascimento = document.getElementById("dn");
+   let pesoPaciente = document.getElementById("peso");
+   let alturaPaciente = document.getElementById("altura");
+   let rgCpf = document.getElementById("rgCPF");
+
+   let telefone = document.getElementById("telefone");
+   let dataExame = document.getElementById("dataExame");
+   let exame = document.getElementById("exame");
+   let horaExame = document.getElementById("horaExame");
+   let protocolo = document.getElementById("protocolo");
+   let medicoSolicitante = document.getElementById("medicoSolicitante");
+
+
+   let q1 = document.getElementById("motivoExame");
+   let q2 = document.getElementById("principalQueixa");
+   let q2QntTempo = document.getElementById("motivoExame");
+   let q3 = q3selected;
+   let q3Qual = document.getElementById("motivoExame")
+   let q4 = q4selected;
+   let q4Qual = document.getElementById("motivoExame")
+   let q5 = q5selected;
+   let q5Qual = document.getElementById("motivoExame")
+   let q6Quais = document.getElementById("motivoExame")
+   let q7 = q7selected;
+   let q7Qual = document.getElementById("motivoExame")
+   let q8 = q8selected;
+   let q8Qual = document.getElementById("motivoExame")
+   let q9 = q9selected;
+   let q9Qual = document.getElementById("motivoExame")
+   let q10 = q10selected
+   let q10Qual = document.getElementById("motivoExame")
+   let q11 = q11selected;
+   let q11Obs = document.getElementById("motivoExame");
+   let q12 = q12selected;
+   let q12Obs = document.getElementById("motivoExame")
+   let q13 = q13selected;
+   let q13Qual = document.getElementById("motivoExame")
+   let q14 = q14selected;
+   let q14_1 = q14_1selected;
+   let q14Qual = document.getElementById("motivoExame")
+   let q15 = q15selected;
+   let q15Qual = document.getElementById("motivoExame")
+   let q16 = q16selected;
+   let q16Qual = document.getElementById("motivoExame")
+   let q17 = q17selected;
+   let q17Qual = document.getElementById("motivoExame")
+   let q18 = q18selected;
+   let q19 = q19selected;
+   let q20 = document.getElementById("TipoExame");
+   let q21 = document.getElementById("OrientacaoMedica");
+
+   // variaveis que levarão texto para o html
+   let textq3 = simNaoStr(q3);
+   let textq4 = simNaoStr(q4);
+   let textq5 = simNaoStr(q5);
+   let textq7 = simNaoStr(q7);
+   let textq8 = simNaoStr(q8);
+   let textq9 = simNaoStr(q9);
+   let textq10 = simNaoStr(q10);
+   let textq11 = simNaoStr(q11);
+   let textq12 = simNaoStr(q12);
+   let textq13 = simNaoStr(q13);
+   let textq14 = simNaoStr(q14);
+   let textq14_1 = simNaoStr(q14_1);
+   let textq15 = simNaoStr(q15);
+   let textq16 = simNaoStr(q16);
+   let textq17 = simNaoStr(q17);
+   let textq18 = simNaoStr(q18);
+   let textq19 = simNaoStr(q19);
+   let textq6Hipertensao = isSelected(hipertensao);
+   let textq6Cardiopatias = isSelected(cardiopatias);
+   let textq6Diabetes = isSelected(diabetes);
+   let textq6Insurenal = isSelected(insurenal);
+   let textq6AnemiaFalci = isSelected(anemiaFalci);
+   let textq6Mieloma = isSelected(mieloma);
+   let textq6Asma = isSelected(asma);
+   let textq6Rinite = isSelected(rinite);
+   let textq6Outros = isSelected(outros);
+   let q3script = pergScritStr(q3, "q3");
+   let q4script = pergScritStr(q4, "q4");
+   let q5script = pergScritStr(q5, "q5");
+   let q6script = pergScritStr(outros, "q6");
+   let q7script = pergScritStr(q7, "q7");
+   let q8script = pergScritStr(q8, "q8");
+   let q9script = pergScritStr(q9, "q9");
+   let q10script = pergScritStr(q10, "q10");
+   let q11script = pergScritStr(q11, "q11");
+   let q12script = pergScritStr(q12, "q12");
+   let q13script = pergScritStr(q13, "q13");
+   let q14script = pergScritStr(q14, "q14");
+   let q16script = pergScritStr(q16, "q16");
+   let q17script = pergScritStr(q17, "q17");
+
+
+   let content = `<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -508,32 +559,7 @@ const htmlToprint = () => {
         line-height: 25px;
      }
      
-     #table-q5 {
-        border-collapse: collapse;
-        width: 100%;
-     }
-     
-     #table-q5 th,
-     #table-q5 td {
-        border: #000 1px solid;
-        text-align: center;
-        padding: 6px;
-     }
-     
-     th:nth-child(1),
-     td:nth-child(1) {
-        width: 33%;
-     }
-     
-     th:nth-child(2),
-     td:nth-child(2) {
-        width: 33%;
-     }
-     
-     th:nth-child(3),
-     td:nth-child(3) {
-        width: 33%;
-     }
+   
      
      .q7,
      .q8,
@@ -584,6 +610,19 @@ const htmlToprint = () => {
         height: 115px;
         width: 350px;
      }
+
+     .obsHead{
+   padding: 10px;
+   margin:10px 0;
+   border: #000 solid 1px;
+   }
+
+.cod,
+.rev{
+   width:270px;
+   float: left;
+   overflow: hidden;
+}
      
     </style>
      
@@ -1727,10 +1766,43 @@ M93.697449,64.631027
    C93.528351,64.805237 93.651909,64.698700 93.697449,64.631027 
 z"/>
 </svg></div>
-        <div class="text-head">            
+        
+   <div class="text-head">            
             <h4>QUESTIONÁRIO DE AVALIAÇÃO CLÍNICA</h4>
         </div>
     </div>
+
+   <div class="obsHead">
+      <div class="cod">
+         <span class="title">
+            <strong>Código:</strong>
+         </span>
+
+         <span class="content">
+            <span>${codigo.value}</span>
+         </span>
+      </div>
+
+      <div class="rev">
+         <span class="title">
+            <strong>Revisão:</strong>
+         </span>
+
+         <span class="content">
+            <span>${revisao.value}</span>
+         </span>
+      </div>
+
+      <div class="proxRev">
+         <span class="title">
+            <strong>Revisão:</strong> 
+         </span>
+
+         <span class="content">
+            <span>${dataProxRev.value != "" ? converterDataMonth(dataProxRev.value) : ""}</span>
+         </span>
+      </div>
+   </div>
 
    <div class="first-box">
       <div class="cabecalho">
@@ -1746,7 +1818,7 @@ z"/>
 
                <div class="birthDay">
                   <span class="qt">Data de Nascimento:</span>
-                  <span id="birthDayAns">${converterData(dataNascimento.value)}</span>
+                  <span id="birthDayAns">${dataNascimento.value != "" ? converterData(dataNascimento.value) : ""}</span>
                </div>
 
                <div class="weight">
@@ -1804,7 +1876,7 @@ z"/>
 
             <li>
                <span class="qt">Data Exame:</span>
-               <span id="dateAns">${converterData(dataExame.value)}</span>
+               <span id="dateAns">${dataExame.value != "" ? converterData(dataExame.value) : ""}</span>
             </li>
          </ul>
       </div>
@@ -2112,20 +2184,20 @@ z"/>
 </body>
 </html>`
 
-    return content
+   return content
 }
 
 const generateFileName = () => {
-    let exame = document.getElementById("exame").value;
-    let medicoSolicitante = document.getElementById("medicoSolicitante").value;
-    let dataExame = document.getElementById("dataExame").value;
-    let nomePaciente = document.getElementById("paciente").value;
+   let exame = document.getElementById("exame").value;
+   let medicoSolicitante = document.getElementById("medicoSolicitante").value;
+   let dataExame = document.getElementById("dataExame").value;
+   let nomePaciente = document.getElementById("paciente").value;
 
-    return {
-        exame: exame.replace(/\s/g, ''),
-        medicoSolicitante: medicoSolicitante.replace(/\s/g, ''),
-        dataExame: dataExame.replace(/\s/g, ''),
-        nomePaciente: nomePaciente.replace(/\s/g, '')
-    }
+   return {
+      exame: exame.replace(/\s/g, ''),
+      medicoSolicitante: medicoSolicitante.replace(/\s/g, ''),
+      dataExame: dataExame.replace(/\s/g, ''),
+      nomePaciente: nomePaciente.replace(/\s/g, '')
+   }
 
 };

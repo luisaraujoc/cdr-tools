@@ -42,7 +42,6 @@ body {
 }
 
 .first-box {
-   margin-top: 15px;
    border: solid 1px black;
    padding: 10px;
    overflow: hidden;
@@ -208,4 +207,19 @@ td:nth-child(3) {
 svg {
    height: 115px;
    width: 350px;
+}
+
+
+.obsHead{
+   padding: 10px;
+   margin:10px 0;
+   border: #000 solid .5px;
+}
+
+.cod,
+.rev{
+   margin-right: 20px;
+   width:350px;
+   float: left;
+   background-color: red;
 }
