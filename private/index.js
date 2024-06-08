@@ -317,7 +317,6 @@ app.post('/api/salvar-padrao', (req, res) => {
     if (dataJsonPass) {
       jsonData = JSON.parse(dataJsonPass);
     }
-    console.log(passReq, String(jsonData[0].password))
 
     if (jsonData[0].password == passReq) {
       fs.writeFile(filePath, JSON.stringify([{ pattern }]), 'utf8', (err) => {
