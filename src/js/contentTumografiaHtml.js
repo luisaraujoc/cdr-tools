@@ -1772,37 +1772,7 @@ z"/>
         </div>
     </div>
 
-   <div class="obsHead">
-      <div class="cod">
-         <span class="title">
-            <strong>Código:</strong>
-         </span>
-
-         <span class="content">
-            <span>${codigo.value}</span>
-         </span>
-      </div>
-
-      <div class="rev">
-         <span class="title">
-            <strong>Revisão:</strong>
-         </span>
-
-         <span class="content">
-            <span>${revisao.value}</span>
-         </span>
-      </div>
-
-      <div class="proxRev">
-         <span class="title">
-            <strong>Revisão:</strong> 
-         </span>
-
-         <span class="content">
-            <span>${dataProxRev.value != "" ? converterDataMonth(dataProxRev.value) : ""}</span>
-         </span>
-      </div>
-   </div>
+   
 
    <div class="first-box">
       <div class="cabecalho">
