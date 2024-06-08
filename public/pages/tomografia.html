@@ -63,7 +63,7 @@
     <div class="container">
         <form>
             <div class="card d-flex justify-content-evenly mt-4">
-                <div class="card-header">
+                <div class="card-header d-none">
                     <div class="d-flex justify-content-evenly px2">
                         <!-- flex inline, input de Codigo, Revisão, Próxima revisão -->
                         <div class="form-group">
@@ -100,9 +100,6 @@
                             <select class="form-select" id="medicoSolicitante">
                                 <option selected disabled>Selecione o
                                     Médico</option>
-                                <option value="1">Dr. Fulano</option>
-                                <option value="2">Dr. Beltrano</option>
-                                <option value="3">Dr. Ciclano</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -118,11 +115,17 @@
                         <div class="form-group d-flex flex-row justify-content-evenly">
                             <div class="col-6 pe-2">
                                 <label for="peso">Peso:</label>
-                                <input type="number" class="form-control" id="peso" placeholder="54.4">
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="peso" placeholder="54.4">
+                                    <span class="input-group-text">kg</span>
+                                </div>
                             </div>
                             <div class="col-6 ps-2">
                                 <label for="altura">Altura:</label>
-                                <input type="number" class="form-control" id="altura" placeholder="1.80m ou 180cm">
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="altura" placeholder="1.80">
+                                    <span class="input-group-text">m</span>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group d-flex flex-row justify-content-evenly">

@@ -68,7 +68,7 @@ app.post('/api/hitoricoEnfermagem/enviar', (req, res) => {
 
     const dataPadrao = JSON.parse(dataJson)    
 
-    const pdfPath = path.join('C:', 'Temp', 'PDF', `Historicoenfermagem${generateFileName(dataPadrao, dadosNameConvert)}.pdf`);
+    const pdfPath = path.join('C:', 'Temp', 'PDF', 'AnamneseHEM', `${generateFileName(dataPadrao, dadosNameConvert)}.pdf`);
 
     pdf.create(informacaoRecebida, {}).toFile(pdfPath, (err, result) => {
         if (err) {
@@ -102,7 +102,7 @@ app.post('/api/tomografia/enviar', (req, res) => {
 
     const dataPadrao = JSON.parse(dataJson)    
 
-    const pdfPath = path.join('C:', 'Temp', 'PDF', `Tomografia${generateFileName(dataPadrao, dadosNameConvert)}.pdf`);
+    const pdfPath = path.join('C:', 'Temp', 'PDF', 'AnamneseTC' ,`${generateFileName(dataPadrao, dadosNameConvert)}.pdf`);
 
     pdf.create(informacaoRecebida, {}).toFile(pdfPath, (err, result) => {
         if (err) {

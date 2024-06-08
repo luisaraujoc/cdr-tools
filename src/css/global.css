@@ -10,8 +10,21 @@
 * {
   font-family: 'Poppins', sans-serif;
 }
-.form-control {
-  margin: 0.8em 0 0.8em 0;
+.form-control, .input-group-text, .form-select {
+  margin: 0.4em 0 0.4em 0;
+}
+
+.form-control, .input-group-text {
+  border-radius: 8px;
+  border: 1px solid #C2C2C2;
+  padding: 0.5em 1em;
+}
+
+.form-select {
+  border-radius: 8px;
+  border: 1px solid #C2C2C2;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }
 
 .form-control .form-check {
