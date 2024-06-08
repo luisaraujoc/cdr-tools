@@ -1,9 +1,9 @@
 /* MODAL */
 
-.modal {
+.modal-load {
   display: none;
   position: fixed;
-  z-index: 2;
+  z-index: 99;
   left: 0;
   top: 0;
   width: 100%;
@@ -11,7 +11,7 @@
   background-color: rgba(0, 0, 0, 0.211);
 }
 
-.modal-content {
+.modal-content-loader {
   position: absolute;
   background-color: #fff;
   max-width: 400px;

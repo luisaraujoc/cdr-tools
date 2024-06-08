@@ -295,17 +295,47 @@ app.delete('/api/excluirMedico/:id', (req, res) => {
 // Novo endpoint para salvar o padrão de nome de arquivo
 app.post('/api/salvar-padrao', (req, res) => {
   const pattern = req.body.pattern;
+  const passReq = req.body.senha
   const filePath = path.join(__dirname, 'json', 'filenamePattern.json');
+  const passwordFile = path.join(__dirname, 'json', 'password.json');
 
-  fs.writeFile(filePath, JSON.stringify([{ pattern }]), 'utf8', (err) => {
-    if (err) {
-      console.error('Erro ao salvar o padrão de nome:', err);
-      res.status(500).send({ boo: false, mes: "Erro ao salvar o padrão de nome" });
+  const directory = path.join(__dirname, 'json');
+
+  if (!fs.existsSync(directory)) {
+    fs.mkdirSync(directory);
+  }
+
+
+  fs.readFile(passwordFile, 'utf8', (err, dataJsonPass) => {
+    if (err && err.code !== 'ENOENT') {
+      console.error('Erro ao ler o arquivo:', err);
+      res.status(500).send({ boo: false });
       return;
     }
-    console.log('Padrão de nome salvo com sucesso em:', filePath);
-    res.send({ boo: true, mes: "Padrão de nome salvo com sucesso" });
+
+    let jsonData = [];
+    if (dataJsonPass) {
+      jsonData = JSON.parse(dataJsonPass);
+    }
+    console.log(passReq, String(jsonData[0].password))
+
+    if (jsonData[0].password == passReq) {
+      fs.writeFile(filePath, JSON.stringify([{ pattern }]), 'utf8', (err) => {
+        if (err) {
+          console.error('Erro ao salvar o padrão de nome:', err);
+          res.status(500).send({ boo: false, mes: "Erro ao salvar o padrão de nome" });
+          return;
+        }
+        console.log('Padrão de nome salvo com sucesso em:', filePath);
+        res.send({ boo: true, mes: "Padrão de nome salvo com sucesso" });
+      });
+    }else{
+      console.log("Erro ao alterar padrão, senha incorreta")
+      res.status(500).send({ boo: false, mes: "Senha incorreta" });
+    }
   });
+
+
 });
 
 app.listen(port, () => {
