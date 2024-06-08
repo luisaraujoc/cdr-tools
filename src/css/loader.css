@@ -14,7 +14,7 @@
 .modal-content-loader {
   position: absolute;
   background-color: #fff;
-  max-width: 400px;
+  width: 400px;
   height: 300px;
   top: 50%;
   left: 50%;                                                                                                                                                                                                                                      
@@ -64,7 +64,7 @@
   height: 100vh;
   width: 100vw;
   background-color:rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  z-index: 90;
 }
 
 
