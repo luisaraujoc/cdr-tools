@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../src/css/styleHistoricoEnfermagem.css">
-    <link rel="stylesheet" href="../../src/css/global.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.2.7/purify.min.js"></script>
     <title>CDR - Novo Histórico de Enfermagem</title>
 </head>
@@ -97,22 +96,28 @@
                             </div>
                             <!-- Peso e altura -->
                             <div class="pesoAltura col-12 d-flex justify-content-between">
-                                <div class="leftPesoAltura col-6">
+                                <div class="leftPesoAltura pe-2 col-6">
                                     <label for="peso">Peso:</label>
-                                    <input type="text" name="peso" id="peso" class="form-control">
+                                    <div class="input-group">
+                                        <input type="text" name="peso" id="peso" class="form-control">
+                                        <div class="input-group-text">Kg</div>
+                                    </div>
                                 </div>
-                                <div class="rightPesoAltura col-6">
+                                <div class="rightPesoAltura ps-2 col-6">
                                     <label for="altura">Altura:</label>
-                                    <input type="text" name="altura" id="altura" class="form-control">
+                                    <div class="input-group">
+                                        <input type="text" name="altura" id="altura" class="form-control">
+                                        <div class="input-group-text">m</div>
+                                    </div>
                                 </div>
                             </div>
                             <!-- Procedimento e data -->
                             <div class="procedimentoData col-12 d-flex justify-content-between">
-                                <div class="leftProcedimento col-6">
+                                <div class="leftProcedimento pe-2 col-6">
                                     <label for="procedimento">Procedimento:</label>
                                     <input type="text" name="procedimento" id="procedimento" class="form-control">
                                 </div>
-                                <div class="rightData col-6">
+                                <div class="rightData ps-2 col-6">
                                     <label for="dataProcedimento">Data do Procedimento:</label>
                                     <input type="date" name="dataProcedimento" id="dataProcedimento" class="form-control">
                                 </div>
@@ -147,11 +152,11 @@
             <!-- médico solicitante, especialidade e crm -->
             <div class="card mt-4">
                 <div class="card-body">
-                    <div class="d-flex justify-content-evenly">
+                    <div class="d-flex justify-content-around">
                         <div class="form-group">
                             <label for="medicoSolicitante">Médico Solicitante:</label>
-                            <select name="medicoSolicitante" id="medicoSolicitante" class="form-control form-select">
-                                <option value="0" disabled>Selecione o médico solicitante</option>
+                            <select name="medicoSolicitante" id="medicoSolicitante" class="form-select">
+                                <option selected disabled value="">Selecione o médico</option>
                             </select>
                         </div>
                         <div class="form-group">

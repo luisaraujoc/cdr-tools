@@ -1,5 +1,5 @@
 @import url('./navbar.css');
-/* @import url('./global.css'); */
+@import url('./global.css');
 
 .nav-item .nav-link {
     width: 100px;
@@ -8,10 +8,6 @@
 
 .hide{
     display: none;
-}
-
-.form-control {
-    border-color: #3a3a3a;
 }
 
 /* MODAL */
