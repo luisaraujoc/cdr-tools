@@ -47,25 +47,33 @@
             </a>
         </div>
 
-        <!-- Modal de Configuração -->
-        <div id="configModal" class="modal fade" tabindex="-1">
+        <!-- Modal de Configuração " -->
+        <div id="configModal"  class="modal fade"  tabindex="-1">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Configurações</h5>
-                        <button type="button" class="btn-close" aria-label="Close"></button>
+                        <button type="button" class="btn-close" aria-label="Close" id="closebtn"></button>
                     </div>
                     <div class="modal-body">
                         <form>
                             <div class="mb-3">
-                                <label for="filenamePattern" class="form-label">Padrão de Nome de Arquivo</label>
-                                <div>
-                                    <strong class="text-break" id="examePadrao"></strong>
+
+                                <label for="filenamePattern" class="form-label">Padrão Atual de Nome de Arquivo</label>
+                                <div class="containerPadrao">
+                                    <strong class="text-break" id="examePadraoAtual"></strong>
                                 </div>
+                                
                                 <div class="">
                                     <p>Clique para definir o padrão de nomes que sera exibido acima. Assim que terminar, clique em salvar.</p>
                                     <p>Esse processo é recomendado ser feito apenas uma vez.</p>
                                 </div>
+
+                                <label for="filenamePattern" class="form-label">Novo Padrão de Nome de Arquivo</label>
+                                <div class="containerPadrao">
+                                    <strong class="text-break" id="examePadrao"></strong>
+                                </div>
+
                                 <div class="form-text">
                                     <div class="list-group">
                                         <button type="button" class="btn btn-outline-warning my-1" id="numExame"><strong>{numExame}</strong>: Número do exame</button>
@@ -78,7 +86,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" aria-label="Close" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-secondary" id="closebtn" aria-label="Close" data-bs-dismiss="modal">Fechar</button>
                         <button type="button" id="saveButton" class="btn btn-primary">Salvar</button>
                     </div>
                 </div>
@@ -87,7 +95,8 @@
     
 
         <!-- Scripts -->
-        <script src="./src/js/settings.js"></script>
+        <script src="./src/js/settings.js"></script>        
+        <script src="./src/js/mostrarPadraoNameArq.js"></script>
         <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="./node_modules/@popperjs/core/dist/cjs/popper.js"></script>
         <script

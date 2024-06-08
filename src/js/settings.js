@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     function renderizarPadraoValores() {
+        console.log("adsd")
         document.getElementById("examePadrao").textContent = filenamePattern;
     }
 
@@ -94,4 +95,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 console.error('Erro ao salvar o padrão de nome:', error);
             });
     });
+
+    document.getElementById("closebtn").addEventListener("click", ()=>{
+        document.getElementById("examePadrao").innerHTML = "";
+        nomePacienteBoo = false; // 1
+        nomeMedicoBoo = false; // 2
+        numExameBoo = false; // 3
+        dataExameBoo = false; // 4
+        padraoValores= []
+        filenamePattern = "exame"
+    })
 });
+
+
