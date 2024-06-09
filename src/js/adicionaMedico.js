@@ -23,9 +23,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     id: ultimoID, // Usando o ID incremental
                     nome: formatarNome(document.getElementById("nome").value),
                     especialidade: formatarNome(document.getElementById("especialidade").value),
-                    crm: document.getElementById("crm").value.trim()
+                    crm: document.getElementById("crm").value.trim(),
+                    senha: document.getElementById("senhaPattern").value
                 };
 
+                    
                 fetch('http://localhost:3000/api/addMedico/enviar', {
                     method: 'POST',
                     headers: {
@@ -40,24 +42,28 @@ document.addEventListener('DOMContentLoaded', function() {
                         // Limpar os campos do formulário após o envio bem sucedido
                         document.getElementById('nome').value = '';
                         document.getElementById('especialidade').value = '';
-                        document.getElementById('crm').value = '';
+                        document.getElementById('crm').value = '';                        
+                        document.getElementById("senhaPattern").value = '';
                         // Fechar o modal após o envio bem sucedido
                         const modal = new bootstrap.Modal(document.querySelector('.modal'));
                         modal.hide();
                         // Atualizar a tabela de médicos após o envio bem sucedido
                         listaMedicos();
                     } else {
-                        alert(data.mes + " Por favor, tente novamente.");
+                        alert(data.mes + " Por favor, tente novamente.");                                      
+                        document.getElementById("senhaPattern").value = '';
                     }
                 })
                 .catch(error => {
                     console.log('Erro ao enviar os dados:', error);
-                    alert("Erro ao enviar os dados. Por favor, tente novamente.");
+                    alert("Erro ao enviar os dados. Por favor, tente novamente.");                                  
+                    document.getElementById("senhaPattern").value = '';
                 });
             })
             .catch(error => {
                 console.log('Erro ao buscar os dados:', error);
-                alert("Erro ao buscar os dados. Por favor, tente novamente.");
+                alert("Erro ao buscar os dados. Por favor, tente novamente.");              
+                document.getElementById("senhaPattern").value = '';
             });
     });
 
