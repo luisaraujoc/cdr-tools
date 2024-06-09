@@ -6,12 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../src/css/loader.css">   
     <link rel="stylesheet" href="../../src/css/listaMedicos.css">
     <title>Enviar Dados</title>
 </head>
 
 <body>
 
+    <div id="popupSuc" class="modal-load">
+        <div class="modal-content-loader">
+            <div class="mensagem">
+                <img alt="Cadastro realizado!" src="../../src/img/gif.gif" class="checkGif" />
+
+                <p id="msgSucPadrao">Padrão do nome alterado com sucesso!</p>
+                <a href="./listaMedico.html" id="closeModalBtn">Fechar </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="popupFail" class="modal-load">
+        <div class="modal-content-loader">
+            <div class="mensagem">
+                <img alt="Cadastro realizado!" src="../../src/img/cancelar.png" class="checkGif" />
+
+                <p id="msgErroPadrao">Não foi possivel alterar o padrão!</p>
+                <a href="./listaMedico.html" id="closeModalBtn">Fechar</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nav -->
+    <div class="loading" id="loading">
+        <div class="loader">
+            <div class="inner one"></div>
+            <div class="inner two"></div>
+            <div class="inner three"></div>
+        </div>  
+    </div>
+    
     <!-- Nav -->
     <div
         class="navbar bg-body-tertiary border-bottom border- border-warning rounded-bottom d-flex justify-content-evenly">
@@ -77,6 +109,12 @@
                             <label for="crm" class="form-label">CRM:</label>
                             <input type="number" id="crm" class="form-control" name="crm" required>
                         </div>
+
+                        <label class="senha">
+                            <div>Senha Adm:</div> 
+                            <input type="password" name="senha" id="senhaPattern" class="form-control">
+                        </label>
+
                         <div class="d-flex justify-content-center p-3">
                             <button class="btn btn-primary" type="submit" data-bs-dismiss="modal"
                                 aria-label="Close">Adicionar</button>
@@ -89,14 +127,18 @@
     <!-- Modal de Exclusão -->
     <div class="modal fade delete-modal">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
+            <div class="modal-content" style="padding-left: 10px;">
                 <div class="modal-header">
                     <h5 class="modal-title">Excluir Médico</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-form mt-2 ml-10">
                     <p>Tem certeza que deseja excluir este médico?</p>
                 </div>
+                <label class="senha ml-2" >
+                    <div>Senha Adm:</div> 
+                    <input type="password" name="senha" id="senhaExcluir" class="modal-form">
+                </label>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <button type="button" class="btn btn-danger deleteButton" id="delete-btn" data-bs-dismiss="modal">Excluir</button>
@@ -106,14 +148,14 @@
     </div>
 
 
-
+    
     <!-- Modal de Edição -->
     <div class="modal fade edit-modal">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Editar Médico</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" id="close-edit" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form id="editMedicoForm" class="p-4">
@@ -130,6 +172,12 @@
                             <label for="editCrm" class="form-label">CRM:</label>
                             <input type="text" id="editCrm" class="form-control" name="editCrm" required>
                         </div>
+
+                        <label class="senha">
+                            <div>Senha Adm:</div> 
+                            <input type="password" name="senha" id="editSenha" class="form-control">
+                        </label>
+
                         <div class="d-flex justify-content-center p-3">
                             <button id="edit-save" class="btn btn-primary" type="submit" data-bs-dismiss="modal"
                                 aria-label="Close">Salvar Alterações</button>
@@ -166,7 +214,6 @@
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../src/js/adicionaMedico.js"></script>
     <script src="../../src/js/listaMedicos.js"></script>
-    <script src="../../src/js/pageListaMedicos.js"></script>
 </body>
 
 </html>
