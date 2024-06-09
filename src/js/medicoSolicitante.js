@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // Carregar os dados do JSON
-    fetch(`http://localhost:3000/api/listMedicos`)
+    fetch(`http://localhost/api/listMedicos`)
         .then((response) => response.json())
         .then((jsonData) => {
             data = jsonData; // Atribui os dados do JSON à variável global data

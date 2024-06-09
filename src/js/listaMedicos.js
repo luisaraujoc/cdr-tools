@@ -2,7 +2,7 @@ let id;
 let listaDeMedicos = []
 
 function listaMedicos() {
-  fetch('http://localhost:3000/api/listMedicos')
+  fetch('http://localhost/api/listMedicos')
     .then(response => response.json())
     .then(data => {
       const tableBody = document.querySelector('#medicosTable tbody');
@@ -49,7 +49,7 @@ document.getElementById("edit-save").addEventListener("click", () => {
   let novoCrm = document.getElementById("editCrm").value;
   let senha = document.getElementById("editSenha").value;
 
-  fetch(`http://localhost:3000/api/editarMedico/${id}`, {
+  fetch(`http://localhost/api/editarMedico/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'

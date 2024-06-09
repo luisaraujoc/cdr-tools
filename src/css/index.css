@@ -3,140 +3,36 @@
 
 /* Container */
 
-.container-fluid {
+.container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    height: calc(100vh - 92px);
 }
 
-.my-8 {
-    margin-top: calc(1rem * 15);
-}
-
-.containerPadrao{
+.containerPadrao {
     background-color: #ddd;
     border-radius: 10px;
     padding: 5px;
     width: 100%;
     height: 35px;
+    
 }
 
-.senha{
+.senha {
     display: flex;
     flex-direction: column;
 }
 
-#senhaPattern{
+/* #senhaPattern {
     border-radius: 5px;
-}
-
-@media only screen and (max-width: 600px) {
-    .my-8 {
-        margin-top: calc(1rem * 3);
-    }
-}
-
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
-    .my-8 {
-        margin-top: calc(1rem * 4);
-    }
-}
-
-@media only screen and (min-width: 1025px) and (max-width: 1440px) {
-    .my-8 {
-        margin-top: calc(1rem * 5);
-    }
-}
-
-@media only screen and (min-width: 1441px) and (max-width: 1720px) {
-    .my-8 {
-        margin-top: calc(1rem * 6);
-    }
-}
-@media only screen and (min-width: 1721px){
-    .my-8 {
-        margin-top: calc(1rem * 9);
-    }
-}
-
-.listaDeMedicos,
-.formularios {
-    background-color: #FBBC4F;
-    width: 400px;
-    height: 400px;
-    transition: 200ms;
-    color: #fff;
-}
-
-@media only screen and (max-width: 470px) {
-
-    .listaDeMedicos,
-    .formularios {
-        width: 150px;
-        height: 150px;
-        margin-bottom: 10px;
-    }
-
-    h3 {
-        font-size: 0.8em;
-    }
-
-    .text-break{
-        font-size: 9px;
-    }
-}
-
-@media only screen and (min-width: 471px) and (max-width: 600px) {
-
-    .listaDeMedicos,
-    .formularios {
-        width: 200px;
-        height: 200px;
-    }
-
-    h3 {
-        font-size: 1em;
-    }
-
-    .text-break{
-        font-size: 12px;
-    }
-}
-
-
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
-
-    .listaDeMedicos,
-    .formularios {
-        width: 250px;
-        height: 250px;
-    }
-
-    h3 {
-        font-size: 1.2em;
-    }
-
-    .text-break{
-        font-size: 12px;
-    }
-}
-
-@media only screen and (min-width: 1025px) and (max-width: 1440px) {
-
-    .listaDeMedicos,
-    .formularios {
-        width: 300px;
-        height: 300px;
-    }
-
-    h3 {
-        font-size: 1.4em;
-    }
-}
+} */
 
 .listaDeMedicos:hover,
-.formularios:hover {
+.formularios:hover,
+.AnamneseHEM:hover,
+.AnamneseTC:hover{
     background-color: #e69915;
     color: #ffe7be;
 }
@@ -179,4 +75,150 @@ a {
 a:hover {
     color: #ffe7be;
     text-decoration: none;
+}
+
+
+.listaDeMedicos,
+.formularios,
+.AnamneseHEM,
+.AnamneseTC {
+    background-color: #FBBC4F;
+    width: 500px;
+    height: 500px;
+    transition: 200ms;
+    color: #fff;
+    margin: 2.9rem;
+}
+
+.listaDeMedicos h3,
+.formularios h3,
+.AnamneseHEM h3,
+.AnamneseTC h3 {
+    font-size: 2rem;
+    text-align: center;
+    color: #ffe7be;
+}
+
+.listaDeMedicos .icon,
+.formularios .icon,
+.AnamneseHEM .icon,
+.AnamneseTC .icon {
+    font-size: 2rem;
+}
+
+
+@media (max-width: 375px) {
+    .container {
+        height: calc(100vh - 92px);
+    }
+
+    .listaDeMedicos,
+    .formularios,
+    .AnamneseHEM,
+    .AnamneseTC {
+        width: 300px;
+        height: 300px;
+        margin: 1rem;
+    }
+
+    .listaDeMedicos h3,
+    .formularios h3,
+    .AnamneseHEM h3,
+    .AnamneseTC h3 {
+        font-size: 1.5rem;
+    }
+
+    .listaDeMedicos .icon,
+    .formularios .icon,
+    .AnamneseHEM .icon,
+    .AnamneseTC .icon {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 376px) and (max-width: 605px) {
+    .container {
+        height: calc(100vh - 92px);
+    }
+
+    .listaDeMedicos,
+    .formularios,
+    .AnamneseHEM,
+    .AnamneseTC {
+        width: 350px;
+        height: 350px;
+        margin: 2rem;
+    }
+
+    .listaDeMedicos h3,
+    .formularios h3,
+    .AnamneseHEM h3,
+    .AnamneseTC h3 {
+        font-size: 1.8rem;
+    }
+
+    .listaDeMedicos .icon,
+    .formularios .icon,
+    .AnamneseHEM .icon,
+    .AnamneseTC .icon {
+        font-size: 1.8rem;
+    }
+}
+
+@media (min-width: 606px ) and (max-width: 768px) {
+    .container {
+        height: calc(100vh - 92px);
+    }
+
+    .listaDeMedicos,
+    .formularios,
+    .AnamneseHEM,
+    .AnamneseTC {
+        width: 300px;
+        height: 300px;
+        margin: 1.5rem;
+    }
+
+    .listaDeMedicos h3,
+    .formularios h3,
+    .AnamneseHEM h3,
+    .AnamneseTC h3 {
+        font-size: 1.5rem;
+    }
+
+    .listaDeMedicos .icon,
+    .formularios .icon,
+    .AnamneseHEM .icon,
+    .AnamneseTC .icon {
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 769px ) and (max-width: 1024px) {
+    .container {
+        height: calc(100vh - 92px);
+    }
+
+    .listaDeMedicos,
+    .formularios,
+    .AnamneseHEM,
+    .AnamneseTC {
+        width: 400px;
+        height: 400px;
+        margin: 2rem;
+    }
+
+    .listaDeMedicos h3,
+    .formularios h3,
+    .AnamneseHEM h3,
+    .AnamneseTC h3 {
+        font-size: 1.5rem;
+    }
+
+    .listaDeMedicos .icon,
+    .formularios .icon,
+    .AnamneseHEM .icon,
+    .AnamneseTC .icon {
+        font-size: 1.5rem;
+    }
 }

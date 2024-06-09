@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
 
         // Verificar se há médicos na lista antes de determinar o último ID
-        fetch('http://localhost:3000/api/listMedicos')
+        fetch('http://localhost/api/listMedicos')
             .then(response => response.json())
             .then(data => {
                 let ultimoID;
