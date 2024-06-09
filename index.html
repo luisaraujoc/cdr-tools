@@ -62,7 +62,7 @@
         </div>
     </div>
 
-    <div class="container-fluid body-content d-flex justify-content-evenly align-items-center py-5 my-8">
+    <div class="container body-content">
         <a href="./public/pages/listaMedico.html"
             class="listaDeMedicos d-flex flex-column justify-content-center align-items-center rounded">
             <div class="icon d-flex justify-content-center">
@@ -85,7 +85,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Configurações</h5>
-                    <button type="button" class="btn-close" aria-label="Close" id="closebtn"></button>
+                    <button type="button" class="btn btn-danger btn-close" aria-label="Close" id="closebtn"></button>
                 </div>
                 <div class="modal-body">
                     <form>
@@ -122,13 +122,11 @@
                         </div>
                         <label class="senha">
                             Senha Adm:
-                            <input type="password" name="senha" id="senhaPattern">
+                            <input type="password" name="senha" id="senhaPattern" class="form-control">
                         </label>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" id="closebtn" aria-label="Close"
-                        data-bs-dismiss="modal">Fechar</button>
                     <button type="button" id="saveButton" class="btn btn-primary">Salvar</button>
                 </div>
             </div>

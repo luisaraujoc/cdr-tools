@@ -36,6 +36,10 @@
   font-weight: 500;
 }
 
+.btn-close {
+  border: 2px solid #dc3545;
+}
+
 /* Chrome, Edge and Safari */
 *::-webkit-scrollbar {
   height: 5px;

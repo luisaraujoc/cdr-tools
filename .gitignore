@@ -6,3 +6,5 @@ private/src/pdf/
 private/temp/
 private/src/json
 public/pages/novoHistoricoEnfermagem.html
+logs/
+private/logs/

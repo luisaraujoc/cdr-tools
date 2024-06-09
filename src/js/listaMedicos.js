@@ -1,6 +1,6 @@
 let id;
 function listaMedicos() {
-  fetch('http://localhost:3000/api/listMedicos')
+  fetch('http://localhost/api/listMedicos')
     .then(response => response.json())
     .then(data => {
       const tableBody = document.querySelector('#medicosTable tbody');
@@ -45,7 +45,7 @@ document.getElementById("edit-save").addEventListener("click", () => {
   let novoEspecialidade = document.getElementById("editEspecialidade").value;
   let novoCrm = document.getElementById("editCrm").value;
 
-  fetch(`http://localhost:3000/api/editarMedico/${id}`, {
+  fetch(`http://localhost/api/editarMedico/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
@@ -69,7 +69,7 @@ document.getElementById("edit-save").addEventListener("click", () => {
 });
 
 document.getElementById("delete-btn").addEventListener("click", () =>{
-  fetch(`http://localhost:3000/api/excluirMedico/${id}`, {
+  fetch(`http://localhost/api/excluirMedico/${id}`, {
         method: 'DELETE'
     })
     .then(response => {
