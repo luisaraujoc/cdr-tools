@@ -368,6 +368,7 @@ const htmlToprint = () => {
    let q4Qual = document.getElementById("outraCirurgiaRealizada")
    let q5 = q5selected;
    let q5Qual = document.getElementById("quimioterapiaRealizada")
+   let q6Qual = document.getElementById("outraEnfermidadeTipo")
    let q7 = q7selected;
    let q7Qual = document.getElementById("medicamentoUtilizado")
    let q8 = q8selected;
@@ -384,7 +385,7 @@ const htmlToprint = () => {
    let q13_1Qual = document.getElementById("tcAnteriorInterTipo")
    let q14 = q14selected;
    let q14_1 = q14_1selected;
-   let q14Qual = document.getElementById("motivoExame")
+   let q14Qual = document.getElementById("examePrevioData")
    let q15 = q15selected;
    let q16 = q16selected;
    let q16Qual = document.getElementById("contrasteIodadoTipo")
@@ -2099,6 +2100,12 @@ z"/>
             document.querySelector(".q5").innerHTML += '<div class="inf-q"><span> <strong> Tempo: </strong> </span><span id="ans-inf">${q5Qual.value}</span></div>'
         }
 
+        ${q6script}
+
+        if(q6){
+            document.querySelector(".q6").innerHTML += '<div class="inf-q"><span> <strong> Qual: </strong> </span><span id="ans-inf">${q6Qual.value}</span></div>'
+        }
+
         
         ${q7script}
 
@@ -2144,9 +2151,6 @@ z"/>
         if(q14){
 
             document.querySelector(".q14").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong></span><span id="ans-inf">${q14Qual.value}</span></div>'
-        
-            document.querySelector(".q14").innerHTML += '<div class="obsq15" style="margin-top: 5px;"><span class="q">Trouxe para comparação?</span><span id="obsans14">${textq14_1}</span></div>'
-              
         }
 
         ${q16script}

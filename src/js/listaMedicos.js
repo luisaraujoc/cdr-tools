@@ -111,6 +111,17 @@ document.getElementById("delete-btn").addEventListener("click", () => {
 
 })
 
+document.getElementById("close-ex").addEventListener("click", () => {
+  document.getElementById("senhaExcluir").value = "";
+})
+
+document.getElementById("close-add").addEventListener("click", () => {
+  document.getElementById("senhaPattern").value = "";
+  document.getElementById("crm").value = "";
+  document.getElementById("especialidade").value = "";
+  document.getElementById("nome").value = "";
+})
+
 function setId(event) {
   // event.currentTarget se refere ao botão que acionou o evento
   const elemento = event.currentTarget;
@@ -137,6 +148,7 @@ function coverInputEdit(id){
     }
   }
 }
+
 
 
 
