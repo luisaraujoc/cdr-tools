@@ -101,7 +101,7 @@ document.getElementById("delete-btn").addEventListener("click", () => {
         document.getElementById("msgErroPadrao").innerHTML = "Senha incorreta!"
         document.getElementById("popupFail").style.display = "flex";
       }
-      listaMedicos(); // Atualizar a lista de médicos após a exclusão
+      listaMedicos();
     })
     .catch(error => {
       document.getElementById("msgErroPadrao").innerHTML = "Erro ao fazer exclusão!"
