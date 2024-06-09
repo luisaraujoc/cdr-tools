@@ -3,10 +3,13 @@ document.addEventListener("DOMContentLoaded", function() {
       document.querySelectorAll(`input[name=${radioGroupName}]`).forEach((input) => {
           input.addEventListener("change", function() {
               const targetFieldset = input.closest('.form-group').querySelector(targetClass);
+
+              console.log(input.value);
+
               if (input.value === "sim") {
-                  targetFieldset.classList.remove("d-none");
+                targetFieldset.classList.remove("d-none");
               } else {
-                  targetFieldset.classList.add("d-none");
+                targetFieldset.classList.add("d-none");
               }
           });
       });
@@ -35,9 +38,11 @@ document.addEventListener("DOMContentLoaded", function() {
   toggleFieldset("alergiaLimpeza", ".form-group");
   toggleFieldset("alergiaMetais", ".form-group");
   toggleFieldset("tcAnterior", ".form-group");
+  toggleFieldset("tcAnteriorInter", ".form-group.tc");
   toggleFieldset("examePrevio", ".form-group");
   toggleFieldset("contrasteIodado", ".form-group");
-  toggleFieldset("intercorrenciaContrasIodado", ".form-group");
+  toggleFieldset("intercorrenciaContrasIodado", ".form-group.iodo");
+  toggleFieldset("contrasteIodadoSim", ".form-group");
   toggleFieldset("hipoglicemiante", ".form-group");
 
   // Adicionando o evento para o checkbox "Outros" da pergunta 6
