@@ -2030,7 +2030,7 @@ z"/>
         ${q8script}
 
         if(q8){
-            document.querySelector(".q8").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong> ${q8Qual.value}:</span><span id="ans-inf"></span></div>'
+            document.querySelector(".q8").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong> ${q8Qual.value}</span><span id="ans-inf"></span></div>'
         }
 
         ${q9script}
