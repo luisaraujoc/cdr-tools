@@ -1,96 +1,147 @@
 <!doctype html>
 <html lang="pt-br">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Home - CDR Tools</title>
-        <link rel="stylesheet"
-            href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
-        <link rel="stylesheet"
-            href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="./src/css/index.css">
-    </head>
-    <body>
-        <!-- Nav -->
-        <div
-            class="navbar bg-body-tertiary border-bottom border- border-warning rounded-bottom d-flex justify-content-evenly">
-            <div class="container-fluid">
-                <a href="#" class="navbar-brand">
-                    <img src="./src/img/logo.png" alt="logo" class="logo">
-                </a>
-                <div class="navbar-brand">
-                    <h5>Tela inicial</h5>
-                </div>
-                <div class="nav-item">
-                    <a href="#" class="nav-link" id="configIcon">
-                        <i class="bi bi-gear-fill"></i>
-                    </a>
-                </div>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home - CDR Tools</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="src/css/loader.css">
+    <link rel="stylesheet" href="./src/css/index.css">
+</head>
+
+<body>
+
+    <div id="popupSuc" class="modal-load">
+        <div class="modal-content-loader">
+            <div class="mensagem">
+                <img alt="Cadastro realizado!" src="src/img/gif.gif" class="checkGif" />
+
+                <p>Padrão do nome alterado com sucesso!</p>
+                <a href="./index.html" id="closeModalBtn">Fechar </a>
             </div>
         </div>
+    </div>
 
-        <div
-            class="container-fluid body-content d-flex justify-content-evenly align-items-center py-5 my-8">
-            <a href="./public/pages/listaMedico.html"
-                class="listaDeMedicos d-flex flex-column justify-content-center align-items-center rounded">
-                <div class="icon d-flex justify-content-center">
-                    <i class="bi bi-person-fill"></i>
-                </div>
-                <h3>Lista de médicos</h3>
-            </a>
-            <a href="./public/pages/formularios.html"
-                class="formularios d-flex flex-column justify-content-center align-items-center rounded">
-                <div class="icon d-flex justify-content-center">
-                    <i class="bi bi-card-text"></i>
-                </div>
-                <h3>Formulários</h3>
-            </a>
+    <div id="popupFail" class="modal-load">
+        <div class="modal-content-loader">
+            <div class="mensagem">
+                <img alt="Cadastro realizado!" src="src/img/cancelar.png" class="checkGif" />
+
+                <p id="msgErroPadrao">Não foi possivel alterar o padrão!</p>
+                <a href="./index.html" id="closeModalBtn">Fechar</a>
+            </div>
         </div>
+    </div>
 
-        <!-- Modal de Configuração -->
-        <div id="configModal" class="modal fade" tabindex="-1">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Configurações</h5>
-                        <button type="button" class="btn-close" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="mb-3">
-                                <label for="filenamePattern" class="form-label">Padrão de Nome de Arquivo</label>
-                                <div>
-                                    <strong class="text-break" id="examePadrao"></strong>
-                                </div>
-                                <div class="">
-                                    <p>Clique para definir o padrão de nomes que sera exibido acima. Assim que terminar, clique em salvar.</p>
-                                    <p>Esse processo é recomendado ser feito apenas uma vez.</p>
-                                </div>
-                                <div class="form-text">
-                                    <div class="list-group">
-                                        <button type="button" class="btn btn-outline-warning my-1" id="numExame"><strong>{numExame}</strong>: Número do exame</button>
-                                        <button type="button" class="btn btn-outline-warning my-1" id="nomeMedico"><strong>{nomeMedico}</strong>: Nome do médico</button>
-                                        <button type="button" class="btn btn-outline-warning my-1" id="dataExame"><strong>{dataExame}</strong>: Data do exame</button>
-                                        <button type="button" class="btn btn-outline-warning my-1" id="nomePaciente"><strong>{nomePaciente}</strong>: Nome do paciente</button>
-                                    </div>
+    <!-- Nav -->
+    <div class="loading" id="loading">
+        <div class="loader">
+            <div class="inner one"></div>
+            <div class="inner two"></div>
+            <div class="inner three"></div>
+        </div>  
+    </div>
+
+    <!-- Nav -->
+    <div
+        class="navbar bg-body-tertiary border-bottom border- border-warning rounded-bottom d-flex justify-content-evenly">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand">
+                <img src="./src/img/logo.png" alt="logo" class="logo">
+            </a>
+            <div class="navbar-brand">
+                <h5>Tela inicial</h5>
+            </div>
+            <div class="nav-item">
+                <a href="#" class="nav-link" id="configIcon">
+                    <i class="bi bi-gear-fill"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid body-content d-flex justify-content-evenly align-items-center py-5 my-8">
+        <a href="./public/pages/listaMedico.html"
+            class="listaDeMedicos d-flex flex-column justify-content-center align-items-center rounded">
+            <div class="icon d-flex justify-content-center">
+                <i class="bi bi-person-fill"></i>
+            </div>
+            <h3>Lista de médicos</h3>
+        </a>
+        <a href="./public/pages/formularios.html"
+            class="formularios d-flex flex-column justify-content-center align-items-center rounded">
+            <div class="icon d-flex justify-content-center">
+                <i class="bi bi-card-text"></i>
+            </div>
+            <h3>Formulários</h3>
+        </a>
+    </div>
+
+    <!-- Modal de Configuração " -->
+    <div style="z-index: 1;" id="configModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Configurações</h5>
+                    <button type="button" class="btn-close" aria-label="Close" id="closebtn"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+
+                            <label for="filenamePattern" class="form-label"><strong>Padrão Atual de Nome de Arquivo:</strong></label>
+                            <div class="containerPadrao">
+                                <strong class="text-break" id="examePadraoAtual"></strong>
+                            </div>
+
+                            <div class="">
+                                <p>Clique para definir o padrão de nomes que sera exibido acima. Assim que terminar,
+                                    clique em salvar.</p>
+                                <p>Esse processo é recomendado ser feito apenas uma vez.</p>
+                            </div>
+
+                            <label for="filenamePattern" class="form-label"><strong>Novo Padrão de Nome de Arquivo:</strong></label>
+                            <div class="containerPadrao">
+                                <strong class="text-break" id="examePadrao"></strong>
+                            </div>
+
+                            <div class="form-text">
+                                <div class="list-group">
+                                    <button type="button" class="btn btn-outline-warning my-1"
+                                        id="numExame"><strong>{numExame}</strong>: Número do exame</button>
+                                    <button type="button" class="btn btn-outline-warning my-1"
+                                        id="nomeMedico"><strong>{nomeMedico}</strong>: Nome do médico</button>
+                                    <button type="button" class="btn btn-outline-warning my-1"
+                                        id="dataExame"><strong>{dataExame}</strong>: Data do exame</button>
+                                    <button type="button" class="btn btn-outline-warning my-1"
+                                        id="nomePaciente"><strong>{nomePaciente}</strong>: Nome do paciente</button>
                                 </div>
                             </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" aria-label="Close" data-bs-dismiss="modal">Fechar</button>
-                        <button type="button" id="saveButton" class="btn btn-primary">Salvar</button>
-                    </div>
+                        </div>
+                        <label class="senha">
+                            Senha Adm:
+                            <input type="password" name="senha" id="senhaPattern">
+                        </label>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="closebtn" aria-label="Close"
+                        data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" id="saveButton" class="btn btn-primary">Salvar</button>
                 </div>
             </div>
         </div>
-    
+    </div>
 
-        <!-- Scripts -->
-        <script src="./src/js/settings.js"></script>
-        <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="./node_modules/@popperjs/core/dist/cjs/popper.js"></script>
-        <script
-            src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    </body>
+
+    <!-- Scripts -->
+    <script src="./src/js/settings.js"></script>
+    <script src="./src/js/mostrarPadraoNameArq.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./node_modules/@popperjs/core/dist/cjs/popper.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+
 </html>

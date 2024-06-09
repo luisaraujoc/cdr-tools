@@ -21,8 +21,8 @@
         </div>  
     </div>
 
-    <div id="popupSuc" class="modal">
-        <div class="modal-content">
+    <div id="popupSuc" class="modal-load">
+        <div class="modal-content-loader">
             <div class="mensagem">
                 <img alt="Cadastro realizado!" src="../../src/img/gif.gif" class="checkGif" />
 
@@ -32,8 +32,8 @@
         </div>
     </div>
 
-    <div id="popupFail" class="modal">
-        <div class="modal-content">
+    <div id="popupFail" class="modal-load">
+        <div class="modal-content-loader">
             <div class="mensagem">
                 <img alt="Cadastro realizado!" src="../../src/img/cancelar.png" class="checkGif" />
 
@@ -68,11 +68,11 @@
                         <!-- flex inline, input de Codigo, Revisão, Próxima revisão -->
                         <div class="form-group">
                             <label for="codigo">Código:</label>
-                            <input type="text" class="form-control" id="codigo">
+                            <input type="text" maxlength="20" class="form-control" id="codigo">
                         </div>
                         <div class="form-group">
                             <label for="revisao">Revisão:</label>
-                            <input type="text" class="form-control" id="revisao">
+                            <input type="text" maxlength="20" class="form-control" id="revisao">
                         </div>
                         <div class="form-group">
                             <label>
@@ -99,9 +99,10 @@
                         </div>
                         <div class="form-group">
                             <label for="medico">Médico Solicitante</label>
-                            <select class="form-select" id="medicoSolicitante">
+                            <select class="form-select" id="medicoSolicitante" name="medicoSolicitante">
                                 <option selected disabled>Selecione o
                                     Médico</option>
+
                             </select>
                         </div>
                         <div class="form-group">
@@ -111,8 +112,8 @@
                     </div>
                     <div class="col-6 px-2">
                         <div class="form-group">
-                            <label for="dn">DN:</label>
-                            <input type="text" class="form-control" id="dn">
+                            <label for="dn">Data de Nascimento:</label>
+                            <input type="date" class="form-control" id="dn">
                         </div>
                         <div class="form-group d-flex flex-row justify-content-evenly">
                             <div class="col-6 pe-2">
@@ -571,7 +572,7 @@
             <div class="p-4 buttons ">
                 <div class="card-body d-flex justify-content-center">
                     <button type="button" class="btn btn-lg btn-primary mx-2" id="btnSalvarTomografia">Salvar</button>
-                    <button type="button" class="btn btn-lg btn-danger mx-2" id="btnCancelar">Visualizar</button>
+                    <button type="button" class="btn btn-lg btn-danger mx-2" id="btn-visualizar">Visualizar</button>
                 </div>
             </div>
 
@@ -587,8 +588,11 @@
     <script src="../../node_modules/@popperjs/core/dist/cjs/popper.js"></script>
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../../src/js/tomografiaPage.js"></script>
-    <script src="../../src/js/contentTumografiaHtml.js"></script>
+    <script src="../../src/js/tomografiaPage.js"></script>    
+    <script src="../../src/js/mostrarPdf.js"></script>
+    <script src="../../src/js/contentTumografiaHtml.js"></script>   
+    <script src="../../src/js/contentHtmlTomografiaToShow.js"></script>   
+    <script src="../../src/js/medicoSolicitante.js"></script>
     <script src="../../src/js/geradorPdf.js"></script>
 </body>
 
