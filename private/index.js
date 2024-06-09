@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 
 let pdf = require("html-pdf");
+const e = require('express');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -183,7 +184,15 @@ app.post('/api/addMedico/enviar', async (req, res) => {
           }
         }
 
-        jsonData.push(data);
+        let dataToJson = {
+          id: data.id,
+          nome: data.nome,
+          crm: data.crm,
+          especialidade: data.especialidade
+        }
+
+
+        jsonData.push(dataToJson);
 
         fs.writeFile(filePath, JSON.stringify(jsonData), 'utf8', (err) => {
           if (err) {

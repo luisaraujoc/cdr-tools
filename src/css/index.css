@@ -222,3 +222,21 @@ a:hover {
         font-size: 1.5rem;
     }
 }
+
+@media  (max-width: 995px) {
+   .text-break{
+    font-size: 12px;
+   }
+}
+
+@media  (max-width: 520px) {
+    .text-break{
+     font-size: 10px;
+    }
+ }
+
+ @media  (max-width: 440px) {
+    .text-break{
+     font-size: 8px;
+    }
+ }
