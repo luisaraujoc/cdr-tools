@@ -164,6 +164,18 @@ radioButtonsq13.forEach(radioButton => {
    });
 });
 
+const radioButtonsq13_1 = document.querySelectorAll('input[name="tcAnteriorInter"]');
+let q13_1selected = false;
+radioButtonsq13_1.forEach(radioButton => {
+   radioButton.addEventListener('change', () => {
+      if (radioButton.value === "sim") {
+         q13_1selected = true;
+      } else if (radioButton.value === "nao") {
+         q13_1selected = false;
+      }
+   });
+});
+
 const radioButtonsq14 = document.querySelectorAll('input[name="examePrevio"]');
 let q14selected = false;
 radioButtonsq14.forEach(radioButton => {
@@ -208,6 +220,18 @@ radioButtonsq16.forEach(radioButton => {
          q16selected = true;
       } else if (radioButton.value === "nao") {
          q16selected = false;
+      }
+   });
+});
+
+const radioButtonsq16_1 = document.querySelectorAll('input[name="intercorrenciaContrasIodado"]');
+let q16_1selected = false;
+radioButtonsq16_1.forEach(radioButton => {
+   radioButton.addEventListener('change', () => {
+      if (radioButton.value === "sim") {
+         q16_1selected = true;
+      } else if (radioButton.value === "nao") {
+         q16_1selected = false;
       }
    });
 });
@@ -331,44 +355,43 @@ const htmlToprint = () => {
    let telefone = document.getElementById("telefone");
    let dataExame = document.getElementById("dataExame");
    let exame = document.getElementById("exame");
-   let horaExame = document.getElementById("horaExame");
    let protocolo = document.getElementById("protocolo");
    let medicoSolicitante = document.getElementById("medicoSolicitante");
 
 
    let q1 = document.getElementById("motivoExame");
    let q2 = document.getElementById("principalQueixa");
-   let q2QntTempo = document.getElementById("motivoExame");
+   let q2QntTempo = document.getElementById("tempoSintomas");
    let q3 = q3selected;
-   let q3Qual = document.getElementById("motivoExame")
+   let q3Qual = document.getElementById("cirurgiaRealizada")
    let q4 = q4selected;
-   let q4Qual = document.getElementById("motivoExame")
+   let q4Qual = document.getElementById("outraCirurgiaRealizada")
    let q5 = q5selected;
-   let q5Qual = document.getElementById("motivoExame")
-   let q6Quais = document.getElementById("motivoExame")
+   let q5Qual = document.getElementById("quimioterapiaRealizada")
    let q7 = q7selected;
-   let q7Qual = document.getElementById("motivoExame")
+   let q7Qual = document.getElementById("medicamentoUtilizado")
    let q8 = q8selected;
-   let q8Qual = document.getElementById("motivoExame")
+   let q8Qual = document.getElementById("alergiaTipo")
    let q9 = q9selected;
-   let q9Qual = document.getElementById("motivoExame")
+   let q9Qual = document.getElementById("alergiaMedicamentosaTipo")
    let q10 = q10selected
-   let q10Qual = document.getElementById("motivoExame")
+   let q10Qual = document.getElementById("alergiaAlimentarTipo")
    let q11 = q11selected;
-   let q11Obs = document.getElementById("motivoExame");
    let q12 = q12selected;
-   let q12Obs = document.getElementById("motivoExame")
    let q13 = q13selected;
-   let q13Qual = document.getElementById("motivoExame")
+   let q13Qual = document.getElementById("tcAnteriorData")   
+   let q13_1 = q13_1selected;
+   let q13_1Qual = document.getElementById("tcAnteriorInterTipo")
    let q14 = q14selected;
    let q14_1 = q14_1selected;
    let q14Qual = document.getElementById("motivoExame")
    let q15 = q15selected;
-   let q15Qual = document.getElementById("motivoExame")
    let q16 = q16selected;
-   let q16Qual = document.getElementById("motivoExame")
+   let q16Qual = document.getElementById("contrasteIodadoTipo")
+   let q16_1 = q16_1selected;
+   let q16_1Qual = document.getElementById("intercorrenciaContrasIodadoTipo")
    let q17 = q17selected;
-   let q17Qual = document.getElementById("motivoExame")
+   let q17Qual = document.getElementById("hipoglicemianteTipo")
    let q18 = q18selected;
    let q19 = q19selected;
    let q20 = document.getElementById("TipoExame");
@@ -385,10 +408,12 @@ const htmlToprint = () => {
    let textq11 = simNaoStr(q11);
    let textq12 = simNaoStr(q12);
    let textq13 = simNaoStr(q13);
+   let textq13_1 = simNaoStr(q13_1);
    let textq14 = simNaoStr(q14);
    let textq14_1 = simNaoStr(q14_1);
    let textq15 = simNaoStr(q15);
    let textq16 = simNaoStr(q16);
+   let textq16_1 = simNaoStr(q16_1);
    let textq17 = simNaoStr(q17);
    let textq18 = simNaoStr(q18);
    let textq19 = simNaoStr(q19);
@@ -409,11 +434,11 @@ const htmlToprint = () => {
    let q8script = pergScritStr(q8, "q8");
    let q9script = pergScritStr(q9, "q9");
    let q10script = pergScritStr(q10, "q10");
-   let q11script = pergScritStr(q11, "q11");
-   let q12script = pergScritStr(q12, "q12");
    let q13script = pergScritStr(q13, "q13");
+   let q13_1script = pergScritStr(q13_1, "q13_1");
    let q14script = pergScritStr(q14, "q14");
    let q16script = pergScritStr(q16, "q16");
+   let q16_1script = pergScritStr(q16_1, "q16_1");
    let q17script = pergScritStr(q17, "q17");
 
 
@@ -2074,12 +2099,6 @@ z"/>
             document.querySelector(".q5").innerHTML += '<div class="inf-q"><span> <strong> Tempo: </strong> </span><span id="ans-inf">${q5Qual.value}</span></div>'
         }
 
-        ${q6script}
-
-        
-        if(q6){
-            document.querySelector(".q6").innerHTML +=  "<div class='inf-q' style='margin-top: 5px;'><span style='font-weight: bold;'><strong>Quais:</strong></span> <span id='ans-inf' style='word-wrap: reak-word; overflow: hidden; text-overflow: ellipsis; max-width: 1200px;'>${q6Quais.value}</span></div>"        
-        }
         
         ${q7script}
 
@@ -2105,24 +2124,18 @@ z"/>
             document.querySelector(".q10").innerHTML += '<div class="inf-q"><span><strong>Qual: </strong></span><span id="ans-inf">${q10Qual.value}</span></div>'
         }
 
-        
-        ${q11script}
-
-        if(q11){
-            document.querySelector("#q11").innerHTML += '<div class="inf-q"><span><strong>Obs:</strong></span><span id="ans-inf">${q11Obs.value}</span></div>'
-        }
-
-        ${q12script}
-
-        if(q12){
-            
-            document.querySelector(".q12").innerHTML += '<div class="inf-q"><span><strong>Obs:</strong></span><span id="ans-inf">${q12Obs.value}</span></div>'
-        }
-
         ${q13script}
 
        if(q13){
             document.querySelector(".q13t").innerHTML += '<div class="inf-q"> <span> <strong>Obs:</strong> </span> <span id="ans-inf">${q13Qual.value}</span> </div>'
+
+            document.querySelector(".q13t").innerHTML += '<div class="obsq15" style="margin-top: 5px;"><div class="q">Aconteceu alguma intercorrencia?</div><div id="obsans14">${textq13_1}</div></div>'
+
+            ${q13_1script}
+
+            if(q13_1){
+               document.querySelector(".q13t").innerHTML += '<div class="inf-q"><span><strong>Qual: </strong></span><span id="ans-inf">${q13_1Qual.value}</span></div>'
+            }
         }
 
         ${q14script}
@@ -2141,6 +2154,14 @@ z"/>
         if(q16){
             
             document.querySelector(".q16").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong></span><span id="ans-inf">${q16Qual.value}</span></div>'
+
+            document.querySelector(".q16").innerHTML += '<div class="obsq15" style="margin-top: 5px;"><div class="q">Aconteceu alguma intercorrencia?</div><div id="obsans14">${textq16_1}</div></div>'
+
+            ${q16_1script}
+
+            if(q16_1){
+               document.querySelector(".q16").innerHTML += '<div class="inf-q"><span><strong>Qual: </strong></span><span id="ans-inf">${q16_1Qual.value}</span></div>'
+            }
         }
 
         ${q17script}

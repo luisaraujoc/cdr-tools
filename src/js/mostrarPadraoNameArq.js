@@ -4,7 +4,7 @@ let numExameBoo = false; // 3
 let dataExameBoo = false; // 4
 
 document.addEventListener("DOMContentLoaded", function () {
-    fetch(`http://localhost/api/padraoArqName`)
+    fetch(`http://192.168.1.6:3000/api/padraoArqName`)
         .then((response) => response.json())
         .then((jsonData) => {
             data = jsonData;

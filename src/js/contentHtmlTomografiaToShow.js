@@ -87,33 +87,31 @@ const htmlToShow = () => {
  
     let q1 = document.getElementById("motivoExame");
     let q2 = document.getElementById("principalQueixa");
-    let q2QntTempo = document.getElementById("motivoExame");
+    let q2QntTempo = document.getElementById("tempoSintomas");
     let q3 = q3selected;
-    let q3Qual = document.getElementById("motivoExame")
+    let q3Qual = document.getElementById("cirurgiaRealizada")
     let q4 = q4selected;
-    let q4Qual = document.getElementById("motivoExame")
+    let q4Qual = document.getElementById("outraCirurgiaRealizada")
     let q5 = q5selected;
-    let q5Qual = document.getElementById("motivoExame")
-    let q6Quais = document.getElementById("motivoExame")
+    let q5Qual = document.getElementById("quimioterapiaRealizada")
     let q7 = q7selected;
-    let q7Qual = document.getElementById("motivoExame")
+    let q7Qual = document.getElementById("medicamentoUtilizado")
     let q8 = q8selected;
-    let q8Qual = document.getElementById("motivoExame")
+    let q8Qual = document.getElementById("alergiaTipo")
     let q9 = q9selected;
-    let q9Qual = document.getElementById("motivoExame")
+    let q9Qual = document.getElementById("alergiaMedicamentosaTipo")
     let q10 = q10selected
-    let q10Qual = document.getElementById("motivoExame")
+    let q10Qual = document.getElementById("alergiaAlimentarTipo")
     let q11 = q11selected;
-    let q11Obs = document.getElementById("motivoExame");
     let q12 = q12selected;
-    let q12Obs = document.getElementById("motivoExame")
     let q13 = q13selected;
-    let q13Qual = document.getElementById("motivoExame")
+    let q13Qual = document.getElementById("tcAnteriorData")
+    let q13_1 = q13_1selected;
+    let q13_1Qual = document.getElementById("tcAnteriorInterTipo")
     let q14 = q14selected;
     let q14_1 = q14_1selected;
     let q14Qual = document.getElementById("motivoExame")
     let q15 = q15selected;
-    let q15Qual = document.getElementById("motivoExame")
     let q16 = q16selected;
     let q16Qual = document.getElementById("motivoExame")
     let q17 = q17selected;
@@ -1820,13 +1818,6 @@ const htmlToShow = () => {
              document.querySelector(".q5").innerHTML += '<div class="inf-q"><span> <strong> Tempo: </strong> </span><span id="ans-inf">${q5Qual.value}</span></div>'
          }
  
-         ${q6script}
- 
-         
-         if(q6){
-             document.querySelector(".q6").innerHTML +=  "<div class='inf-q' style='margin-top: 5px;'><span style='font-weight: bold;'><strong>Quais:</strong></span> <span id='ans-inf' style='word-wrap: reak-word; overflow: hidden; text-overflow: ellipsis; max-width: 1200px;'>${q6Quais.value}</span></div>"        
-         }
-         
          ${q7script}
  
          if(q7){
@@ -1849,20 +1840,6 @@ const htmlToShow = () => {
  
          if(q10){
              document.querySelector(".q10").innerHTML += '<div class="inf-q"><span><strong>Qual: </strong></span><span id="ans-inf">${q10Qual.value}</span></div>'
-         }
- 
-         
-         ${q11script}
- 
-         if(q11){
-             document.querySelector("#q11").innerHTML += '<div class="inf-q"><span><strong>Obs:</strong></span><span id="ans-inf">${q11Obs.value}</span></div>'
-         }
- 
-         ${q12script}
- 
-         if(q12){
-             
-             document.querySelector(".q12").innerHTML += '<div class="inf-q"><span><strong>Obs:</strong></span><span id="ans-inf">${q12Obs.value}</span></div>'
          }
  
          ${q13script}

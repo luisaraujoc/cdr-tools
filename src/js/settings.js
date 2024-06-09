@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
         loader.style.display = "block";
         document.body.style.overflow = 'hidden';
 
-        fetch('http://localhost/api/salvar-padrao', {
+        fetch('http://192.168.1.6:3000/api/salvar-padrao', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
