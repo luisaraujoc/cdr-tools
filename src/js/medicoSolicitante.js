@@ -4,10 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
     var especialidadeInput = document.getElementById("especialidade");
     let data; // Definindo data fora do escopo do fetch
 
-
-
     // Carregar os dados do JSON
-    fetch(`http://localhost/api/listMedicos`)
+    fetch(`http://192.168.3.34/api/listMedicos`)
         .then((response) => response.json())
         .then((jsonData) => {
             data = jsonData; // Atribui os dados do JSON à variável global data
@@ -34,16 +32,36 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Especialidade:", especialidadeInput.value);
     }
 
-    // Evento de mudança no select
-    medicoSelect.addEventListener("change", function () {
-        var selectedMedico = this.value;
+    function TestarCampoMedico() {
+        var selectedMedico = medicoSelect.value;
         var selectedMedicoData = data.find(function (m) {
             return m.nome === selectedMedico;
         });
-        crmInput.value = selectedMedicoData.crm;
-        especialidadeInput.value = selectedMedicoData.especialidade;
+        console.log("Nome do médico selecionado:", selectedMedico);
+    }
 
-        // Chama a função para testar os campos
-        testarCampos();
-    });
+    // Evento de mudança no select
+    if (crmInput != null && especialidadeInput != null) {
+        medicoSelect.addEventListener("change", function () {
+            var selectedMedico = this.value;
+            var selectedMedicoData = data.find(function (m) {
+                return m.nome === selectedMedico;
+            });
+            crmInput.value = selectedMedicoData.crm;
+            especialidadeInput.value = selectedMedicoData.especialidade
+    
+            // Chama a função para testar os campos
+            testarCampos();
+        });
+    } else {
+        medicoSelect.addEventListener("change", function () {
+            var selectedMedico = this.value;
+            var selectedMedicoData = data.find(function (m) {
+                return m.nome === selectedMedico;
+            });
+                
+            // Chama a função para testar os campos
+            TestarCampoMedico();
+        });
+    }
 });

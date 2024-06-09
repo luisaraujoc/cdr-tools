@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
 
         // Verificar se há médicos na lista antes de determinar o último ID
-        fetch('http://localhost/api/listMedicos')
+        fetch('http://192.168.3.34/api/listMedicos')
             .then(response => response.json())
             .then(data => {
                 let ultimoID;
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     crm: document.getElementById("crm").value.trim()
                 };
 
-                fetch('http://localhost/api/addMedico/enviar', {
+                fetch('http://192.168.3.34/api/addMedico/enviar', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

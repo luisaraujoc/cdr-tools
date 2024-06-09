@@ -15,7 +15,7 @@ if (btn != null) {
 
     const timer = setTimeout(() => {
       var html = win.document.documentElement.outerHTML;
-      fetch('http://localhost/api/hitoricoEnfermagem/enviar', {
+      fetch('http://192.168.3.34/api/hitoricoEnfermagem/enviar', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ if (btnTomografia != null) {
 
     const timer = setTimeout(() => {
       var html = win.document.documentElement.outerHTML;
-      fetch('http://localhost/api/tomografia/enviar', {
+      fetch('http://192.168.3.34/api/tomografia/enviar', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
