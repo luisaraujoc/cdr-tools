@@ -1,130 +1,45 @@
-document.addEventListener("DOMContentLoaded", function () {
-  function toggleVisibility(radioId, targetClass, oppositeRadioId) {
-    const radio = document.getElementById(radioId);
-    const oppositeRadio = document.getElementById(oppositeRadioId);
-    const targetElement = radio
-      .closest(".form-group")
-      .querySelector(targetClass);
-
-    radio.addEventListener("change", function () {
-      if (radio.checked) {
-        targetElement.classList.remove("d-none");
-      }
-    });
-
-    oppositeRadio.addEventListener("change", function () {
-      if (oppositeRadio.checked) {
-        targetElement.classList.add("d-none");
-      }
-    });
+document.addEventListener("DOMContentLoaded", function() {
+  function toggleFieldset(radioGroupName, targetClass) {
+      document.querySelectorAll(`input[name=${radioGroupName}]`).forEach((input) => {
+          input.addEventListener("change", function() {
+              const targetFieldset = input.closest('.form-group').querySelector(targetClass);
+              if (input.value === "sim") {
+                  targetFieldset.classList.remove("d-none");
+              } else {
+                  targetFieldset.classList.add("d-none");
+              }
+          });
+      });
   }
 
-  function toggleNestedVisibility(
-    radioId,
-    targetClass,
-    oppositeRadioId,
-    nestedRadioId,
-    nestedTargetClass,
-    nestedOppositeRadioId
-  ) {
-    const radio = document.getElementById(radioId);
-    const oppositeRadio = document.getElementById(oppositeRadioId);
-    const targetElement = radio
-      .closest(".form-group")
-      .querySelector(targetClass);
-    const nestedRadio = document.getElementById(nestedRadioId);
-    const nestedTargetElement = targetElement.querySelector(nestedTargetClass);
-    const nestedOppositeRadio = document.getElementById(nestedOppositeRadioId);
-
-    radio.addEventListener("change", function () {
-      if (radio.checked) {
-        targetElement.classList.remove("d-none");
-      }
-    });
-
-    oppositeRadio.addEventListener("change", function () {
-      if (oppositeRadio.checked) {
-        targetElement.classList.add("d-none");
-      }
-    });
-
-    nestedRadio.addEventListener("change", function () {
-      if (nestedRadio.checked) {
-        nestedTargetElement.classList.remove("d-none");
-      }
-    });
-
-    nestedOppositeRadio.addEventListener("change", function () {
-      if (nestedOppositeRadio.checked) {
-        nestedTargetElement.classList.add("d-none");
-      }
-    });
+  // Função para o campo "Outros" da pergunta 6
+  function toggleCheckbox(checkboxId, targetClass) {
+      const checkbox = document.getElementById(checkboxId);
+      const targetFieldset = document.querySelector(targetClass);
+      checkbox.addEventListener("change", function() {
+          if (checkbox.checked) {
+              targetFieldset.classList.remove("d-none");
+          } else {
+              targetFieldset.classList.add("d-none");
+          }
+      });
   }
 
-  // Questão 3
-  toggleVisibility("cirurgiaSim", ".form-group.d-none", "cirurgiaNao");
+  toggleFieldset("cirurgia", ".form-group");
+  toggleFieldset("outraCirurgia", ".form-group");
+  toggleFieldset("quimioterapia", ".form-group");
+  toggleFieldset("medicamento", ".form-group");
+  toggleFieldset("alergia", ".form-group");
+  toggleFieldset("alergiaMedicamentosa", ".form-group");
+  toggleFieldset("alergiaAlimentar", ".form-group");
+  toggleFieldset("alergiaLimpeza", ".form-group");
+  toggleFieldset("alergiaMetais", ".form-group");
+  toggleFieldset("tcAnterior", ".form-group");
+  toggleFieldset("examePrevio", ".form-group");
+  toggleFieldset("contrasteIodado", ".form-group");
+  toggleFieldset("intercorrenciaContrasIodado", ".form-group");
+  toggleFieldset("hipoglicemiante", ".form-group");
 
-  // Questão 4
-  toggleVisibility(
-    "outraCirurgiaSim",
-    ".form-group.d-none",
-    "outraCirurgiaNao"
-  );
-
-  // Questão 5
-  toggleVisibility(
-    "quimioterapiaSim",
-    ".form-group.d-none",
-    "quimioterapiaNao"
-  );
-
-  // Questão 7
-  toggleVisibility("medicamentoSim", ".form-group.d-none", "medicamentoNao");
-
-  // Questão 8
-  toggleVisibility("alergiaSim", ".form-group.d-none", "alergiaNao");
-
-  // Questão 9
-  toggleVisibility(
-    "alergiaMedicamentosaSim",
-    ".form-group.d-none",
-    "alergiaMedicamentosaNao"
-  );
-
-  // Questão 10
-  toggleVisibility(
-    "alergiaAlimentarSim",
-    ".form-group.d-none",
-    "alergiaAlimentarNao"
-  );
-
-  // Questão 13
-  toggleNestedVisibility(
-    "tcAnteriorSim",
-    ".form-group.d-none",
-    "tcAnteriorNao",
-    "tcAnteriorInterSim",
-    ".form-group.d-none",
-    "tcAnteriorInterNao"
-  );
-
-  // Questão 14
-  toggleVisibility("examePrevioSim", ".form-group.d-none", "examePrevioNao");
-
-  // Questão 16
-  toggleNestedVisibility(
-    "contrasteIodadoSim",
-    ".form-group.d-none",
-    "contrasteIodadoNao",
-    "intercorrenciaContrasIodadoSim",
-    ".form-group.d-none",
-    "intercorrenciaContrasIodadoNao"
-  );
-
-  // Questão 17
-  toggleVisibility(
-    "hipoglicemianteSim",
-    ".form-group.d-none",
-    "hipoglicemianteNao"
-  );
+  // Adicionando o evento para o checkbox "Outros" da pergunta 6
+  toggleCheckbox("outros", ".outroBox");
 });
