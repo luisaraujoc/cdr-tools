@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     var medicoSelect = document.getElementById("medicoSolicitante");
     var crmInput = document.getElementById("crm");
-    var especialidadeInput = document.getElementById("especialidade"); 
+    var especialidadeInput = document.getElementById("especialidade");
     let data; // Definindo data fora do escopo do fetch
-    
-    
+
+
 
     // Carregar os dados do JSON
     fetch(`http://localhost:3000/api/listMedicos`)

@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!numExameBoo && padraoValores.length < 4){
             filenamePattern += "_{numExame}";
             padraoValores.push(3);
-            console.log(padraoValores);
             renderizarPadraoValores();
             numExameBoo = true;
         }
@@ -24,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!nomeMedicoBoo && padraoValores.length < 4){
             filenamePattern+= "_{nomeMedico}";
             padraoValores.push(2);
-            console.log(padraoValores);
             renderizarPadraoValores();
             nomeMedicoBoo = true;
         }
@@ -33,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!dataExameBoo && padraoValores.length < 4){
             filenamePattern += "_{dataExame}";
             padraoValores.push(4);
-            console.log(padraoValores);
             renderizarPadraoValores();
             dataExameBoo = true;
         }
@@ -42,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!nomePacienteBoo && padraoValores.length < 4){
             filenamePattern += "_{nomePaciente}";
             padraoValores.push(1);
-            console.log(padraoValores);
             renderizarPadraoValores();
             nomePacienteBoo = true;
         }
@@ -77,21 +73,58 @@ document.addEventListener("DOMContentLoaded", function() {
 
     configModal.querySelector("#saveButton").addEventListener("click", function () {
         const filenamePattern = filenamePatternInput.value;
+        const password = document.getElementById("senhaPattern").value
+        let loader = document.getElementById("loading");
+        loader.style.display = "block";
+        document.body.style.overflow = 'hidden';
 
         fetch('http://localhost:3000/api/salvar-padrao', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ pattern: padraoValores }),
+            body: JSON.stringify({ pattern: padraoValores, senha: password }),
         })
             .then(response => response.json())
             .then(data => {
-                console.log('Padrão de nome salvo com sucesso:', data);
-                hideConfigModal();
+                console.log('Requisição feita com sucesso:', data);
+                if(data.boo){
+                    document.getElementById("popupSuc").style.display = "flex";
+                 
+                }else{                          
+                    document.getElementById("msgErroPadrao").innerHTML = "Senha incorreta!"
+                    document.getElementById("popupFail").style.display = "flex";
+                }
+                
+                
             })
             .catch((error) => {
-                console.error('Erro ao salvar o padrão de nome:', error);
+                console.error('Erro ao salvar o padrão de nome:', error);                
+                document.getElementById("popupFail").style.display = "flex";
             });
     });
+
+    document.getElementById("closebtn").addEventListener("click", ()=>{
+        document.getElementById("examePadrao").innerHTML = "";
+        nomePacienteBoo = false; // 1
+        nomeMedicoBoo = false; // 2
+        numExameBoo = false; // 3
+        dataExameBoo = false; // 4
+        padraoValores= []
+        filenamePattern = "exame"
+        document.getElementById("senhaPattern").value = ""
+    })
+
+    document.getElementById("saveButton").addEventListener("click", ()=>{
+        document.getElementById("examePadrao").innerHTML = "";
+        nomePacienteBoo = false; // 1
+        nomeMedicoBoo = false; // 2
+        numExameBoo = false; // 3
+        dataExameBoo = false; // 4
+        padraoValores= []
+        filenamePattern = "exame"        
+        document.getElementById("senhaPattern").value = ""
+    })
 });
+
+

@@ -17,13 +17,13 @@ app.get('/api/', (req, res) => {
 });
 
 
-function generateFileName(data, dadosNomePdf){
+function generateFileName(data, dadosNomePdf) {
 
   let nome = ""
   console.log(dadosNomePdf)
 
-  for(let i = 0; i < 4; i++){
-    switch(data.pattern[i]){
+  for (let i = 0; i < 4; i++) {
+    switch (data[0].pattern[i]) {
       case 1:
         nome += `_${dadosNomePdf.nomePaciente}`
         break;
@@ -31,14 +31,14 @@ function generateFileName(data, dadosNomePdf){
         nome += `_${dadosNomePdf.medicoSolicitante}`
         break;
       case 3:
-        nome +=`_${dadosNomePdf.exame}`
+        nome += `_${dadosNomePdf.exame}`
         break;
       case 4:
         nome += `_${dadosNomePdf.dataExame}`
         break;
       default:
         console.log("a")
-      break;
+        break;
     }
   }
 
@@ -52,7 +52,7 @@ app.post('/api/hitoricoEnfermagem/enviar', (req, res) => {
   const informacaoRecebida = req.body.html;
   const dadosNamePdf = req.body.filename;
   let dadosNameConvert = JSON.parse(dadosNamePdf)
-  
+
   const directory = path.join(__dirname, 'json');
 
   if (!fs.existsSync(directory)) {
@@ -66,19 +66,19 @@ app.post('/api/hitoricoEnfermagem/enviar', (req, res) => {
       return;
     }
 
-    const dataPadrao = JSON.parse(dataJson)    
+    const dataPadrao = JSON.parse(dataJson)
 
     const pdfPath = path.join('C:', 'Temp', 'PDF', 'AnamneseHEM', `${generateFileName(dataPadrao, dadosNameConvert)}.pdf`);
 
     pdf.create(informacaoRecebida, {}).toFile(pdfPath, (err, result) => {
-        if (err) {
-            console.error(`Erro ao gerar PDF: ${err}`);
-            return res.status(500).send({ error: 'Erro ao gerar PDF' });
-        } else {
-            console.log(result);
-            res.send({ boo: true, pdfPath });
-        }
-    });    
+      if (err) {
+        console.error(`Erro ao gerar PDF: ${err}`);
+        return res.status(500).send({ error: 'Erro ao gerar PDF' });
+      } else {
+        console.log(result);
+        res.send({ boo: true, pdfPath });
+      }
+    });
   });
 });
 
@@ -86,7 +86,7 @@ app.post('/api/tomografia/enviar', (req, res) => {
   const informacaoRecebida = req.body.html;
   const dadosNamePdf = req.body.filename;
   let dadosNameConvert = JSON.parse(dadosNamePdf)
-  
+
   const directory = path.join(__dirname, 'json');
 
   if (!fs.existsSync(directory)) {
@@ -100,19 +100,19 @@ app.post('/api/tomografia/enviar', (req, res) => {
       return;
     }
 
-    const dataPadrao = JSON.parse(dataJson)    
+    const dataPadrao = JSON.parse(dataJson)
 
-    const pdfPath = path.join('C:', 'Temp', 'PDF', 'AnamneseTC' ,`${generateFileName(dataPadrao, dadosNameConvert)}.pdf`);
+    const pdfPath = path.join('C:', 'Temp', 'PDF', 'AnamneseTC', `${generateFileName(dataPadrao, dadosNameConvert)}.pdf`);
 
     pdf.create(informacaoRecebida, {}).toFile(pdfPath, (err, result) => {
-        if (err) {
-            console.error(`Erro ao gerar PDF: ${err}`);
-            return res.status(500).send({ error: 'Erro ao gerar PDF' });
-        } else {
-            console.log(result);
-            res.send({ boo: true, pdfPath });
-        }
-    });    
+      if (err) {
+        console.error(`Erro ao gerar PDF: ${err}`);
+        return res.status(500).send({ error: 'Erro ao gerar PDF' });
+      } else {
+        console.log(result);
+        res.send({ boo: true, pdfPath });
+      }
+    });
   });
 });
 
@@ -185,6 +185,30 @@ app.get('/api/listMedicos', (req, res) => {
 
     res.send(jsonData);
   });
+});
+
+app.get('/api/padraoArqName', (req, res) => {
+  const directory = path.join(__dirname, 'json');
+
+  if (!fs.existsSync(directory)) {
+    fs.mkdirSync(directory);
+  }
+  const filePath = path.join(directory, 'filenamePattern.json');
+  fs.readFile(filePath, 'utf8', (err, dataJson) => {
+    if (err) {
+      console.error('Erro ao ler o arquivo:', err);
+      res.status(500).send({ boo: false, mes: "Erro ao ler arquivo JSON" });
+      return;
+    }
+
+    let jsonData = {};
+    if (dataJson) {
+      jsonData = JSON.parse(dataJson);
+    }
+
+    res.send(jsonData);
+
+  })
 });
 
 app.put('/api/editarMedico/:id', (req, res) => {
@@ -271,17 +295,46 @@ app.delete('/api/excluirMedico/:id', (req, res) => {
 // Novo endpoint para salvar o padrão de nome de arquivo
 app.post('/api/salvar-padrao', (req, res) => {
   const pattern = req.body.pattern;
+  const passReq = req.body.senha
   const filePath = path.join(__dirname, 'json', 'filenamePattern.json');
+  const passwordFile = path.join(__dirname, 'json', 'password.json');
 
-  fs.writeFile(filePath, JSON.stringify({ pattern }), 'utf8', (err) => {
-    if (err) {
-      console.error('Erro ao salvar o padrão de nome:', err);
-      res.status(500).send({ boo: false, mes: "Erro ao salvar o padrão de nome" });
+  const directory = path.join(__dirname, 'json');
+
+  if (!fs.existsSync(directory)) {
+    fs.mkdirSync(directory);
+  }
+
+
+  fs.readFile(passwordFile, 'utf8', (err, dataJsonPass) => {
+    if (err && err.code !== 'ENOENT') {
+      console.error('Erro ao ler o arquivo:', err);
+      res.status(500).send({ boo: false });
       return;
     }
-    console.log('Padrão de nome salvo com sucesso em:', filePath);
-    res.send({ boo: true, mes: "Padrão de nome salvo com sucesso" });
+
+    let jsonData = [];
+    if (dataJsonPass) {
+      jsonData = JSON.parse(dataJsonPass);
+    }
+
+    if (jsonData[0].password == passReq) {
+      fs.writeFile(filePath, JSON.stringify([{ pattern }]), 'utf8', (err) => {
+        if (err) {
+          console.error('Erro ao salvar o padrão de nome:', err);
+          res.status(500).send({ boo: false, mes: "Erro ao salvar o padrão de nome" });
+          return;
+        }
+        console.log('Padrão de nome salvo com sucesso em:', filePath);
+        res.send({ boo: true, mes: "Padrão de nome salvo com sucesso" });
+      });
+    }else{
+      console.log("Erro ao alterar padrão, senha incorreta")
+      res.status(500).send({ boo: false, mes: "Senha incorreta" });
+    }
   });
+
+
 });
 
 app.listen(port, () => {
