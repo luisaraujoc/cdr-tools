@@ -1,169 +1,171 @@
 const htmlToShow = () => {
+   const converterData = (data) => {
+      var partes = data.split("-");
+      var dataConvertida = partes[2] + "/" + partes[1] + "/" + partes[0];
+      return dataConvertida;
+   }
 
-    const converterData = (data) => {
-       var partes = data.split("-");
-       var dataConvertida = partes[2] + "/" + partes[1] + "/" + partes[0];
-       return dataConvertida;
-    }
- 
-    const converterDataMonth = (data) => {
-       var partes = data.split("-");
-       var mes = ""
-       switch (partes[1]) {
-          case "01":
-             mes = "Janeiro"
-             break;
-          case "02":
-             mes = "Fevereiro"
-             break;
-          case "03":
-             mes = "Março"
-             break;
-          case "04":
-             mes = "Abril"
-             break;
-          case "05":
-             mes = "Maio"
-             break;
-          case "06":
-             mes = "Junho"
-             break;
-          case "07":
-             mes = "Julho"
-             break;
-          case "08":
-             mes = "Agosto"
-             break;
-          case "09":
-             mes = "Setembro"
-             break;
-          case "10":
-             mes = "Outubro"
-             break;
-          case "11":
-             mes = "Novembro"
-             break;
-          case "12":
-             mes = "Dezembro"
-             break;
- 
- 
-       }
- 
-       var dataConvertida = mes + "/" + partes[0];
-       return dataConvertida;
-    }
- 
-    const simNaoStr = (perg) => {
-       let ret = perg ? "(x)Sim ( )Não" : "( )Sim (x)Não";
-       return ret;
-    };
- 
-    const pergScritStr = (perg, varName) => {
-       let ret = perg ? `let ${varName} = true` : `let ${varName} = false`;
-       return ret;
-    };
- 
-    const isSelected = op => op ? 'x' : ' ';
- 
-    let dataProxRev = document.getElementById("proximaRevisao");
-    let codigo = document.getElementById("codigo")
-    let revisao = document.getElementById("revisao")
- 
- 
-    let nomePaciente = document.getElementById("paciente");
-    let dataNascimento = document.getElementById("dn");
-    let pesoPaciente = document.getElementById("peso");
-    let alturaPaciente = document.getElementById("altura");
-    let rgCpf = document.getElementById("rgCPF");
- 
-    let telefone = document.getElementById("telefone");
-    let dataExame = document.getElementById("dataExame");
-    let exame = document.getElementById("exame");
-    let horaExame = document.getElementById("horaExame");
-    let protocolo = document.getElementById("protocolo");
-    let medicoSolicitante = document.getElementById("medicoSolicitante");
- 
- 
-    let q1 = document.getElementById("motivoExame");
-    let q2 = document.getElementById("principalQueixa");
-    let q2QntTempo = document.getElementById("motivoExame");
-    let q3 = q3selected;
-    let q3Qual = document.getElementById("motivoExame")
-    let q4 = q4selected;
-    let q4Qual = document.getElementById("motivoExame")
-    let q5 = q5selected;
-    let q5Qual = document.getElementById("motivoExame")
-    let q6Quais = document.getElementById("motivoExame")
-    let q7 = q7selected;
-    let q7Qual = document.getElementById("motivoExame")
-    let q8 = q8selected;
-    let q8Qual = document.getElementById("motivoExame")
-    let q9 = q9selected;
-    let q9Qual = document.getElementById("motivoExame")
-    let q10 = q10selected
-    let q10Qual = document.getElementById("motivoExame")
-    let q11 = q11selected;
-    let q11Obs = document.getElementById("motivoExame");
-    let q12 = q12selected;
-    let q12Obs = document.getElementById("motivoExame")
-    let q13 = q13selected;
-    let q13Qual = document.getElementById("motivoExame")
-    let q14 = q14selected;
-    let q14_1 = q14_1selected;
-    let q14Qual = document.getElementById("motivoExame")
-    let q15 = q15selected;
-    let q15Qual = document.getElementById("motivoExame")
-    let q16 = q16selected;
-    let q16Qual = document.getElementById("motivoExame")
-    let q17 = q17selected;
-    let q17Qual = document.getElementById("motivoExame")
-    let q18 = q18selected;
-    let q19 = q19selected;
-    let q20 = document.getElementById("TipoExame");
-    let q21 = document.getElementById("OrientacaoMedica");
- 
-    // variaveis que levarão texto para o html
-    let textq3 = simNaoStr(q3);
-    let textq4 = simNaoStr(q4);
-    let textq5 = simNaoStr(q5);
-    let textq7 = simNaoStr(q7);
-    let textq8 = simNaoStr(q8);
-    let textq9 = simNaoStr(q9);
-    let textq10 = simNaoStr(q10);
-    let textq11 = simNaoStr(q11);
-    let textq12 = simNaoStr(q12);
-    let textq13 = simNaoStr(q13);
-    let textq14 = simNaoStr(q14);
-    let textq14_1 = simNaoStr(q14_1);
-    let textq15 = simNaoStr(q15);
-    let textq16 = simNaoStr(q16);
-    let textq17 = simNaoStr(q17);
-    let textq18 = simNaoStr(q18);
-    let textq19 = simNaoStr(q19);
-    let textq6Hipertensao = isSelected(hipertensao);
-    let textq6Cardiopatias = isSelected(cardiopatias);
-    let textq6Diabetes = isSelected(diabetes);
-    let textq6Insurenal = isSelected(insurenal);
-    let textq6AnemiaFalci = isSelected(anemiaFalci);
-    let textq6Mieloma = isSelected(mieloma);
-    let textq6Asma = isSelected(asma);
-    let textq6Rinite = isSelected(rinite);
-    let textq6Outros = isSelected(outros);
-    let q3script = pergScritStr(q3, "q3");
-    let q4script = pergScritStr(q4, "q4");
-    let q5script = pergScritStr(q5, "q5");
-    let q6script = pergScritStr(outros, "q6");
-    let q7script = pergScritStr(q7, "q7");
-    let q8script = pergScritStr(q8, "q8");
-    let q9script = pergScritStr(q9, "q9");
-    let q10script = pergScritStr(q10, "q10");
-    let q11script = pergScritStr(q11, "q11");
-    let q12script = pergScritStr(q12, "q12");
-    let q13script = pergScritStr(q13, "q13");
-    let q14script = pergScritStr(q14, "q14");
-    let q16script = pergScritStr(q16, "q16");
-    let q17script = pergScritStr(q17, "q17");
+   const converterDataMonth = (data) => {
+      var partes = data.split("-");
+      var mes = ""
+      switch (partes[1]) {
+         case "01":
+            mes = "Janeiro"
+            break;
+         case "02":
+            mes = "Fevereiro"
+            break;
+         case "03":
+            mes = "Março"
+            break;
+         case "04":
+            mes = "Abril"
+            break;
+         case "05":
+            mes = "Maio"
+            break;
+         case "06":
+            mes = "Junho"
+            break;
+         case "07":
+            mes = "Julho"
+            break;
+         case "08":
+            mes = "Agosto"
+            break;
+         case "09":
+            mes = "Setembro"
+            break;
+         case "10":
+            mes = "Outubro"
+            break;
+         case "11":
+            mes = "Novembro"
+            break;
+         case "12":
+            mes = "Dezembro"
+            break;
+
+
+      }
+
+      var dataConvertida = mes + "/" + partes[0];
+      return dataConvertida;
+   }
+
+   const simNaoStr = (perg) => {
+      let ret = perg ? "(x)Sim ( )Não" : "( )Sim (x)Não";
+      return ret;
+   };
+
+   const pergScritStr = (perg, varName) => {
+      let ret = perg ? `let ${varName} = true` : `let ${varName} = false`;
+      return ret;
+   };
+
+   const isSelected = op => op ? 'x' : ' ';
+
+   let dataProxRev = document.getElementById("proximaRevisao");
+   let codigo = document.getElementById("codigo")
+   let revisao = document.getElementById("revisao")
+
+
+   let nomePaciente = document.getElementById("paciente");
+   let dataNascimento = document.getElementById("dn");
+   let pesoPaciente = document.getElementById("peso");
+   let alturaPaciente = document.getElementById("altura");
+   let rgCpf = document.getElementById("rgCPF");
+
+   let telefone = document.getElementById("telefone");
+   let dataExame = document.getElementById("dataExame");
+   let exame = document.getElementById("exame");
+   let protocolo = document.getElementById("protocolo");
+   let medicoSolicitante = document.getElementById("medicoSolicitante");
+
+
+   let q1 = document.getElementById("motivoExame");
+   let q2 = document.getElementById("principalQueixa");
+   let q2QntTempo = document.getElementById("tempoSintomas");
+   let q3 = q3selected;
+   let q3Qual = document.getElementById("cirurgiaRealizada")
+   let q4 = q4selected;
+   let q4Qual = document.getElementById("outraCirurgiaRealizada")
+   let q5 = q5selected;
+   let q5Qual = document.getElementById("quimioterapiaRealizada")
+   let q7 = q7selected;
+   let q7Qual = document.getElementById("medicamentoUtilizado")
+   let q8 = q8selected;
+   let q8Qual = document.getElementById("alergiaTipo")
+   let q9 = q9selected;
+   let q9Qual = document.getElementById("alergiaMedicamentosaTipo")
+   let q10 = q10selected
+   let q10Qual = document.getElementById("alergiaAlimentarTipo")
+   let q11 = q11selected;
+   let q12 = q12selected;
+   let q13 = q13selected;
+   let q13Qual = document.getElementById("tcAnteriorData")   
+   let q13_1 = q13_1selected;
+   let q13_1Qual = document.getElementById("tcAnteriorInterTipo")
+   let q14 = q14selected;
+   let q14_1 = q14_1selected;
+   let q14Qual = document.getElementById("motivoExame")
+   let q15 = q15selected;
+   let q16 = q16selected;
+   let q16Qual = document.getElementById("contrasteIodadoTipo")
+   let q16_1 = q16_1selected;
+   let q16_1Qual = document.getElementById("intercorrenciaContrasIodadoTipo")
+   let q17 = q17selected;
+   let q17Qual = document.getElementById("hipoglicemianteTipo")
+   let q18 = q18selected;
+   let q19 = q19selected;
+   let q20 = document.getElementById("TipoExame");
+   let q21 = document.getElementById("OrientacaoMedica");
+
+   // variaveis que levarão texto para o html
+   let textq3 = simNaoStr(q3);
+   let textq4 = simNaoStr(q4);
+   let textq5 = simNaoStr(q5);
+   let textq7 = simNaoStr(q7);
+   let textq8 = simNaoStr(q8);
+   let textq9 = simNaoStr(q9);
+   let textq10 = simNaoStr(q10);
+   let textq11 = simNaoStr(q11);
+   let textq12 = simNaoStr(q12);
+   let textq13 = simNaoStr(q13);
+   let textq13_1 = simNaoStr(q13_1);
+   let textq14 = simNaoStr(q14);
+   let textq14_1 = simNaoStr(q14_1);
+   let textq15 = simNaoStr(q15);
+   let textq16 = simNaoStr(q16);
+   let textq16_1 = simNaoStr(q16_1);
+   let textq17 = simNaoStr(q17);
+   let textq18 = simNaoStr(q18);
+   let textq19 = simNaoStr(q19);
+   let textq6Hipertensao = isSelected(hipertensao);
+   let textq6Cardiopatias = isSelected(cardiopatias);
+   let textq6Diabetes = isSelected(diabetes);
+   let textq6Insurenal = isSelected(insurenal);
+   let textq6AnemiaFalci = isSelected(anemiaFalci);
+   let textq6Mieloma = isSelected(mieloma);
+   let textq6Asma = isSelected(asma);
+   let textq6Rinite = isSelected(rinite);
+   let textq6Outros = isSelected(outros);
+   let q3script = pergScritStr(q3, "q3");
+   let q4script = pergScritStr(q4, "q4");
+   let q5script = pergScritStr(q5, "q5");
+   let q6script = pergScritStr(outros, "q6");
+   let q7script = pergScritStr(q7, "q7");
+   let q8script = pergScritStr(q8, "q8");
+   let q9script = pergScritStr(q9, "q9");
+   let q10script = pergScritStr(q10, "q10");
+   let q13script = pergScritStr(q13, "q13");
+   let q13_1script = pergScritStr(q13_1, "q13_1");
+   let q14script = pergScritStr(q14, "q14");
+   let q16script = pergScritStr(q16, "q16");
+   let q16_1script = pergScritStr(q16_1, "q16_1");
+   let q17script = pergScritStr(q17, "q17");
+
+
  
  
     let content = `<!DOCTYPE html>
@@ -1799,104 +1801,101 @@ const htmlToShow = () => {
          <span>Assinatura do entrevistador:</span>
          <span>___________________________________________</span>
      </div>
-     <script>
- 
- 
-         ${q3script}
- 
-         if(q3){
-             document.querySelector(".q3").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong> ${q3Qual.value}:</span><span id="ans-inf"></span></div>'
-         }        
- 
-         ${q4script}
- 
-         if(q4){
-             document.querySelector(".q4").innerHTML += '<div class="inf-q"><span> <strong> Qual: </strong> </span><span id="ans-inf">${q4Qual.value}</span></div>'
-         }
- 
-          ${q5script}
- 
-         if(q5){
-             document.querySelector(".q5").innerHTML += '<div class="inf-q"><span> <strong> Tempo: </strong> </span><span id="ans-inf">${q5Qual.value}</span></div>'
-         }
- 
-         ${q6script}
- 
-         
-         if(q6){
-             document.querySelector(".q6").innerHTML +=  "<div class='inf-q' style='margin-top: 5px;'><span style='font-weight: bold;'><strong>Quais:</strong></span> <span id='ans-inf' style='word-wrap: reak-word; overflow: hidden; text-overflow: ellipsis; max-width: 1200px;'>${q6Quais.value}</span></div>"        
-         }
-         
-         ${q7script}
- 
-         if(q7){
-             document.querySelector(".q7").innerHTML += '<div class="inf-q"><span> <strong> Qual: </strong> </span><span id="ans-inf">${q7Qual.value}</span></div>'
-         }
-         
-         ${q8script}
- 
-         if(q8){
-             document.querySelector(".q8").innerHTML += '<div class="inf-q"><span> <strong> Qual: </strong> </span><span id="ans-inf">${q8Qual.value}</span></div>'
-         }
- 
-          ${q9script}
- 
-         if(q9){
-             document.querySelector(".q9").innerHTML += '<div class="inf-q"><span> <strong> Qual: </strong> </span><span id="ans-inf">${q9Qual.value}</span></div>'
-         }
- 
-         ${q10script}
- 
-         if(q10){
-             document.querySelector(".q10").innerHTML += '<div class="inf-q"><span><strong>Qual: </strong></span><span id="ans-inf">${q10Qual.value}</span></div>'
-         }
- 
-         
-         ${q11script}
- 
-         if(q11){
-             document.querySelector("#q11").innerHTML += '<div class="inf-q"><span><strong>Obs:</strong></span><span id="ans-inf">${q11Obs.value}</span></div>'
-         }
- 
-         ${q12script}
- 
-         if(q12){
-             
-             document.querySelector(".q12").innerHTML += '<div class="inf-q"><span><strong>Obs:</strong></span><span id="ans-inf">${q12Obs.value}</span></div>'
-         }
- 
-         ${q13script}
- 
-        if(q13){
-             document.querySelector(".q13t").innerHTML += '<div class="inf-q"> <span> <strong>Obs:</strong> </span> <span id="ans-inf">${q13Qual.value}</span> </div>'
-         }
- 
-         ${q14script}
-         
-        
-         if(q14){
- 
-             document.querySelector(".q14").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong></span><span id="ans-inf">${q14Qual.value}</span></div>'
-         
-             document.querySelector(".q14").innerHTML += '<div class="obsq15" style="margin-top: 5px;"><span class="q">Trouxe para comparação?</span><span id="obsans14">${textq14_1}</span></div>'
-               
-         }
- 
-         ${q16script}
- 
-         if(q16){
-             
-             document.querySelector(".q16").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong></span><span id="ans-inf">${q16Qual.value}</span></div>'
-         }
- 
-         ${q17script}
- 
-         if(q17){
-             document.querySelector(".q17t").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong></span><span id="ans-inf">${q17Qual.value}</span></div>'
-         }
-         
      
-     </script>
+    <script>
+
+
+        ${q3script}
+
+        if(q3){
+            document.querySelector(".q3").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong> ${q3Qual.value}:</span><span id="ans-inf"></span></div>'
+        }        
+
+        ${q4script}
+
+        if(q4){
+            document.querySelector(".q4").innerHTML += '<div class="inf-q"><span> <strong> Qual: </strong> </span><span id="ans-inf">${q4Qual.value}</span></div>'
+        }
+
+         ${q5script}
+
+        if(q5){
+            document.querySelector(".q5").innerHTML += '<div class="inf-q"><span> <strong> Tempo: </strong> </span><span id="ans-inf">${q5Qual.value}</span></div>'
+        }
+
+        
+        ${q7script}
+
+        if(q7){
+            document.querySelector(".q7").innerHTML += '<div class="inf-q"><span> <strong> Qual: </strong> </span><span id="ans-inf">${q7Qual.value}</span></div>'
+        }
+        
+        ${q8script}
+
+        if(q8){
+            document.querySelector(".q8").innerHTML += '<div class="inf-q"><span> <strong> Qual: </strong> </span><span id="ans-inf">${q8Qual.value}</span></div>'
+        }
+
+         ${q9script}
+
+        if(q9){
+            document.querySelector(".q9").innerHTML += '<div class="inf-q"><span> <strong> Qual: </strong> </span><span id="ans-inf">${q9Qual.value}</span></div>'
+        }
+
+        ${q10script}
+
+        if(q10){
+            document.querySelector(".q10").innerHTML += '<div class="inf-q"><span><strong>Qual: </strong></span><span id="ans-inf">${q10Qual.value}</span></div>'
+        }
+
+        ${q13script}
+
+       if(q13){
+            document.querySelector(".q13t").innerHTML += '<div class="inf-q"> <span> <strong>Obs:</strong> </span> <span id="ans-inf">${q13Qual.value}</span> </div>'
+
+            document.querySelector(".q13t").innerHTML += '<div class="obsq15" style="margin-top: 5px;"><div class="q">Aconteceu alguma intercorrencia?</div><div id="obsans14">${textq13_1}</div></div>'
+
+            ${q13_1script}
+
+            if(q13_1){
+               document.querySelector(".q13t").innerHTML += '<div class="inf-q"><span><strong>Qual: </strong></span><span id="ans-inf">${q13_1Qual.value}</span></div>'
+            }
+        }
+
+        ${q14script}
+        
+       
+        if(q14){
+
+            document.querySelector(".q14").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong></span><span id="ans-inf">${q14Qual.value}</span></div>'
+        
+            document.querySelector(".q14").innerHTML += '<div class="obsq15" style="margin-top: 5px;"><span class="q">Trouxe para comparação?</span><span id="obsans14">${textq14_1}</span></div>'
+              
+        }
+
+        ${q16script}
+
+        if(q16){
+            
+            document.querySelector(".q16").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong></span><span id="ans-inf">${q16Qual.value}</span></div>'
+
+            document.querySelector(".q16").innerHTML += '<div class="obsq15" style="margin-top: 5px;"><div class="q">Aconteceu alguma intercorrencia?</div><div id="obsans14">${textq16_1}</div></div>'
+
+            ${q16_1script}
+
+            if(q16_1){
+               document.querySelector(".q16").innerHTML += '<div class="inf-q"><span><strong>Qual: </strong></span><span id="ans-inf">${q16_1Qual.value}</span></div>'
+            }
+        }
+
+        ${q17script}
+
+        if(q17){
+            document.querySelector(".q17t").innerHTML += '<div class="inf-q"><span><strong>Qual:</strong></span><span id="ans-inf">${q17Qual.value}</span></div>'
+        }
+        
+    
+    </script>
  </body>
  </html>`
  
