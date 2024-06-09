@@ -75,9 +75,11 @@
                             <input type="text" class="form-control" id="revisao">
                         </div>
                         <div class="form-group">
-                            <label for="proximaRevisao">Próxima Revisão:</label>
+                            <label>
+                                Próxima Revisão:
+                                <input type="month" class="form-control" id="proximaRevisao">
+                            </label>
                             <!-- input de mês e ano -->
-                            <input type="month" class="form-control" id="proximaRevisao">
                         </div>
                     </div>
                 </div>
@@ -176,7 +178,10 @@
                                 <input class="form-check-input" type="radio" name="cirurgia" id="cirurgiaNao" value="nao">
                                 <label class="form-check-label" for="cirurgiaNao">Não</label>
                             </div>
-
+                        </div>
+                        <div class="form-group d-none">
+                            <label for="cirurgiaRealizada">Qual?</label>
+                            <input type="text" class="form-control" id="cirurgiaRealizada">
                         </div>
                     </div>
 
@@ -192,6 +197,10 @@
                                 <label class="form-check-label" for="outraCirurgiaNao">Não</label>
                             </div>
                         </div>
+                        <div class="form-group d-none">
+                            <label for="outraCirurgiaRealizada">Qual?</label>
+                            <input type="text" class="form-control" id="outraCirurgiaRealizada">
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -206,6 +215,10 @@
                                 <label class="form-check-label" for="quimioterapiaNao">Não</label>
                             </div>
                         </div>
+                        <div class="form-group d-none">
+                            <label for="quimioterapiaRealizada">Quanto tempo?</label>
+                            <input type="text" class="form-control" id="quimioterapiaRealizada">
+                        </div> 
                     </div>
 
                     <div class="form-group">
@@ -277,6 +290,10 @@
                                 <label class="form-check-label" for="medicamentoNao">Não</label>
                             </div>
                         </div>
+                        <div class="form-group d-none">
+                            <label for="medicamentoUtilizado">Qual?</label>
+                            <input type="text" class="form-control" id="medicamentoUtilizado">
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -290,6 +307,10 @@
                                 <input class="form-check-input" type="radio" name="alergia" id="alergiaNao" value="nao">
                                 <label class="form-check-label" for="alergiaNao">Não</label>
                             </div>
+                        </div>
+                        <div class="form-group d-none">
+                            <label for="alergiaTipo">Qual?</label>
+                            <input type="text" class="form-control" id="alergiaTipo">
                         </div>
                     </div>
 
@@ -308,6 +329,10 @@
                                 <label class="form-check-label" for="alergiaMedicamentosaNao">Não</label>
                             </div>
                         </div>
+                        <div class="form-group d-none">
+                            <label for="alergiaMedicamentosaTipo">Qual?</label>
+                            <input type="text" class="form-control" id="alergiaMedicamentosaTipo">
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -324,6 +349,10 @@
                                     id="alergiaAlimentarNao" value="nao">
                                 <label class="form-check-label" for="alergiaAlimentarNao">Não</label>
                             </div>
+                        </div>
+                        <div class="form-group d-none">
+                            <label for="alergiaAlimentarTipo">Qual?</label>
+                            <input type="text" class="form-control" id="alergiaAlimentarTipo">
                         </div>
                     </div>
 
@@ -368,8 +397,32 @@
                                 <label class="form-check-label" for="tcAnteriorNao">Não</label>
                             </div>
                         </div>
+                        <div class="form-group d-none">
+                            <div>
+                                <label for="tcAnteriorData">Qual?</label>
+                                <input type="text" class="form-control" id="tcAnteriorData">
+                                <div class="px-3 mb-4 border-2 border-primary border-start">
+                                    <label for="tcAnteriorInter">Aconteceu algum intercorrência?</label>
+                                    <div class="form-check">
+                                        <div class="sim">
+                                            <input class="form-check-input" type="radio" name="tcAnteriorInter"
+                                                id="tcAnteriorInterSim" value="sim">
+                                            <label class="form-check-label" for="tcAnteriorInterSim">Sim</label>
+                                        </div>
+                                        <div class="nao">
+                                            <input class="form-check-input" type="radio" name="tcAnteriorInter"
+                                                id="tcAnteriorInterNao" value="nao">
+                                            <label class="form-check-label" for="tcAnteriorInterNao">Não</label>
+                                        </div>
+                                        <div class="form-group d-none">
+                                            <label for="tcAnteriorInterTipo">Qual?</label>
+                                            <input type="text" class="form-control" id="tcAnteriorInterTipo">
+                                        </div>
+                                    </div>      
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
                     <div class="form-group">
                         <label>14. Já realizou algum exame prévio da área em
                             estudo?</label>
@@ -382,6 +435,10 @@
                                 <input class="form-check-input" type="radio" name="examePrevio" id="examePrevioNao" value="nao">
                                 <label class="form-check-label" for="examePrevioNao">Não</label>
                             </div>
+                        </div>
+                        <div class="form-group d-none">
+                            <label for="examePrevioData">Data:</label>
+                            <input type="date" class="form-control" id="examePrevioData">
                         </div>
                     </div>
 
@@ -401,8 +458,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>16. Já realizou algum tipo de exame com uso
-                            de constraste iodado?</label>
+                        <label>16.	Já realizou algum tipo de exame com uso de contraste iodado? Por exemplo: TC, Cateterismo Cardíaco ou Urografia Excretora</label>
                         <div class="form-check">
                             <div class="sim">
                                 <input class="form-check-input" type="radio" name="contrasteIodado"
@@ -414,6 +470,31 @@
                                     id="contrasteIodadoNao" value="nao">
                                 <label class="form-check-label" for="contrasteIodadoNao">Não</label>
 
+                            </div>
+                        </div>
+                        <div class="form-group d-none">
+                            <div class="form-group">
+                                <label for="contrasteIodadoTipo">Qual?</label>
+                                <input type="text" class="form-control" id="contrasteIodadoTipo">
+                            </div>
+                            <div class="px-3 mb-4 border-2 border-primary border-start">
+                                <label for="intercorrenciaContrasIodado">Aconteceu algum intercorrência?</label>
+                                <div>
+                                    <div class="sim">
+                                        <input class="form-check-input" type="radio" name="intercorrenciaContrasIodado"
+                                            id="intercorrenciaContrasIodadoSim" value="sim">
+                                        <label class="form-check-label" for="intercorrenciaContrasIodadoSim">Sim</label>
+                                    </div>
+                                    <div class="nao">
+                                        <input class="form-check-input" type="radio" name="intercorrenciaContrasIodado"
+                                            id="intercorrenciaContrasIodadoNao" value="nao">
+                                        <label class="form-check-label" for="intercorrenciaContrasIodadoNao">Não</label>
+                                    </div>
+                                    <div class="form-group d-none">
+                                        <label for="intercorrenciaContrasIodadoTipo">Qual?</label>
+                                        <input type="text" class="form-control" id="intercorrenciaContrasIodadoTipo">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -431,6 +512,10 @@
                                     id="hipoglicemianteNao" value="nao">
                                 <label class="form-check-label" for="hipoglicemianteNao">Não</label>
                             </div>
+                        </div>
+                        <div class="form-group d-none">
+                            <label for="hipoglicemianteTipo">Qual?</label>
+                            <input type="text" class="form-control" id="hipoglicemianteTipo">
                         </div>
                     </div>
                 </div>
