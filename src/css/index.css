@@ -83,18 +83,18 @@ a:hover {
 .AnamneseHEM,
 .AnamneseTC {
     background-color: #FBBC4F;
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
     transition: 200ms;
     color: #fff;
-    margin: 2.9rem;
+    margin: 2rem;
 }
 
 .listaDeMedicos h3,
 .formularios h3,
 .AnamneseHEM h3,
 .AnamneseTC h3 {
-    font-size: 2rem;
+    font-size: 1.6rem;
     text-align: center;
     color: #ffe7be;
 }
@@ -103,7 +103,7 @@ a:hover {
 .formularios .icon,
 .AnamneseHEM .icon,
 .AnamneseTC .icon {
-    font-size: 2rem;
+    font-size: 1.6rem;
 }
 
 

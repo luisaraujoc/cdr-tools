@@ -17,6 +17,7 @@
   "homepage": "https://github.com/luisaraujoc/cdr-tools#readme",
   "dependencies": {
     "bootstrap": "^5.3.3",
-    "bootstrap-icons": "^1.11.3"
+    "bootstrap-icons": "^1.11.3",
+    "cdr-tools": "file:"
   }
 }

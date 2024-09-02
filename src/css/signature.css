@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.signature-canvas {
+    width: 100%;
+    max-width: 600px; /* Tamanho máximo para tablets */
+    height: 200px; /* Altura ajustada para o modal */
+    border: 1px solid black;
+    display: block;
+    margin: 0 auto 10px auto; /* Centraliza e adiciona um espaço inferior */
+    /* border-radius: 4px; */
+}
+
+.signature-container {
+    text-align: center; /* Centraliza o texto e botões */
+}

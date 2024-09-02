@@ -1,9 +1,11 @@
+
+
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('medicoForm').addEventListener('submit', function(event) {
         event.preventDefault();
 
         // Verificar se há médicos na lista antes de determinar o último ID
-        fetch('http://192.168.3.34/api/listMedicos')
+        fetch('http://localhost:3000/api/listMedicos')
             .then(response => response.json())
             .then(data => {
                 let ultimoID;
@@ -28,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 };
 
                     
-                fetch('http://192.168.3.34/api/addMedico/enviar', {
+                fetch('http://localhost:3000/api/addMedico/enviar', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

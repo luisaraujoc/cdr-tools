@@ -2,7 +2,7 @@ let id;
 let listaDeMedicos = []
 
 function listaMedicos() {
-  fetch('http://192.168.3.34/api/listMedicos')
+  fetch('http://localhost:3000/api/listMedicos')
     .then(response => response.json())
     .then(data => {
       const tableBody = document.querySelector('#medicosTable tbody');
@@ -49,7 +49,7 @@ document.getElementById("edit-save").addEventListener("click", () => {
   let novoCrm = document.getElementById("editCrm").value;
   let senha = document.getElementById("editSenha").value;
 
-  fetch(`http://192.168.3.34/api/editarMedico/${id}`, {
+  fetch(`http://localhost:3000/api/editarMedico/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
@@ -83,7 +83,7 @@ document.getElementById("close-edit").addEventListener("click", () => {
 
 document.getElementById("delete-btn").addEventListener("click", () => {
   var senha = document.getElementById("senhaExcluir").value;
-  fetch(`http://192.168.3.34/api/excluirMedico/${id}`, {
+  fetch(`http://localhost:3000/api/excluirMedico/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json'
